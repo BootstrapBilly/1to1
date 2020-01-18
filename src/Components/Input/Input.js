@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 const Input = props => (
 
-    <div >
+    <div test-handle="input">
 
 
     </div>

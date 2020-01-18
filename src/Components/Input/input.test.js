@@ -30,7 +30,7 @@ describe("\n\x1b[36mLogo", () => {
 
         it("Prop types are correct", () => {
 
-            const propsToBeTested = { enterKeyHandler: "t" } //emulate the props being passed in
+            const propsToBeTested = { enterKeyHandler: ()=>{} } //emulate the props being passed in
 
             const propsError = checkProps(Input, propsToBeTested)
 
