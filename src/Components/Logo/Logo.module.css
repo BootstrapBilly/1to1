@@ -1,0 +1,27 @@
+@media(max-width : 450px){
+
+    .logo{
+
+        width: 100vw;
+        height: 20vh;
+        position: absolute;
+        top: 10vh;
+        left: 0;
+    }
+
+}
+
+@media(min-width: 451px) and (max-width : 800px){
+
+    .logo{
+
+        width: 110vw;
+        height: 30vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+}
+
+

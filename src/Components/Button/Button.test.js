@@ -1,16 +1,16 @@
 import React from "react"
 import { shallow } from "enzyme"
-import Input from "./input"
+import Button from "./Button"
 import { findByTestAttribute, checkProps } from "../../Utils/TestingUtils"
 
 const setComponent = (props = {}) => {//set the component to be tested
     //Creates the component to be used in the test along with the props
-    const component = shallow(<Input {...props} />)
+    const component = shallow(<Button {...props} />)
     return component
 
 }
 
-describe("\n\x1b[36mLogo", () => {
+describe("\n\x1b[36mButton", () => {
 
     describe("\nRenders correctly\n", () => {
 
@@ -23,8 +23,18 @@ describe("\n\x1b[36mLogo", () => {
 
         it("Should render an input", () => {
 
-            const wrapper = findByTestAttribute(component, "input")
+            const wrapper = findByTestAttribute(component, "button")
             expect(wrapper.length).toBe(1)
+
+        })
+
+        it("Prop types are correct", () => {
+
+            const propsToBeTested = {text: "String", onClick: () => { } } //emulate the props being passed in
+
+            const propsError = checkProps(Button, propsToBeTested)
+
+            expect(propsError).toBeUndefined();//expect no error to be return
 
         })
 

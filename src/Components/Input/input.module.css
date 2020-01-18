@@ -1,0 +1,30 @@
+ .input{
+
+        outline: none;
+        border: none;
+        border-bottom: 2px solid white;
+        width: 40vw;
+        height: 3.5vh;
+        text-align: center;
+        color: white;
+        font-size: 0.8rem;
+        background-color: transparent;
+        
+        
+    }
+    .input::placeholder{
+
+        color: white;
+        font-size: 0.8rem;
+
+    }
+
+@media(min-width: 451px) and (max-width : 800px){
+
+    .input{
+
+        width: 60vw;
+        
+    }
+
+}

@@ -1,0 +1,18 @@
+@media(max-width: 450px){
+
+    .button {
+
+        border: none;
+        display: block;
+        width: 70vw;
+        height: 6vh;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 5vh;
+        background-color: #dc6099;
+        color: white;
+        font-weight: 600;
+        font-size: 0.7rem;
+    }
+
+}
