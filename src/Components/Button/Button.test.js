@@ -30,11 +30,23 @@ describe("\n\x1b[36mButton", () => {
 
         it("Prop types are correct", () => {
 
-            const propsToBeTested = {text: "String", onClick: () => { } } //emulate the props being passed in
+            const propsToBeTested = { text: "String", onClick: () => { } } //emulate the props being passed in
 
             const propsError = checkProps(Button, propsToBeTested)
 
             expect(propsError).toBeUndefined();//expect no error to be return
+
+        })
+
+        it("Should fire a function when it is clicked", () => {
+
+            const mockFn = jest.fn() //define a mock function
+
+            const component = shallow(<Button handleClick={mockFn} />) //create a shallow copy of the component and pass it the prop to test
+
+            component.find("button").simulate("click")//simulate a click event on it
+
+            expect(mockFn).toHaveBeenCalled();//expect the mock function to be called
 
         })
 
