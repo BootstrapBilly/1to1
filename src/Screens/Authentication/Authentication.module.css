@@ -1,6 +1,4 @@
-@media(max-width:800px){
-
-    .img {
+.img {
 
         display: none;
     }
@@ -17,4 +15,3 @@
     
     }
     
-}

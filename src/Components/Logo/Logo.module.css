@@ -1,6 +1,4 @@
-@media(max-width : 450px){
-
-    .logo{
+.logo{
 
         width: 100vw;
         height: 20vh;
@@ -9,17 +7,32 @@
         left: 0;
     }
 
-}
-
-@media(min-width: 451px) and (max-width : 800px){
+@media(min-width: 451px) {
 
     .logo{
 
-        width: 110vw;
         height: 30vh;
-        position: absolute;
-        top: 0;
-        left: 0;
+
+    }
+
+}
+
+@media(min-width: 801px){
+
+    .logo{
+
+        height: 50vh;
+        
+    }
+
+}
+
+@media(min-width: 1501px){
+
+    .logo{
+
+        height: 65vh;
+        
     }
 
 }
