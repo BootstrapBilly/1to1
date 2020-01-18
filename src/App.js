@@ -7,11 +7,8 @@ function App() {
 
   return (
 
-    <React.Fragment>
+      <Authentication /> 
 
-      <Authentication />
-      
-    </React.Fragment>
   );
 
 }

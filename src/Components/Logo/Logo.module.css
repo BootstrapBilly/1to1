@@ -1,0 +1,40 @@
+.logo{
+
+        width: 100vw;
+        height: 20vh;
+        position: absolute;
+        top: 10vh;
+        left: 0;
+    }
+
+@media(min-width: 451px) {
+
+    .logo{
+
+        height: 30vh;
+
+    }
+
+}
+
+@media(min-width: 801px){
+
+    .logo{
+
+        height: 50vh;
+        
+    }
+
+}
+
+@media(min-width: 1501px){
+
+    .logo{
+
+        height: 65vh;
+        
+    }
+
+}
+
+

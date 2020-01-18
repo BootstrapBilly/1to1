@@ -49,6 +49,13 @@ describe("\n\x1b[36mAuthentication screen", ()=> {
             
         })
 
+        it("Should render a button", ()=> {
+    
+            const wrapper = findByTestAttribute(component, "button")
+            expect(wrapper.length).toBe(1)
+            
+        })
+
     })
 
 })

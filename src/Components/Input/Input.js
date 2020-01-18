@@ -1,19 +1,10 @@
 import React from "react"
-import PropTypes from "prop-types"
+import classes from "./input.module.css"
 
 const Input = props => (
 
-    <div test-handle="input">
-
-
-    </div>
+    <input test-handle="input" type="password" placeholder="ENTER PIN" className={classes.input}/>
 
 )
 
 export default Input
-
-Input.propTypes = {
-
-    enterKeyHandler: PropTypes.func
-    
-}

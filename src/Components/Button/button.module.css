@@ -1,0 +1,49 @@
+.button {
+
+        border: none;
+        display: block;
+        width: 70vw;
+        height: 6vh;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 5vh;
+        background-color: #dc6099;
+        color: white;
+        font-weight: 600;
+        font-size: 1.1rem;
+
+    }
+
+    @media(min-width: 451px){
+
+        .button {
+
+            font-size: 1.2rem;
+            width: 50vw;
+
+        }
+    
+    }
+
+    @media(min-width: 801px) {
+
+        .button {
+
+            font-size: 1.1rem;
+            width: 30vw;
+
+        }
+    
+    }
+
+    @media(min-width: 1501px){
+
+        .button {
+
+            font-size: 1rem;
+            width: 20vw;
+
+        }
+    
+    }
+
