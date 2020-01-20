@@ -26,7 +26,7 @@ function App() {
 
   return (
     
-    <Provider store={store}><Authentication /> </Provider>
+    <Provider store={store}><Authentication /></Provider>
 
   );
 

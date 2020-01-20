@@ -1,27 +1,16 @@
+import axios from "axios"
+
 export const LOGINFAILURE = "LOGINFAILURE";
 export const LOGINSUCCESS = "LOGINSUCCESS";
 
-export const login = () => {
+
+export const login = (pin) => {
 
     return async dispatch => {
 
-    //     let a = "a"
-    //     if(a === "B"){
-    //     dispatch({ //a function to be dispatched to the reducer which then changes the global state
+        const response = await axios.post('http://localhost:4000/verify', {pin: pin})
 
-    //         type: LOGINFAILURE,//Type of dispatch, as declared at the to
-
-    //     })
-    // }
-
-    // else {
-
-    //     dispatch({ //a function to be dispatched to the reducer which then changes the global state
-
-    //         type: LOGINSUCCESS,//Type of dispatch, as declared at the to
-
-    //     })
-    // }
+        response.data.success ? dispatch({type: LOGINSUCCESS}) : dispatch ({type:LOGINFAILURE})
 
      }
 

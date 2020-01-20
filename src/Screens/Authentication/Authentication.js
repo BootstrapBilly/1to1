@@ -1,6 +1,9 @@
 //core react
 import React from "react"
 
+//redux
+import {useSelector} from "./hooks"
+
 //Components
 import Logo from "../../Components/Logo/Logo"
 import Input from "../../Components/Input/Input"
@@ -9,20 +12,27 @@ import Button from "../../Components/Button/Button"
 //css
 import classes from "./Authentication.module.css"
 
-const Authentication = props => (
+const Authentication = props => {
 
-    <div test-handle="container" className={classes.container}>
+    const loggedIn = useSelector(state => state.auth.loggedIn)
 
-        <Logo test-handle="logo"/>
+    console.log(loggedIn)
 
-        <Input test-handle="input"/>
+    return (
 
-        <Button test-handle="button" text={"LOG IN"}/>
+        <div test-handle="container" className={classes.container}>
 
-        <img test-handle="image" alt="" className={classes.img}/>
+            <Logo test-handle="logo" />
 
-    </div>
+            <Input test-handle="input" />
 
-)
+            <Button test-handle="button" text={"LOG IN"} />
+
+            <img test-handle="image" alt="" className={classes.img} />
+
+        </div>
+
+    )
+}
 
 export default Authentication
