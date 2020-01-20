@@ -11,7 +11,9 @@ const authReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
-        case LOGINFAILURE: return { ...initialState, validationFailure: true}
+        case LOGINFAILURE: {
+            console.log("inside")
+            return { ...initialState, validationFailure: true}}
 
         case LOGINSUCCESS: return { ...initialState, validationFailure: false, loggedIn:true}
 

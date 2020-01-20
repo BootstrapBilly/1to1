@@ -8,10 +8,16 @@ export const login = (pin) => {
 
     return async dispatch => {
 
-        const response = await axios.post('http://localhost:4000/verify', {pin: pin})
+        try {
 
-        response.data.success ? dispatch({type: LOGINSUCCESS}) : dispatch ({type:LOGINFAILURE})
+            const response = await axios.post('http://localhost:4000/verify', { pin: pin })
 
-     }
+            if (response.data.success) return dispatch({ type: LOGINSUCCESS })
+
+        }
+
+        catch (error) { dispatch({type: LOGINFAILURE}) }
+
+    }
 
 }

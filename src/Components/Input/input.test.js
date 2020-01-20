@@ -28,6 +28,18 @@ describe("\n\x1b[36mLogo", () => {
 
         })
 
+        it("Should call a handle change function when typed in", () => {
+ 
+            const mockFn = jest.fn() //define a mock function
+
+            const component = shallow(<Input handleChange={mockFn} />) //create a shallow copy of the component and pass it the prop to test
+
+            component.find("input").simulate("change")//simulate a click event on it
+
+            expect(mockFn).toHaveBeenCalled();//expect the mock function to be called
+
+        })
+
     })
 
 })

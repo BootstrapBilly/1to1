@@ -1,8 +1,11 @@
 //core react
-import React from "react"
+import React, {useState} from "react"
 
 //redux
-import {useSelector} from "./hooks"
+import {useSelector, useDispatch} from "../../Utils/hooks"
+
+//actions
+import {login} from "../../store/actions/Auth/Auth-action"
 
 //Components
 import Logo from "../../Components/Logo/Logo"
@@ -14,9 +17,21 @@ import classes from "./Authentication.module.css"
 
 const Authentication = props => {
 
-    const loggedIn = useSelector(state => state.auth.loggedIn)
+    // const loggedIn = useSelector(state => state.auth.loggedIn)
+    const validationFailure = useSelector(state => state.auth.validationFailure)
 
-    console.log(loggedIn)
+    console.log(validationFailure)
+
+    const [pin, setPin] = useState("")
+
+    const dispatch = useDispatch()
+
+    const sendVerifyRequest = () => {
+
+        dispatch(login(pin))
+        setPin("")
+
+    }
 
     return (
 
@@ -24,11 +39,11 @@ const Authentication = props => {
 
             <Logo test-handle="logo" />
 
-            <Input test-handle="input" />
+            <Input test-handle="input" handleChange={e => setPin(e.target.value)}/>
 
-            <Button test-handle="button" text={"LOG IN"} />
+            <Button test-handle="button" text={"LOG IN"} handleClick={()=> sendVerifyRequest()}/>
 
-            <img test-handle="image" alt="" className={classes.img} />
+            <p test-handle="errorMessage">{validationFailure ? "Sdsfhjksdhkdsjhfkjdskhjfnss" : null}</p>
 
         </div>
 

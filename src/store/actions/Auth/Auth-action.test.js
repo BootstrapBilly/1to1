@@ -24,15 +24,14 @@ describe('Send login request', () => {
 
     it('Dispatches LOGINFAILURE after receiving success:false from the api', () => {
 
+        const mockError = error => ({ status: 500, response: error })
+
         moxios.wait(() => {
 
             const request = moxios.requests.mostRecent();//mock a moxios request
 
-            request.respondWith({//then mock a response
+            request.respondWith(mockError({success:false}));
 
-                response: { success: false },//with the response returned by the api
-
-            });
         });
 
         const expectedActions = [{type:LOGINFAILURE}]//set up the action expected to be received
