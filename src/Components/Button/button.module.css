@@ -2,7 +2,7 @@
 
         border: none;
         display: block;
-        width: 70vw;
+        width: 50vw;
         height: 6vh;
         border-radius: 10px;
         text-align: center;
@@ -11,7 +11,23 @@
         color: white;
         font-weight: 600;
         font-size: 1.1rem;
+        transition:all 0.3s ease-in-out;
+       
 
+    }
+
+    .button:hover {
+
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+
+    .button:focus {
+
+        outline: none !important;
+        border: none;
     }
 
     @media(min-width: 451px){
@@ -19,7 +35,7 @@
         .button {
 
             font-size: 1.2rem;
-            width: 50vw;
+            width: 40vw;
 
         }
     
@@ -30,7 +46,18 @@
         .button {
 
             font-size: 1.1rem;
-            width: 30vw;
+            width: 20vw;
+
+        }
+    
+    }
+
+    @media(min-width: 1100px) {
+
+        .button {
+
+            font-size: 1.05rem;
+            width: 15vw;
 
         }
     
@@ -41,7 +68,7 @@
         .button {
 
             font-size: 1rem;
-            width: 20vw;
+            width: 10vw;
 
         }
     

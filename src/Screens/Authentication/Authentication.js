@@ -28,10 +28,11 @@ const Authentication = props => {
 
     const sendVerifyRequest = () => {
 
-        dispatch(login(pin))
-        setPin("")
+        if(pin.length > 0) dispatch(login(pin))
 
     }
+
+    let errorMessage = validationFailure ? <p test-handle="errorMessage" className={classes.errorText}>The pin you have entered is incorrect</p> : null
 
     return (
 
@@ -39,11 +40,10 @@ const Authentication = props => {
 
             <Logo test-handle="logo" />
 
-            <Input test-handle="input" handleChange={e => setPin(e.target.value)}/>
+            <Input test-handle="input" handleChange={e => setPin(e.target.value)} style={{borderColor: validationFailure ? "red" : "white"}}/>
 
             <Button test-handle="button" text={"LOG IN"} handleClick={()=> sendVerifyRequest()}/>
-
-            <p test-handle="errorMessage">{validationFailure ? "Sdsfhjksdhkdsjhfkjdskhjfnss" : null}</p>
+            {errorMessage}
 
         </div>
 

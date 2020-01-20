@@ -2,17 +2,18 @@
 
         outline: none;
         border: none;
-        border-bottom: 2px solid white;
-        width: 40vw;
+        border: 0.5px solid white;
+        width: 30vw;
         height: 3.5vh;
         text-align: center;
         color: white;
         font-size: 0.8rem;
         background-color: transparent;
-       
+        padding:1vw
         
         
     }
+
     .input::placeholder{
 
         color: white;
@@ -20,18 +21,32 @@
 
     }
 
-@media(min-width: 451px) and (max-width : 800px){
+    .input:hover::placeholder{
+
+        color: rgb(182, 182, 182);
+
+    }
+
+    .input:focus::placeholder{
+
+        color: transparent;
+
+    }
+
+
+@media(min-width: 451px){
 
     .input{
 
-        width: 40vw;
-        font-size: 1.2rem;
+        width: 23vw;
+        font-size: 1.1rem;
+        height: 2.5vh;
         
     }
 
     .input::placeholder{
 
-        font-size: 1.2rem;
+        font-size: 1.1rem;
 
     }
 
@@ -41,15 +56,34 @@
 
     .input{
 
-        width: 25vw;
-        font-size: 1.1rem;
-        margin-top: 35vh;
+        width: 12vw;
+        font-size: 1rem;
+        margin-top: 40vh;
         
     }
 
     .input::placeholder{
 
-        font-size: 1.1rem;
+        font-size: 1rem;
+
+    }
+
+}
+
+@media(min-width: 1100px) {
+
+    .input{
+
+        width: 10vw;
+        font-size: 0.9rem;
+        margin-top: 45vh;
+        height: 1.5vh;
+        
+    }
+
+    .input::placeholder{
+
+        font-size: 0.9rem;
 
     }
 
@@ -59,15 +93,15 @@
 
     .input{
 
-        width: 15vw;
-        font-size: 1rem;
+        width: 5vw;
+        font-size: 0.85rem;
         margin-top: 65vh;
         
     }
 
     .input::placeholder{
 
-        font-size: 1rem;
+        font-size: 0.85rem;
 
     }
 
