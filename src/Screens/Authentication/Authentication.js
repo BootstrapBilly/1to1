@@ -30,14 +30,11 @@ const Authentication = props => {
 
     let errorMessage = validationFailure ? <p test-handle="errorMessage" className={classes.errorText}>The pin you have entered is incorrect</p> : null
 
-    useEffect(()=> {
+    useEffect(()=> { 
 
-        if(loggedIn){
-
-            props.history.push("/dashboard")
-        }
-
-    }, [loggedIn, props.history])
+    if(loggedIn) props.history.push("/dashboard") 
+    
+}, [loggedIn, props.history])
 
     return (
             
