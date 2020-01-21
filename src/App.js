@@ -11,9 +11,12 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 import Authentication from "../src/Screens/Authentication/Authentication"
 import Dashboard from "../src/Screens/Dashboard/Dashboard"
 
+//HOCs
+import ProtectedRoute from "./HOC/ProtectedRoute"
 
 //reducers
 import authReducer from "./store/reducers/Auth/Auth-reducer"
+
 
 export const rootReducer = combineReducers({ //combine all the state reducers into one root reducer
 
@@ -27,6 +30,7 @@ export const store = createStore(rootReducer, applyMiddleware(reduxThunk));
 
 function App() {
 
+
   return (
 
     <Provider store={store}>
@@ -36,14 +40,13 @@ function App() {
         <Switch>
 
           <Route path="/" exact component={Authentication} />
-          <Route path="/dashboard" component={Dashboard} />
+          <ProtectedRoute path="/dashboard" component={Dashboard} />
 
         </Switch>
 
       </BrowserRouter>
 
     </Provider>
-
 
   );
 
