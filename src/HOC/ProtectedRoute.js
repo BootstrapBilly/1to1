@@ -5,37 +5,26 @@ import React from "react"
 import { Route, Redirect } from "react-router-dom"
 
 //Redux hooks
-import { useSelector } from "../Utils/hooks"
 
 //components
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
 
-    const Authenticated = useSelector(state => state.auth.loggedIn)
+    const Authenticated = rest.authenticated
 
-    return (
+    if (Authenticated) return (<Route {...rest} test-handle="route" render={props => <Component {...props} test-handle="correct" />} />)
 
-        <Route {...rest} test-handle="route"
-        
-        render={props => {
-
-            if (Authenticated) { return <Component {...props} /> }
-
-            else {
-
-                return <Redirect to={
-                    {
-                        pathname: "/",
-                        state: {
-                            from: props.location
-                        }
-                    }
-                } />
-
+    else return (<Route {...rest} test-handle="redirect" render={props => <Redirect to={
+        {
+            pathname: "/",
+            state: {
+                from: props.location
             }
+        }
+    } />} />)
 
-        }} />)
 
-    }
 
-    export default ProtectedRoute
+}
+
+export default ProtectedRoute

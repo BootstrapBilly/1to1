@@ -2,9 +2,8 @@
 import React from 'react';
 
 //external
-import { createStore, combineReducers, applyMiddleware } from "redux"
-import reduxThunk from "redux-thunk"
-import { Provider } from "react-redux"
+import {useSelector} from "./Utils/hooks"
+
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 
 //screens
@@ -15,38 +14,27 @@ import Dashboard from "../src/Screens/Dashboard/Dashboard"
 import ProtectedRoute from "./HOC/ProtectedRoute"
 
 //reducers
-import authReducer from "./store/reducers/Auth/Auth-reducer"
 
-
-export const rootReducer = combineReducers({ //combine all the state reducers into one root reducer
-
-  auth: authReducer,
-
-})
-
-export const middlewares = [reduxThunk]
-
-export const store = createStore(rootReducer, applyMiddleware(reduxThunk));
 
 function App() {
 
+  const Authenticated = useSelector(state => state.auth.loggedIn)
 
   return (
 
-    <Provider store={store}>
+    
 
       <BrowserRouter>
 
         <Switch>
 
           <Route path="/" exact component={Authentication} />
-          <ProtectedRoute path="/dashboard" component={Dashboard} />
+          <ProtectedRoute path="/dashboard" component={Dashboard} authenticated={Authenticated} />
 
         </Switch>
 
       </BrowserRouter>
 
-    </Provider>
 
   );
 

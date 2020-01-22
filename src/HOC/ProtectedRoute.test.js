@@ -31,9 +31,18 @@ describe("\n\x1b[36mAuthentication screen", () => {
 
         })
 
-        it("Should render a route", () => {
+        it("Should redirect if the user is not authenticated", () => {
 
-            const Authenticated = store.getState().loggedIn
+            component.setProps({authenticated:false})
+
+            const wrapper = findByTestAttribute(component, "redirect")
+            expect(wrapper.length).toBe(1)
+
+        })
+
+        it("Should render the correct route if the user is authenticated", () => {
+
+            component.setProps({authenticated:true})
 
             const wrapper = findByTestAttribute(component, "route")
             expect(wrapper.length).toBe(1)
