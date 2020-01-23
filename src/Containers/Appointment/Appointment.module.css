@@ -1,0 +1,148 @@
+.card {
+
+    min-height: 33vh;
+    max-height: 33vh;
+    min-width: 80vw;
+    max-width: 80vw;
+    background: #E0E5EC;
+    border-radius: 10px;
+    margin: 5vw;
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5)
+    
+}
+
+.topRow {
+
+    display: flex;
+    justify-content: space-between;
+    height: 20%;
+    
+}
+
+.midRow {
+
+    display: flex;
+    justify-content: space-around;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.562);
+    font-size: 1.2rem;
+    
+}
+
+.lowerMidRow {
+
+    display: flex;
+    justify-content: space-around;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.562);
+    
+}
+
+.notesRow {
+
+    display: flex;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.562);
+    max-width: 100%;
+    max-height: 25%;
+    min-height: 25%;
+    margin: 0vh 5vw;
+    padding: 0vh 0.5vw;
+    overflow: scroll;
+    margin-top: 1vh;    
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    border: 5px solid #e8eef7;
+}
+
+.bottomRow {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.name {
+
+    margin-left: 5vw;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.562);
+    position: relative;
+    top:-5px;
+    font-size: 2rem;
+}
+
+.cross {
+
+    position: relative;
+    top:-45px;
+    left:5px;
+    border: 5px solid #e8eef7;
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
+    background:#E0E5EC;
+    width: 12vw;
+    height: 12vw;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(247, 16, 16, 0.562);
+    font-weight: 700;
+    font-size: 30px;
+
+}
+
+.edit {
+
+    position: relative;
+    top:0.3VH;
+    left: 5px;
+    border: 5px solid #e8eef7;
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
+    background:#E0E5EC;
+    width: 30vw;
+    height: 4vh;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(25, 175, 235, 0.562);
+    font-weight: 700;
+    font-size: 20px;
+
+}
+
+.finish {
+
+    position: relative;
+    top:0.3VH;
+    left: -5px;
+    border: 5px solid #e8eef7;
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
+    background:#E0E5EC;
+    width: 30vw;
+    height: 4vh;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(6, 112, 23, 0.562);
+    font-weight: 700;
+    font-size: 20px;
+
+}
+
+.phoneNumber {
+
+    margin: 0;
+    padding: 0;
+
+}
+
+.notes {
+
+    margin: 0;
+    padding: 0;
+
+}

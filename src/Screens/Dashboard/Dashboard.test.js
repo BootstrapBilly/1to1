@@ -1,6 +1,6 @@
 import React from "react"
-import { shallow, configure } from "enzyme"
-import Authentication from "./Authentication"
+import { shallow } from "enzyme"
+import Dashboard from "./Dashboard"
 import { findByTestAttribute } from "../../Utils/TestingUtils"
 import configureStore from "redux-mock-store"
 import * as ReactReduxHooks from "../../Utils/hooks"
@@ -32,7 +32,7 @@ describe("\n\x1b[36mAuthentication screen", () => {
                 .spyOn(ReactReduxHooks, "useDispatch")
                 .mockImplementation(() => store.dispatch);
 
-            component = shallow(<Authentication store={store} />);
+            component = shallow(<Dashboard store={store} />);
 
         })
 
@@ -43,26 +43,13 @@ describe("\n\x1b[36mAuthentication screen", () => {
 
         })
 
-        it("Should render a logo", () => {
+        it("Should render a header", () => {
 
-            const wrapper = findByTestAttribute(component, "logo")
+            const wrapper = findByTestAttribute(component, "header")
             expect(wrapper.length).toBe(1)
 
         })
 
-        it("Should render a login input", () => {
-
-            const wrapper = findByTestAttribute(component, "input")
-            expect(wrapper.length).toBe(1)
-
-        })
-
-        it("Should render a button", () => {
-
-            const wrapper = findByTestAttribute(component, "button")
-            expect(wrapper.length).toBe(1)
-
-        })
 
     })
 

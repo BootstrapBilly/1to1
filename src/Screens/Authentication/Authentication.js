@@ -17,29 +17,28 @@ import classes from "./Authentication.module.css"
 
 const Authentication = props => {
 
+    //Redux state selectors
     const loggedIn = useSelector(state => state.auth.loggedIn)
     const validationFailure = useSelector(state => state.auth.validationFailure)
     const lockout = useSelector(state => state.auth.lockout)
     const genericError = useSelector(state => state.auth.genericError)
 
-    const [hovered, setHovered] = useState(false)
-    const [clicked, setClicked] = useState(false)
-
+    //pin entered to be verified by the backend, set by the value of the input
     const [pin, setPin] = useState("")
 
+    //seting up the usedispatch hook
     const dispatch = useDispatch()
 
+    //declaring the error message which pops up on validation errors
     let errorMessage = null
 
+    //conditional error message rendering
     if (validationFailure) errorMessage = <p test-handle="errorMessage" className={classes.errorText}>The pin you have entered is incorrect</p>
     if (lockout) errorMessage = <p test-handle="errorMessage2" className={classes.errorText}>To many incorrect attempts<p>You have been locked out for 5 minutes</p></p>
     if (genericError) errorMessage = <p test-handle="errorMessage1" className={classes.errorText}>An error occured, we are working to fix it</p>
 
-    useEffect(() => {
-
-        if (loggedIn) props.history.push("/dashboard")
-
-    }, [loggedIn, props.history])
+    //if the user is logged in (dependant on redux state), route them through to the dashboard
+    useEffect(() => {if (loggedIn) props.history.push("/dashboard")}, [loggedIn, props.history])
 
     return (
 
