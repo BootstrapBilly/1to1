@@ -4,7 +4,10 @@ describe("Auth reducer", ()=> {
 
     const initialState = {//set the initial state
 
-        loggedIn: false
+        loggedIn: false,
+        validationFailure: false,
+        lockout: false,
+        genericError:false
     
     }
 
@@ -29,6 +32,22 @@ describe("Auth reducer", ()=> {
         const newState = authReducer(undefined, {type:"LOGINSUCCESS"});
 
         expect(newState).toEqual({ ...initialState, validationFailure: false, loggedIn:true})
+
+    })
+
+    it("User lockout", ()=> {
+
+        const newState = authReducer(undefined, {type:"LOCKOUT"});
+
+        expect(newState).toEqual({ ...initialState, validationFailure: false, loggedIn:false, lockout: true})
+
+    })
+
+    it("Generic error", ()=> {
+
+        const newState = authReducer(undefined, {type:"GENERIC"});
+
+        expect(newState).toEqual({ ...initialState, validationFailure: false, loggedIn:false, lockout: false, genericError:true})
 
     })
 

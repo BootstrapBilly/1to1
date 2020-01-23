@@ -23,12 +23,18 @@ const Authentication = props => {
 
     const loggedIn = useSelector(state => state.auth.loggedIn)
     const validationFailure = useSelector(state => state.auth.validationFailure)
-
+    const lockout = useSelector(state => state.auth.lockout)
+    const genericError = useSelector(state => state.auth.genericError)
+    
     const [pin, setPin] = useState("")
 
     const dispatch = useDispatch()
 
-    let errorMessage = validationFailure ? <p test-handle="errorMessage" className={classes.errorText}>The pin you have entered is incorrect</p> : null
+    let errorMessage = null
+
+    if(validationFailure && !lockout) errorMessage = <p test-handle="errorMessage" className={classes.errorText}>The pin you have entered is incorrect</p>
+    if(lockout) errorMessage = <p test-handle="errorMessage" className={classes.errorText}>To many incorrect attempts<p>You have been locked out for 5 minutes</p></p>
+    if(genericError) errorMessage = <p test-handle="errorMessage" className={classes.errorText}>An error occured, we are working to fix it</p>
 
     useEffect(()=> { 
 
