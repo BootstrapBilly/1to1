@@ -1,5 +1,5 @@
 import React from "react"
-import { shallow } from "enzyme"
+import { shallow, configure } from "enzyme"
 import Authentication from "./Authentication"
 import { findByTestAttribute } from "../../Utils/TestingUtils"
 import configureStore from "redux-mock-store"
@@ -19,7 +19,9 @@ describe("\n\x1b[36mAuthentication screen", () => {
 
             store = configureStore([thunk])({
                 loggedIn: false,
-                validationFailure: null
+                validationFailure: true,
+                lockout: false,
+                genericError:false
             });
 
             jest
@@ -59,13 +61,6 @@ describe("\n\x1b[36mAuthentication screen", () => {
 
             const wrapper = findByTestAttribute(component, "button")
             expect(wrapper.length).toBe(1)
-
-        })
-
-        it("Should not render an error message if the state is null", () => {
-
-            const wrapper = findByTestAttribute(component, "errorMessage")
-            expect(wrapper).toEqual({})
 
         })
 
