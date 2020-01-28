@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+
 import { createStore, combineReducers, applyMiddleware } from "redux"
 import reduxThunk from "redux-thunk"
 import { Provider } from "react-redux"
 import authReducer from "./store/reducers/Auth/Auth-reducer"
 
 import Dashboard from "./Screens/Dashboard/Dashboard"
+
+require('react-web-vector-icons/fonts');
 
 
 export const rootReducer = combineReducers({ //combine all the state reducers into one root reducer

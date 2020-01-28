@@ -50,6 +50,19 @@ describe("\n\x1b[36mAuthentication screen", () => {
 
         })
 
+        it("Should render a next client", () => {
+
+            const wrapper = findByTestAttribute(component, "next-client")
+            expect(wrapper.length).toBe(1)
+
+        })
+
+        it("Should render a calendar", () => {
+
+            const wrapper = findByTestAttribute(component, "calendar")
+            expect(wrapper.length).toBe(1)
+
+        })
 
     })
 
