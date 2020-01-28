@@ -28,9 +28,9 @@ describe("\n\x1b[36mLogo", () => {
 
         })
 
-        it("Should render a total customers header", () => {
+        it("Should a hamburger menu", () => {
 
-            const wrapper = findByTestAttribute(component, "total")
+            const wrapper = findByTestAttribute(component, "hamburger")
             expect(wrapper.length).toBe(1)
 
         })

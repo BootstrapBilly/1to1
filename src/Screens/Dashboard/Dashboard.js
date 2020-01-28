@@ -16,7 +16,7 @@ const Dashboard = props => {
 
             <Header test-handle="header" />
 
-            <div className={classes.clientsWrapper} test-handle="next-client"><Appointment /><Appointment /><Appointment /><Appointment /><Appointment /><Appointment /></div>
+            <div className={classes.clientsWrapper} test-handle="next-client"><Appointment /><Appointment /><Appointment /><Appointment /><Appointment /><div style={{marginRight:"20vw"}}><Appointment /></div></div>
 
             <div className={classes.calendarWrapper} test-handle="calendar"><Calendar dashboardProps={props}/></div>
 

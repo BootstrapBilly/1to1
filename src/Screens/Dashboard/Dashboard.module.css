@@ -14,8 +14,14 @@
     flex:1;
     align-items: center;
     width: 100vw;
-    overflow-x: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+}
 
+.clientsWrapper::-webkit-scrollbar{
+
+    display: none;
 }
 
 .calendarWrapper {
@@ -24,6 +30,6 @@
     flex:0.8;
     justify-content: center;
     align-items: flex-end;
-    margin-bottom: 2vh;
+    margin-bottom: 3vh;
     
 }
