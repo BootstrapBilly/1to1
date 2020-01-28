@@ -26,62 +26,6 @@
     flex:1;
     justify-content: center;
     align-items: flex-end;
-    padding-bottom: 5vh;
+    padding-bottom: 2vh;
     
 }
-
-.Calendar {
-
-    font-size: 1.4rem;
-    border: none;
-    width: 95vw;
-    background-color: transparent;
-    height: 55vh;
-
-
-}
-
-.calendarTile {
-
-    font-size: 1.3rem;
-    color: black;
-    box-shadow: 2px 2px 4px rgb(163,177,198,0.6), -2px -2px 4px rgba(255,255,255, 0.5);
-
-    
-}
-
-.calendarArrowRight {
-
-    height: 12vw;
-    margin-top: 1vh;
-
-    padding:2vw;
-
-}
-
-.calendarArrowLeft {
-
-    height: 12vw;
-    transform: rotate(180deg);
-    margin-top: 1vh;
-
-    padding:2vw
-
-}
-
-.calendarTitle {
-
-    font-size: 1.6rem;
-    background-color: #E0E5EC;
-    position: relative;
-    top:-3.5vh;
-    left: -2vw;
-    height:8vh;
-    width: 67vw;
-    color: black;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-}
-
