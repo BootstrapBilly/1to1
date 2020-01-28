@@ -3,10 +3,11 @@
 
     min-width: 80vw;
     max-width: 80vw;
-    background: #E0E5EC;
+    background: white;
     border-radius: 10px;
     margin: 10vw;
-    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5)
+    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
+    border: 0.5px solid #e8eef7
     
 }
 
@@ -86,9 +87,9 @@
     position: relative;
     top:-45px;
     left:5px;
-    border: 5px solid #e8eef7;
-    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
-    background:#E0E5EC;
+    border: 3px solid #e8eef7;
+    box-shadow: 2px 2px 4px rgb(163,177,198,0.6), -2px -2px 4px rgba(255,255,255, 0.5);
+    background:white;
     width: 12vw;
     height: 12vw;
     border-radius: 50px;
@@ -104,11 +105,11 @@
 .edit {
 
 
-    border: 5px solid #e8eef7;
-    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
-    background:#E0E5EC;
-    width: 30vw;
-    height: 4vh;
+    border: 2px solid #e8eef7;
+    box-shadow: 2px 2px 4px rgb(163,177,198,0.6), -2px -2px 4px rgba(255,255,255, 0.5);
+    background:white;
+    width: 25vw;
+    height: 5vh;
     border-radius: 50px;
     display: flex;
     justify-content: center;
@@ -122,11 +123,11 @@
 .finish {
 
 
-    border: 5px solid #e8eef7;
-    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
-    background:#E0E5EC;
-    width: 30vw;
-    height: 4vh;
+    border: 2px solid #e8eef7;
+    box-shadow: 2px 2px 4px rgb(163,177,198,0.6), -2px -2px 4px rgba(255,255,255, 0.5);
+    background:white;
+    width: 25vw;
+    height: 5vh;
     border-radius: 50px;
     display: flex;
     justify-content: center;

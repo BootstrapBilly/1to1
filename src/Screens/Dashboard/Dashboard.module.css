@@ -17,6 +17,7 @@
     overflow-x: auto;
     overflow-y: hidden;
     -ms-overflow-style: none;
+    background-color: #e8eef7;
 }
 
 .clientsWrapper::-webkit-scrollbar{
