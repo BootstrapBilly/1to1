@@ -1,17 +1,16 @@
 .Calendar {
 
-    font-size: 1.4rem;
+    font-size: 1rem;
     border: none;
     width: 95vw;
-    background-color: transparent;
-    height: 55vh;
-
+    background-color: white;
+    max-height: 45vh;
 
 }
 
 .calendarTile {
 
-    font-size: 1.3rem;
+    font-size: 1rem;
     color: black;
     box-shadow: 2px 2px 4px rgb(163,177,198,0.6), -2px -2px 4px rgba(255,255,255, 0.5);
 
@@ -20,27 +19,28 @@
 
 .calendarArrowRight {
 
-    height: 12vw;
-    margin-top: 1vh;
+    display: flex;
+    height: 8vw;
 
-    padding:2vw;
+    background-color: transparent;
+
 
 }
 
 .calendarArrowLeft {
 
-    height: 12vw;
+    height: 8vw;
     transform: rotate(180deg);
-    margin-top: 1vh;
 
-    padding:2vw
+    background-color: transparent;
+
 
 }
 
 .calendarTitle {
 
-    font-size: 1.6rem;
-    background-color: #E0E5EC;
+    font-size: 1.3rem;
+    background-color: transparent;
     position: relative;
     top:-3.5vh;
     left: -2vw;

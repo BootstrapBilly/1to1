@@ -19,7 +19,7 @@ const Calendar_ = props => {
 
             prevLabel={<img src={arrow} alt="An arrow pointing left" className={classes.calendarArrowLeft} />} prev2Label={null}
 
-            navigationLabel={({ date, view, label }) => <p className={classes.calendarTitle}>{label}</p>}
+            navigationLabel={({ date, view, label }) => <p className={classes.calendarTitle}>{label}</p>} 
 
             nextLabel={<img src={arrow} alt="An arrow pointing right" className={classes.calendarArrowRight} />} next2Label={null}
 

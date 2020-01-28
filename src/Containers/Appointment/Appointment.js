@@ -32,7 +32,7 @@ const Appointment = props => {
 
             <div className={classes.notesRow} test-handle="notesRow">
 
-                <p className={classes.notes} test-handle="notes">Some notes, some more notes, even more notes, notes notes notes notes notes notes notes notes note notes notes notes notes notes notes notes notes notess notes notes notes notes notes notes notes notes notes notes notes notes</p>
+                <p className={classes.notes} test-handle="notes">Buys a lot of products</p>
 
             </div>
 

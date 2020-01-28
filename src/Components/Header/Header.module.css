@@ -4,8 +4,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height:15vh;
     width:100vw;
+    background-color: red;
     /* box-shadow: 2px 2px 30px #8e8e8e, 
                 -2px -2px 30px #ffffff; */
     
