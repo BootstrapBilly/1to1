@@ -11,8 +11,6 @@ import classes from "./Calendar.module.css"
 
 const Calendar_ = props => {
 
-    const dashboardProps = props.dashboardProps
-
     return (
 
         <Calendar value={new Date()}
@@ -27,7 +25,7 @@ const Calendar_ = props => {
 
             showNeighboringMonth={false} maxDetail={"month"} minDetail={"month"}
 
-            onClickDay={() => console.log(dashboardProps)} />
+            onClickDay={props.onClickDay} />
     )
 
 }

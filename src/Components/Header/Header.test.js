@@ -35,9 +35,9 @@ describe("\n\x1b[36mLogo", () => {
 
         })
 
-        it("Should render a next customer header", () => {
+        it("Should render a header text", () => {
 
-            const wrapper = findByTestAttribute(component, "amount")
+            const wrapper = findByTestAttribute(component, "header-text")
             expect(wrapper.length).toBe(1)
 
         })

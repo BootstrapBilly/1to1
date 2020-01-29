@@ -10,7 +10,7 @@ const Header = props => {
         <div test-handle="container" className={classes.container}>
             
             <img src={hamburger} alt="A menu icon" className={classes.hamburgerMenu} test-handle="hamburger" />
-            <p test-handle="amount" className={classes.next}>45 minutes until Loren</p>
+            <p test-handle="header-text" className={classes.next}>{props.text}</p>
         
         </div>
 

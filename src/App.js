@@ -9,6 +9,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 //screens
 import Authentication from "../src/Screens/Authentication/Authentication"
 import Dashboard from "../src/Screens/Dashboard/Dashboard"
+import CalendarDate from "./Screens/CalendarDate/CalendarDate"
 
 //HOCs
 import ProtectedRoute from "./HOC/ProtectedRoute"
@@ -30,6 +31,7 @@ function App() {
 
           <Route path="/" exact component={Authentication} />
           <ProtectedRoute path="/dashboard" component={Dashboard} authenticated={Authenticated} />
+          <ProtectedRoute path="/calendar-date/:date" component={CalendarDate} authenticated={Authenticated} />
 
         </Switch>
 
