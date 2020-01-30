@@ -2,7 +2,7 @@
 import React from "react"
 
 //components
-import Header from "../../Components/Header/Header"
+import Header from "../../Containers/Header/Header"
 
 const CalendarDate = props => {
 

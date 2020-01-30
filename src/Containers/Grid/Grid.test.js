@@ -462,33 +462,28 @@ describe("\n\x1b[36mButton", () => {
             expect(wrapper.length).toBe(1)
 
         })
-        
 
+        it("Should fire a function when an active segment is clicked - this is dependant on hardcoded data", () => {
 
-    //     it("Prop types are correct", () => {
+            const mockFn = jest.fn() //define a mock function
 
-    //         const propsToBeTested = { name: "String", onClickCross: () => { }, onClickEdit: () => { }, onClickSeen: () => { }, time:"string", date:"string", phone:"string", notes:"string"  } //emulate the props being passed in
+            const component = shallow(<Grid onClickActive={mockFn} />) //create a shallow copy of the component and pass it the prop to test
 
-    //         const propsError = checkProps(Appointment, propsToBeTested)
+            findByTestAttribute(component, "col4-seg1").simulate("click")//simulate a click event on it
 
-    //         expect(propsError).toBeUndefined();//expect no error to be return
+            expect(mockFn).toHaveBeenCalled();//expect the mock function to be called
 
-    //     })
+        })
 
+        it("Prop types are correct", () => {
 
+            const propsToBeTested = {onClickActive: () => { }, onClickInactive: () => { }} //emulate the props being passed in
 
-    //     it("Should fire a function when edit is clicked", () => {
+            const propsError = checkProps(Grid, propsToBeTested)
 
-    //         const mockFn = jest.fn() //define a mock function
+            expect(propsError).toBeUndefined();//expect no error to be return
 
-
-    //         const component = shallow(<Appointment handleClickEdit={mockFn} />) //create a shallow copy of the component and pass it the prop to test
-
-    //         findByTestAttribute(component, "edit").simulate("click")//simulate a click event on it
-
-    //         expect(mockFn).toHaveBeenCalled();//expect the mock function to be called
-
-    //     })
+        })
 
      })
 

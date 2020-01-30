@@ -42,6 +42,31 @@ describe("\n\x1b[36mLogo", () => {
 
         })
 
+        it("Should render a side panel", () => {
+
+            const wrapper = findByTestAttribute(component, "side-panel")
+            expect(wrapper.length).toBe(1)
+
+
+        })
+
+        it("Should render a fullscreen area which closes the panel when clicked", () => {
+
+            const wrapper = findByTestAttribute(component, "closeArea")
+            expect(wrapper.length).toBe(1)
+
+        })
+
+        it("Prop types are correct", () => {
+
+            const propsToBeTested = {text: "string"} //emulate the props being passed in
+
+            const propsError = checkProps(Header, propsToBeTested)
+
+            expect(propsError).toBeUndefined();//expect no error to be return
+
+        })
+
 
     })
 

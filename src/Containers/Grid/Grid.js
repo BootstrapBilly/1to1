@@ -1,6 +1,8 @@
 import React from "react"
 import classes from "./grid.module.css"
 
+import PropTypes from "prop-types"
+
 const Grid = props => {
 
     const activeC1 = [["1", false, "Loren"], ["2", true, "Jeff"], ["3", false, "John"], ["5", true, "1 Hour"], ["7", false, "Ben"]]
@@ -57,7 +59,7 @@ const Grid = props => {
 
                                 if (segmentActive) {
 
-                                    return <div test-handle={`col1-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClick}>
+                                    return <div test-handle={`col1-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClickActive}>
                                         <div className={segmentActive[1] ? classes.activeSegmentJoined : classes.activeSegment}>{segmentActive[2]}</div></div>
                                 }
 
@@ -80,7 +82,7 @@ const Grid = props => {
 
                                 if (segmentActive) {
 
-                                    return <div test-handle={`col2-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClick} > 
+                                    return <div test-handle={`col2-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClickActive} > 
                                         <div className={segmentActive[1] ? classes.activeSegmentJoined : classes.activeSegment}>{segmentActive[2]}</div></div>
                                 }
 
@@ -102,7 +104,7 @@ const Grid = props => {
 
                                 if (segmentActive) {
 
-                                    return <div test-handle={`col3-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClick}>
+                                    return <div test-handle={`col3-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClickActive}>
                                         <div className={segmentActive[1] ? classes.activeSegmentJoined : classes.activeSegment}>{segmentActive[2]}</div></div>
                                 }
 
@@ -124,7 +126,7 @@ const Grid = props => {
 
                                 if (segmentActive) {
 
-                                    return <div test-handle={`col4-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClick}>
+                                    return <div test-handle={`col4-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClickActive}>
                                         <div className={segmentActive[1] ? classes.activeSegmentJoined : classes.activeSegment}>{segmentActive[2]}</div></div>
                                 }
 
@@ -143,6 +145,13 @@ const Grid = props => {
         </section>
     )
 
+}
+
+Grid.propTypes = {
+
+    onClickActive: PropTypes.func,
+    onClickInactive: PropTypes.func,
+    
 }
 
 export default Grid

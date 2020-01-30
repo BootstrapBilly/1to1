@@ -10,6 +10,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 import Authentication from "../src/Screens/Authentication/Authentication"
 import Dashboard from "../src/Screens/Dashboard/Dashboard"
 import CalendarDate from "./Screens/CalendarDate/CalendarDate"
+import NewClient from "./Screens/NewClient/NewClient"
 
 //HOCs
 import ProtectedRoute from "./HOC/ProtectedRoute"
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" exact component={Authentication} />
           <ProtectedRoute path="/dashboard" component={Dashboard} authenticated={Authenticated} />
           <ProtectedRoute path="/calendar-date/:date" component={CalendarDate} authenticated={Authenticated} />
+          <ProtectedRoute path="/new-client" component={NewClient} authenticated={Authenticated} />
 
         </Switch>
 

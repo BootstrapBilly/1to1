@@ -1,6 +1,6 @@
 import React from "react"
 import { shallow } from "enzyme"
-import Dashboard from "./Dashboard"
+import NewClient from "./NewClient"
 import { findByTestAttribute } from "../../Utils/TestingUtils"
 import configureStore from "redux-mock-store"
 import * as ReactReduxHooks from "../../Utils/hooks"
@@ -32,7 +32,7 @@ describe("\n\x1b[36mDashboard screen", () => {
                 .spyOn(ReactReduxHooks, "useDispatch")
                 .mockImplementation(() => store.dispatch);
 
-            component = shallow(<Dashboard store={store} />);
+            component = shallow(<NewClient store={store} />);
 
         })
 
@@ -50,19 +50,21 @@ describe("\n\x1b[36mDashboard screen", () => {
 
         })
 
-        it("Should render a next client", () => {
+        it("Should render a form", () => {
 
-            const wrapper = findByTestAttribute(component, "next-client")
+            const wrapper = findByTestAttribute(component, "form")
             expect(wrapper.length).toBe(1)
 
         })
 
-        it("Should render a calendar", () => {
+        it("Should render a submit button", () => {
 
-            const wrapper = findByTestAttribute(component, "calendar")
+            const wrapper = findByTestAttribute(component, "submit")
             expect(wrapper.length).toBe(1)
 
         })
+
+
 
     })
 

@@ -1,0 +1,91 @@
+.container {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 6.5vh;
+    width:100vw;
+    /* box-shadow: 2px 2px 30px #8e8e8e, 
+                -2px -2px 30px #ffffff; */
+    
+}
+
+.title {
+
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+    color:blueviolet
+}
+
+.total {
+
+    font-size: 1.2rem;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.hamburgerMenu{
+
+    width: 8vw;
+    position: absolute;
+    right: 2.5vw;
+    top: 1vh;
+}
+
+.sidePanel {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 100%;
+    background-color: white;
+    z-index: 100;
+    transition: all .75s ease;
+
+    
+}
+
+.sidePanelClosed {
+
+    position: fixed;
+    top: 0;
+    left: -50vw;
+    width: 0vw;
+    height: 100%;
+    background-color: white;
+    z-index: 100;
+    transition: all .75s ease;
+
+}
+
+.navLinks {
+
+    font-size: 1.3rem;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+.navLinks a {
+
+    text-decoration: none;
+    color: black;
+}
+
+.closeArea {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+
+}
+
