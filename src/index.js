@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 
@@ -11,7 +10,8 @@ import { Provider } from "react-redux"
 import authReducer from "./store/reducers/Auth/Auth-reducer"
 
 import Dashboard from "./Screens/Dashboard/Dashboard"
-import Grid from "./Containers/Grid/Grid"
+// import Grid from "./Containers/Grid/Grid"
+// import App from './App';
 
 
 require('react-web-vector-icons/fonts');

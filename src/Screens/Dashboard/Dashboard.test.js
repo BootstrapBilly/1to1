@@ -6,7 +6,7 @@ import configureStore from "redux-mock-store"
 import * as ReactReduxHooks from "../../Utils/hooks"
 import thunk from "redux-thunk"
 
-describe("\n\x1b[36mAuthentication screen", () => {
+describe("\n\x1b[36mDashboard screen", () => {
 
     let store;
 
