@@ -3,6 +3,11 @@ import classes from "./grid.module.css"
 
 const Grid = props => {
 
+    const activeC1 = [["1", false, "Loren"], ["2", true, "Jeff"], ["3", false, "John"], ["5", true, "1 Hour"], ["7", false, "Ben"]]
+    const activeC2 = [["2", true, null], ["5", true, null], ["6", true, "Jen"], ["7", false, "Den"]]
+    const activeC3 = [["1", false, "Jasper"], ["2", false, "Shenice"], ["3", true, "Deshawn"], ["5", true, null], ["6", true, null], ["7", false, "Pen"]]
+    const activeC4 = [["1", false, "Singh"], ["3", true], ["5", true, null], ["6", true, null], ["7", false, "Ken"]]
+
     return (
 
         <section className={classes.section}>
@@ -46,7 +51,19 @@ const Grid = props => {
 
                         {
 
-                            ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].map(item => <div test-handle={`col1-seg${item}`} className={classes.rowSegment} key={item}></div>)
+                            ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].map(item => {
+
+                                const segmentActive = activeC1.find(activeItem => activeItem[0] === item)
+
+                                if (segmentActive) {
+
+                                    return <div test-handle={`col1-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClick}>
+                                        <div className={segmentActive[1] ? classes.activeSegmentJoined : classes.activeSegment}>{segmentActive[2]}</div></div>
+                                }
+
+                                else return <div test-handle={`col1-seg${item}`} className={classes.rowSegment} key={item}></div>
+
+                            })
 
                         }
 
@@ -57,7 +74,19 @@ const Grid = props => {
 
                         {
 
-                            ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].map(item => <div test-handle={`col2-seg${item}`} className={classes.rowSegment} key={item}></div>)
+                            ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].map(item => {
+
+                                const segmentActive = activeC2.find(activeItem => activeItem[0] === item)
+
+                                if (segmentActive) {
+
+                                    return <div test-handle={`col2-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClick} > 
+                                        <div className={segmentActive[1] ? classes.activeSegmentJoined : classes.activeSegment}>{segmentActive[2]}</div></div>
+                                }
+
+                                else return <div test-handle={`col2-seg${item}`} className={classes.rowSegment} key={item}></div>
+
+                            })
 
                         }
 
@@ -67,7 +96,19 @@ const Grid = props => {
 
                         {
 
-                            ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].map(item => <div test-handle={`col3-seg${item}`} className={classes.rowSegment} key={item}></div>)
+                            ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].map(item => {
+
+                                const segmentActive = activeC3.find(activeItem => activeItem[0] === item)
+
+                                if (segmentActive) {
+
+                                    return <div test-handle={`col3-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClick}>
+                                        <div className={segmentActive[1] ? classes.activeSegmentJoined : classes.activeSegment}>{segmentActive[2]}</div></div>
+                                }
+
+                                else return <div test-handle={`col3-seg${item}`} className={classes.rowSegment} key={item}></div>
+
+                            })
 
                         }
 
@@ -77,7 +118,19 @@ const Grid = props => {
 
                         {
 
-                            ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].map(item => <div test-handle={`col4-seg${item}`} className={classes.rowSegment} key={item}></div>)
+                            ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].map(item => {
+
+                                const segmentActive = activeC4.find(activeItem => activeItem[0] === item)
+
+                                if (segmentActive) {
+
+                                    return <div test-handle={`col4-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClick}>
+                                        <div className={segmentActive[1] ? classes.activeSegmentJoined : classes.activeSegment}>{segmentActive[2]}</div></div>
+                                }
+
+                                else return <div test-handle={`col4-seg${item}`} className={classes.rowSegment} key={item}></div>
+
+                            })
 
                         }
 
