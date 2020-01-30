@@ -11,6 +11,7 @@ import { Provider } from "react-redux"
 import authReducer from "./store/reducers/Auth/Auth-reducer"
 
 import Dashboard from "./Screens/Dashboard/Dashboard"
+import Grid from "./Containers/Grid/Grid"
 
 
 require('react-web-vector-icons/fonts');
@@ -26,7 +27,7 @@ export const middlewares = [reduxThunk]
 
 export const store = createStore(rootReducer, applyMiddleware(reduxThunk));
 
-ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><Grid /></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

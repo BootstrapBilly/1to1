@@ -1,0 +1,86 @@
+.section {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    overflow-y: scroll;
+    height: 40vh;
+}
+
+.container {
+
+    width: 90vw;
+    height:100vh;
+    
+}
+
+.hourCol {
+
+    width: 10%;
+    height: 90%;
+    position: relative;
+    top:10%;
+
+
+}
+
+.hourColSegment {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:10%;
+    width:100%;
+    font-size: 2rem;
+    position: relative;
+    right: 20%;
+
+}
+
+.minRow {
+
+    display: flex;
+    width: 90%;
+    height: 10%;
+    position: relative;
+    bottom:90%;
+    left:10%;
+    border-bottom: 1px solid black;
+    
+}
+
+.minRowSegment {
+
+    height: 100%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.innerContainer{
+
+    display: flex;
+    flex:1;
+    width: 90%;
+    height: 90%;
+    position: relative;
+    left:10%;
+    bottom:90%;
+    border: 1px solid black;
+
+
+}
+
+.column {
+    width:25%;
+    height: 100%;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.rowSegment {
+
+    height:10%;
+    width:100%;
+}

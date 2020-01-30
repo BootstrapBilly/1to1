@@ -6,13 +6,13 @@ import Header from "../../Components/Header/Header"
 
 const CalendarDate = props => {
 
-    console.log(props)
+    const headerText = props.match.params.date
 
     return (
 
         <div test-handle="container">
 
-            <Header test-handle="header" text={props.match.params.date}/>
+            <Header test-handle="header" text={headerText}/>
 
             <section test-handle="form"></section> 
 

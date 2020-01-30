@@ -39,7 +39,7 @@ describe("\n\x1b[36mCalendar date screen", () => {
                 
                 // }
 
-            component = shallow(<CalendarDate store={store}/>);
+            component = shallow(<CalendarDate store={store} match={{params: {id: 1}, isExact: true, path: "", url: ""}}/>);
             
         })
 
