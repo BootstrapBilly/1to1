@@ -8,28 +8,28 @@ const Form = props => {
 
         <div test-handle="container" className={classes.container}>
 
-            <div className={classes.inputContainer}>
+            <div className={classes.inputContainer} test-handle="name-container">
 
-                <span className={classes.promptText}>NAME :</span>
-                <input test-handle="name" className={classes.input} placeholder="Loren Knight" />
-
-            </div>
-
-            <div className={classes.inputContainer}>
-
-                <span className={classes.promptText}>PHONE NUMBER :</span>
-                <input test-handle="number" className={classes.input} placeholder="07684485839"/>
+                <span className={classes.promptText} test-handle="name-prompt">NAME :</span>
+                <input className={classes.input} placeholder="Loren Knight" test-handle="name-input" />
 
             </div>
 
-            <div className={classes.inputContainer}>
+            <div className={classes.inputContainer} test-handle="number-container">
 
-                <span className={classes.promptText}>NOTES :</span>
-                <textarea test-handle="notes" className={classes.input} placeholder="Buys lots of products and is never late" style={{height:"10vh", marginTop:"1vh", fontSize:"1.3rem"}} />
+                <span className={classes.promptText} test-handle="number-prompt">PHONE NUMBER :</span>
+                <input className={classes.input} placeholder="07684485839" test-handle="number-input"/>
 
             </div>
 
-            <button className={classes.button}>ADD</button>
+            <div className={classes.inputContainer} test-handle="notes-container">
+
+                <span className={classes.promptText} test-handle="notes-prompt">NOTES :</span>
+                <textarea className={classes.input} test-handle="notes-input" placeholder="Buys lots of products and is never late" style={{height:"10vh", marginTop:"1vh", fontSize:"1.3rem"}} />
+
+            </div>
+
+            <button className={classes.button} test-handle="button">ADD</button>
 
         </div>
 

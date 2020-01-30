@@ -28,16 +28,72 @@ describe("\n\x1b[36mButton", () => {
 
         })
 
+        it("Should render a name input container", () => {
+
+            const wrapper = findByTestAttribute(component, "name-container")
+            expect(wrapper.length).toBe(1)
+
+        })
+
+        it("Should render a name input prompt", () => {
+
+            const wrapper = findByTestAttribute(component, "name-prompt")
+            expect(wrapper.length).toBe(1)
+
+        })
+
         it("Should render a name input", () => {
 
-            const wrapper = findByTestAttribute(component, "name")
+            const wrapper = findByTestAttribute(component, "name-input")
+            expect(wrapper.length).toBe(1)
+
+        })
+
+        it("Should render a number input container", () => {
+
+            const wrapper = findByTestAttribute(component, "number-container")
+            expect(wrapper.length).toBe(1)
+
+        })
+        
+        it("Should render a number input prompt", () => {
+
+            const wrapper = findByTestAttribute(component, "number-prompt")
             expect(wrapper.length).toBe(1)
 
         })
 
         it("Should render a number input", () => {
 
-            const wrapper = findByTestAttribute(component, "number")
+            const wrapper = findByTestAttribute(component, "number-input")
+            expect(wrapper.length).toBe(1)
+
+        })
+
+        it("Should render a notes input container", () => {
+
+            const wrapper = findByTestAttribute(component, "notes-container")
+            expect(wrapper.length).toBe(1)
+
+        })
+        
+        it("Should render a notes input prompt", () => {
+
+            const wrapper = findByTestAttribute(component, "notes-prompt")
+            expect(wrapper.length).toBe(1)
+
+        })
+
+        it("Should render a notes input", () => {
+
+            const wrapper = findByTestAttribute(component, "notes-input")
+            expect(wrapper.length).toBe(1)
+
+        })
+
+        it("Should an add button", () => {
+
+            const wrapper = findByTestAttribute(component, "button")
             expect(wrapper.length).toBe(1)
 
         })

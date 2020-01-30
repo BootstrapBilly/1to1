@@ -8,6 +8,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux"
 import reduxThunk from "redux-thunk"
 import { Provider } from "react-redux"
 import authReducer from "./store/reducers/Auth/Auth-reducer"
+import newClientReducer from "./store/reducers/New Client/NewClient-reducer"
 
 // import Grid from "./Containers/Grid/Grid"
 // import App from './App';
@@ -21,6 +22,7 @@ require('react-web-vector-icons/fonts');
 export const rootReducer = combineReducers({ //combine all the state reducers into one root reducer
 
   auth: authReducer,
+  newClient: newClientReducer
 
 })
 
