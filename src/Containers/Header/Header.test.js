@@ -42,21 +42,24 @@ describe("\n\x1b[36mLogo", () => {
 
         })
 
-        it("Should fire a function when the hamburger menu is clicked", () => {
+        it("Should render a side panel", () => {
 
-            const mockFn = jest.fn() //define a mock function
+            const wrapper = findByTestAttribute(component, "side-panel")
+            expect(wrapper.length).toBe(1)
 
-            const component = shallow(<Header onClickMenu={mockFn} />) //create a shallow copy of the component and pass it the prop to test
 
-            findByTestAttribute(component, "hamburger").simulate("click")//simulate a click event on it
+        })
 
-            expect(mockFn).toHaveBeenCalled();//expect the mock function to be called
+        it("Should render a fullscreen area which closes the panel when clicked", () => {
+
+            const wrapper = findByTestAttribute(component, "closeArea")
+            expect(wrapper.length).toBe(1)
 
         })
 
         it("Prop types are correct", () => {
 
-            const propsToBeTested = {onClickMenu: () => { }, text: "string"} //emulate the props being passed in
+            const propsToBeTested = {text: "string"} //emulate the props being passed in
 
             const propsError = checkProps(Header, propsToBeTested)
 

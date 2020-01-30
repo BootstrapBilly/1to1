@@ -1,0 +1,69 @@
+.container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3vh;
+
+}
+
+.inputContainer {
+
+    display: flex;
+    flex-direction: column;
+    width:80%;
+    margin-bottom: 3vh;
+    background-color: transparent;
+    border: 0.5px solid rgba(128, 128, 128, 0.411);
+    padding:5px;
+    padding-left: 12px;
+    border-radius: 5px;
+
+}
+
+
+.promptText {
+
+    color:blueviolet;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+}
+
+.input {
+
+    display: flex;
+    height: 4.5vh;
+    outline: none;
+    border: none;
+    color: black;
+    font-size: 1.2REM;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.input::placeholder {
+
+font-size: 1.2REM;
+color: rgba(0, 0, 0, 0.459);
+font-family: 'Libre Baskerville', serif;
+
+}
+
+.input:focus::placeholder {
+
+font-size: 1.3REM;
+color: rgba(0, 0, 0, 0);
+
+}
+
+.button {
+
+    width: 35vw;
+    height: 6vh;
+    border-radius: 5px;
+    border:2px solid blueviolet;
+    background-color: transparent;
+    color:blueviolet;
+    font-size: 1.2rem;
+}

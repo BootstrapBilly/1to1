@@ -2,7 +2,7 @@
 import React, { useState } from "react"
 
 //components
-import Header from "../../Components/Header/Header"
+import Header from "../../Containers/Header/Header"
 import Calendar from "../../Components/Calendar/Calendar"
 import Appointment from "../../Containers/Appointment/Appointment"
 import Grid from "../../Containers/Grid/Grid"
@@ -24,7 +24,7 @@ const Dashboard = props => {
 
         <div className={classes.container} test-handle="container">
 
-            <Header test-handle="header" text={"45 minutes until Loren"} />
+            <Header test-handle="header" text={"45 minutes until Loren"}/>
 
             <div className={classes.clientsWrapper} test-handle="next-client">{detailActive ? <Appointment handleClickCross={() => setDetailActive(!detailActive)} /> : <Grid onClickActive={() => setDetailActive(!detailActive)} />}</div>
 
