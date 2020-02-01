@@ -1,23 +1,38 @@
 import React from "react"
 import { shallow } from "enzyme"
 import Form from "./Form"
-import { findByTestAttribute, checkProps } from "../../Utils/TestingUtils"
+import { findByTestAttribute } from "../../Utils/TestingUtils"
+import configureStore from "redux-mock-store"
+import * as ReactReduxHooks from "../../Utils/hooks"
+import thunk from "redux-thunk"
+import { addNewClient } from "../../store/actions/New Client/NewClient-action"
 
-const setComponent = (props = {}) => {//set the component to be tested
-    //Creates the component to be used in the test along with the props
-    const component = shallow(<Form {...props} />)
-    return component
+describe("\n\x1b[36mDashboard screen", () => {
 
-}
-
-describe("\n\x1b[36mButton", () => {
+    let store;
 
     describe("\nRenders correctly\n", () => {
 
         let component;
         beforeEach(() => {//run before every test
 
-            component = setComponent();//Sets the component to be used by the test
+            store = configureStore([thunk])({
+
+                submissionFailure : null,
+                successfulAddition : null,
+                genericError: null
+            
+            });
+
+            jest
+                .spyOn(ReactReduxHooks, "useSelector")
+                .mockImplementation(state => store.getState());
+
+            jest
+                .spyOn(ReactReduxHooks, "useDispatch")
+                .mockImplementation(() => store.dispatch);
+
+            component = shallow(<Form store={store} />);
 
         })
 
@@ -28,55 +43,13 @@ describe("\n\x1b[36mButton", () => {
 
         })
 
-        it("Should render a name input container", () => {
-
-            const wrapper = findByTestAttribute(component, "name-container")
-            expect(wrapper.length).toBe(1)
-
-        })
-
-        it("Should render a name input prompt", () => {
-
-            const wrapper = findByTestAttribute(component, "name-prompt")
-            expect(wrapper.length).toBe(1)
-
-        })
-
-        it("Should render a name input", () => {
-
-            const wrapper = findByTestAttribute(component, "name-input")
-            expect(wrapper.length).toBe(1)
-
-        })
-
-        it("Should render a number input container", () => {
-
-            const wrapper = findByTestAttribute(component, "number-container")
-            expect(wrapper.length).toBe(1)
-
-        })
-        
-        it("Should render a number input prompt", () => {
-
-            const wrapper = findByTestAttribute(component, "number-prompt")
-            expect(wrapper.length).toBe(1)
-
-        })
-
-        it("Should render a number input", () => {
-
-            const wrapper = findByTestAttribute(component, "number-input")
-            expect(wrapper.length).toBe(1)
-
-        })
-
         it("Should render a notes input container", () => {
 
             const wrapper = findByTestAttribute(component, "notes-container")
             expect(wrapper.length).toBe(1)
 
         })
-        
+
         it("Should render a notes input prompt", () => {
 
             const wrapper = findByTestAttribute(component, "notes-prompt")
@@ -98,28 +71,12 @@ describe("\n\x1b[36mButton", () => {
 
         })
 
-        // it("Prop types are correct", () => {
+        it("Should an add button", () => {
 
-        //     const propsToBeTested = { name: "String", onClickCross: () => { }, onClickEdit: () => { }, onClickSeen: () => { }, time:"string", date:"string", phone:"string", notes:"string"  } //emulate the props being passed in
+            const wrapper = findByTestAttribute(component, "button")
+            expect(wrapper.length).toBe(1)
 
-        //     const propsError = checkProps(Appointment, propsToBeTested)
-
-        //     expect(propsError).toBeUndefined();//expect no error to be return
-
-        // })
-
-        // it("Should fire a function when edit is clicked", () => {
-
-        //     const mockFn = jest.fn() //define a mock function
-
-
-        //     const component = shallow(<Appointment handleClickEdit={mockFn} />) //create a shallow copy of the component and pass it the prop to test
-
-        //     findByTestAttribute(component, "edit").simulate("click")//simulate a click event on it
-
-        //     expect(mockFn).toHaveBeenCalled();//expect the mock function to be called
-
-        // })
+        })
 
     })
 

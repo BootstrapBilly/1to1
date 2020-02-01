@@ -4,7 +4,7 @@ const initialState = {//set the initial state
 
     submissionFailure : null,
     successfulAddition : null,
-    genericError: null
+    genericError: null,
 
 }
 

@@ -5,13 +5,13 @@ export const SUBMISSIONSUCCESS = "SUBMISSIONSUCCESS"
 export const RESET = "RESET"
 export const GENERIC = "GENERIC"
 
-export const addNewClient = (pin) => {
+export const addNewClient = (customerDetails) => {
 
     return async dispatch => {
 
         try {
 
-            const response = await axios.post('http://localhost:4000/addNewClient', { pin: pin })
+            const response = await axios.post('http://localhost:4000/addNewClient', { customerDetails: customerDetails })
             if (response.data.success) return dispatch({ type: SUBMISSIONSUCCESS })
 
         }
@@ -25,4 +25,10 @@ export const addNewClient = (pin) => {
 
     }
 
+}
+
+export const resetForm = () => {
+
+    return async dispatch => dispatch({type:RESET})
+    
 }

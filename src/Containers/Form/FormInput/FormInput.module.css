@@ -1,13 +1,3 @@
-.container {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3vh;
-
-}
-
 .inputContainer {
 
     display: flex;
@@ -70,15 +60,4 @@ font-family: 'Libre Baskerville', serif;
 font-size: 1.3REM;
 color: rgba(0, 0, 0, 0);
 
-}
-
-.button {
-
-    width: 35vw;
-    height: 6vh;
-    border-radius: 5px;
-    border:2px solid blueviolet;
-    background-color: transparent;
-    color:blueviolet;
-    font-size: 1.2rem;
 }

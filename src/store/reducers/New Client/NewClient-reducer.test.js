@@ -6,7 +6,7 @@ describe("Auth reducer", ()=> {
 
         submissionFailure : null,
         successfulAddition : null,
-        genericError : null
+        genericError : null,
     
     }
 
@@ -49,5 +49,6 @@ describe("Auth reducer", ()=> {
         expect(newState).toEqual({ ...initialState, genericError: true})
 
     })
+
 
 })
