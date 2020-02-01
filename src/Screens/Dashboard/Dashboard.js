@@ -6,6 +6,7 @@ import Header from "../../Containers/Header/Header"
 import Calendar from "../../Components/Calendar/Calendar"
 import Appointment from "../../Containers/Appointment/Appointment"
 import Grid from "../../Containers/Grid/Grid"
+import AddToGrid from "../../Containers/Add-to-grid/Add-to-grid"
 
 import classes from "./Dashboard.module.css"
 
@@ -18,15 +19,20 @@ const Dashboard = props => {
 
     }
 
-    const [detailActive, setDetailActive] = useState(false)
+    const [sectionContent, setSectionContent] = useState("grid")
 
     return (
 
         <div className={classes.container} test-handle="container">
 
-            <Header test-handle="header" text={"45 minutes until Loren"}/>
+            <Header test-handle="header" text={"45 minutes until Loren"} />
 
-            <div className={classes.clientsWrapper} test-handle="next-client">{detailActive ? <Appointment handleClickCross={() => setDetailActive(!detailActive)} /> : <Grid onClickActive={() => setDetailActive(!detailActive)} />}</div>
+            <div className={classes.clientsWrapper} test-handle="next-client">
+
+                {sectionContent === "grid" ? <Grid onClickActive={() => setSectionContent("client-detail")} onClickEmpty={() => setSectionContent("add-to-grid")} />
+                    : sectionContent === "client-detail" ? <Appointment handleClickCross={() => setSectionContent("grid")} />
+                        : <AddToGrid />}
+            </div>
 
             <div className={classes.calendarWrapper} test-handle="calendar"><Calendar dashboardProps={props} onClickDay={(value, event) => navigateToDate(value, event)} /></div>
 

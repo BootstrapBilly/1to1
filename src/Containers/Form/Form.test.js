@@ -7,7 +7,7 @@ import * as ReactReduxHooks from "../../Utils/hooks"
 import thunk from "redux-thunk"
 import { addNewClient } from "../../store/actions/New Client/NewClient-action"
 
-describe("\n\x1b[36mDashboard screen", () => {
+describe("\n\x1b[36mNew customer form", () => {
 
     let store;
 
@@ -78,6 +78,41 @@ describe("\n\x1b[36mDashboard screen", () => {
 
         })
 
+        it("Should render an add button", () => {
+
+            const wrapper = findByTestAttribute(component, "button")
+            expect(wrapper.length).toBe(1)
+
+        })
+
+    })
+
+    describe("\nProduces correct validation errors\n", () => {
+
+        let component;
+        beforeEach(() => {//run before every test
+
+            store = configureStore([thunk])({
+
+                submissionFailure : null,
+                successfulAddition : null,
+                genericError: null
+            
+            });
+
+            jest
+                .spyOn(ReactReduxHooks, "useSelector")
+                .mockImplementation(state => store.getState());
+
+            jest
+                .spyOn(ReactReduxHooks, "useDispatch")
+                .mockImplementation(() => store.dispatch);
+
+            component = shallow(<Form store={store} />);
+
+        })
+
+        
         it("Should render an add button", () => {
 
             const wrapper = findByTestAttribute(component, "button")

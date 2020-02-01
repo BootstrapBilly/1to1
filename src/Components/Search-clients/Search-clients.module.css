@@ -1,0 +1,36 @@
+.container {
+
+    width: 90%;
+    height: 70%;
+    overflow-y: scroll;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 1vh;
+
+}
+
+.container::-webkit-scrollbar {
+
+    display: none
+
+}
+
+.clientContainer {
+
+    width: 31%;
+    height: 10vh;
+    margin: 1%;
+    border: 0.5px solid rgba(128, 128, 128, 0.411);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    text-align: center;
+    box-shadow: 2px 2px 3px rgb(163,177,198,0.6), -2px -2px 4px rgba(255,255,255, 0.5);
+}
+
+.text{
+    padding: 1vw;
+}

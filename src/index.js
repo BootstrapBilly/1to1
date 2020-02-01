@@ -12,8 +12,8 @@ import newClientReducer from "./store/reducers/New Client/NewClient-reducer"
 
 // import Grid from "./Containers/Grid/Grid"
 // import App from './App';
-// import Dashboard from './Screens/Dashboard/Dashboard';
-import NewClient from "./Screens/NewClient/NewClient"
+import Dashboard from './Screens/Dashboard/Dashboard';
+//import NewClient from "./Screens/NewClient/NewClient"
 
 
 require('react-web-vector-icons/fonts');
@@ -30,7 +30,7 @@ export const middlewares = [reduxThunk]
 
 export const store = createStore(rootReducer, applyMiddleware(reduxThunk));
 
-ReactDOM.render(<Provider store={store}><NewClient /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><Dashboard /></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

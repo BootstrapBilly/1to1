@@ -10,6 +10,22 @@ const Grid = props => {
     const activeC3 = [["1", false, "Jasper"], ["2", false, "Shenice"], ["3", true, "Deshawn"], ["5", true, null], ["6", true, null], ["7", false, "Pen"]]
     const activeC4 = [["1", false, "Singh"], ["3", true], ["5", true, null], ["6", true, null], ["7", false, "Ken"]]
 
+    const rows = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+
+    const setCellType = (activeCol, colSeg, item) => {
+
+        const segmentActive = activeCol.find(activeItem => activeItem[0] === item)
+
+        if (segmentActive) {
+
+            return <div test-handle={`${colSeg}-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClickActive}>
+                <div className={segmentActive[1] ? classes.activeSegmentJoined : classes.activeSegment}>{segmentActive[2]}</div></div>
+        }
+
+        else return <div test-handle={`${colSeg}-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClickEmpty}></div>
+
+    }
+
     return (
 
         <section className={classes.section}>
@@ -53,17 +69,10 @@ const Grid = props => {
 
                         {
 
-                            ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].map(item => {
+                            rows.map(item => {
 
-                                const segmentActive = activeC1.find(activeItem => activeItem[0] === item)
-
-                                if (segmentActive) {
-
-                                    return <div test-handle={`col1-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClickActive}>
-                                        <div className={segmentActive[1] ? classes.activeSegmentJoined : classes.activeSegment}>{segmentActive[2]}</div></div>
-                                }
-
-                                else return <div test-handle={`col1-seg${item}`} className={classes.rowSegment} key={item}></div>
+                                const cell = setCellType(activeC1, "col1", item)
+                                return cell
 
                             })
 
@@ -76,17 +85,10 @@ const Grid = props => {
 
                         {
 
-                            ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].map(item => {
+                            rows.map(item => {
 
-                                const segmentActive = activeC2.find(activeItem => activeItem[0] === item)
-
-                                if (segmentActive) {
-
-                                    return <div test-handle={`col2-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClickActive} > 
-                                        <div className={segmentActive[1] ? classes.activeSegmentJoined : classes.activeSegment}>{segmentActive[2]}</div></div>
-                                }
-
-                                else return <div test-handle={`col2-seg${item}`} className={classes.rowSegment} key={item}></div>
+                                const cell = setCellType(activeC2, "col2", item)
+                                return cell
 
                             })
 
@@ -98,17 +100,10 @@ const Grid = props => {
 
                         {
 
-                            ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].map(item => {
+                            rows.map(item => {
 
-                                const segmentActive = activeC3.find(activeItem => activeItem[0] === item)
-
-                                if (segmentActive) {
-
-                                    return <div test-handle={`col3-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClickActive}>
-                                        <div className={segmentActive[1] ? classes.activeSegmentJoined : classes.activeSegment}>{segmentActive[2]}</div></div>
-                                }
-
-                                else return <div test-handle={`col3-seg${item}`} className={classes.rowSegment} key={item}></div>
+                                const cell = setCellType(activeC3, "col3", item)
+                                return cell
 
                             })
 
@@ -120,17 +115,10 @@ const Grid = props => {
 
                         {
 
-                            ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].map(item => {
+                            rows.map(item => {
 
-                                const segmentActive = activeC4.find(activeItem => activeItem[0] === item)
-
-                                if (segmentActive) {
-
-                                    return <div test-handle={`col4-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClickActive}>
-                                        <div className={segmentActive[1] ? classes.activeSegmentJoined : classes.activeSegment}>{segmentActive[2]}</div></div>
-                                }
-
-                                else return <div test-handle={`col4-seg${item}`} className={classes.rowSegment} key={item}></div>
+                                const cell = setCellType(activeC4, "col4", item)
+                                return cell
 
                             })
 
@@ -151,7 +139,7 @@ Grid.propTypes = {
 
     onClickActive: PropTypes.func,
     onClickInactive: PropTypes.func,
-    
+
 }
 
 export default Grid

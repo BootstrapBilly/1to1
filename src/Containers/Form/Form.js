@@ -31,12 +31,12 @@ const Form = props => {
 
         if (successfulAddition)//if the form has been submitted successfully
 
-            setFormInfo({ name: "", phone: "", notes: "" })//clear the form
+        setFormInfo({ name: "", phone: "", notes: "" })//clear the form
         dispatch(resetForm())//dispatch to reset any errors
 
     }, [successfulAddition, dispatch])
 
-    //methods
+    //functions
     const formSubmitHandler = () => {
 
         dispatch(resetForm())//dispatch to reset any errors
@@ -55,7 +55,7 @@ const Form = props => {
         if (formInfo.phone.length < 9 || formInfo.phone.includes(" ") || formInfo.phone.match(/^[0-9]+$/) === null) {
         
         errorPresent = true
-        setEmptyInputs(emptyInputs => [...emptyInputs, "phone"])//if the phone field is empty add it to the error fields array
+        setEmptyInputs(emptyInputs => [...emptyInputs, "phone"])//if the phone field is empty, has spaces, or contains letters, set the errors
 
     }
 
