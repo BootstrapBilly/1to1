@@ -14,7 +14,7 @@ const authReducer = (state = initialState, action) => {
 
         case SUBMISSIONFAILURE : return { ...initialState, submissionFailure : true}
         case SUBMISSIONSUCCESS : return { ...initialState, successfulAddition : true}
-        case RESET : return { ...initialState, submissionFailure : true, successfulAddition : null, genericError: null}
+        case RESET : return { ...initialState, submissionFailure : false, successfulAddition : null, genericError: null}
         case GENERIC : return { ...initialState, genericError: true}
         default: return state
 

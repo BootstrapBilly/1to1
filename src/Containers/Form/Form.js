@@ -24,6 +24,7 @@ const Form = props => {
 
     //selectors
     const successfulAddition = useSelector(state => state.newClient.successfulAddition)
+    const submissionFailure = useSelector(state => state.newClient.submissionFailure)
 
     //Effects
     useEffect(() => {
@@ -33,41 +34,63 @@ const Form = props => {
             setFormInfo({ name: "", phone: "", notes: "" })//clear the form
         dispatch(resetForm())//dispatch to reset any errors
 
-
     }, [successfulAddition, dispatch])
 
     //methods
     const formSubmitHandler = () => {
 
-        setEmptyInputs([])//clear any errors on submit
+        dispatch(resetForm())//dispatch to reset any errors
 
-        if (!formInfo.name.length) setEmptyInputs(emptyInputs => [...emptyInputs, "name"]) //if the name field is empty add it to the error fields array
+        setEmptyInputs([])
 
-        if (!formInfo.phone.length) setEmptyInputs(emptyInputs => [...emptyInputs, "phone"])//if the phone field is empty add it to the error fields array
+        let errorPresent = false;
 
-        if (emptyInputs === []) dispatch(addNewClient(formInfo)) //if there are no errors, submit the form
+        if (!formInfo.name.length) {
+
+        errorPresent = true
+        setEmptyInputs(emptyInputs => [...emptyInputs, "name"]) //if the name field is empty add it to the error fields array
 
     }
+
+        if (formInfo.phone.length < 9 || formInfo.phone.includes(" ") || formInfo.phone.match(/^[0-9]+$/) === null) {
+        
+        errorPresent = true
+        setEmptyInputs(emptyInputs => [...emptyInputs, "phone"])//if the phone field is empty add it to the error fields array
+
+    }
+
+        if (!errorPresent) dispatch(addNewClient(formInfo)) //if there are no errors, submit the form
+
+    }
+
+    const setBorder = inputName => emptyInputs.find(item => item === inputName) ? "red" : null
+
+    const setError = (inputName, errorMessage) => emptyInputs.find(item => item === inputName) ? errorMessage : null
+
 
     return (
 
         <div test-handle="container" className={classes.container}>
 
-        <FormInput prompt={"NAME :"} placeholder={"LOREN KNIGHT"} value={formInfo.name} handleChange={e => setFormInfo({ ...formInfo, name: e.target.value})}
+            <FormInput prompt={"NAME :"} placeholder={"LOREN KNIGHT"} value={formInfo.name} handleChange={e => setFormInfo({ ...formInfo, name: e.target.value })}
 
-        setBorder={{borderColor: emptyInputs.find(item => item === "name") ? "red" : null}}
+                setBorder={{ borderColor: submissionFailure ? "red" : setBorder("name") }}
 
-        setError={emptyInputs.find(item => item === "name") ? "Please enter a name" : null}
+                setError={submissionFailure ? "That client name is in use" : setError("name", "Enter a name")}
 
-        />
+                test-handle="name-input"
 
-        <FormInput prompt={"PHONE NUMBER :"} placeholder={"07684485839"} value={formInfo.phone} handleChange={e => setFormInfo({ ...formInfo, phone: e.target.value})}
+            />
 
-        setBorder={{borderColor: emptyInputs.find(item => item === "phone") ? "red" : null}}
+            <FormInput prompt={"PHONE :"} placeholder={"07684485839"} value={formInfo.phone} handleChange={e => setFormInfo({ ...formInfo, phone: e.target.value })}
 
-        setError={emptyInputs.find(item => item === "phone") ? "Please enter a phone number" : null}
+                setBorder={{ borderColor: setBorder("phone") }}
 
-        />
+                setError={setError("phone", "Enter a valid phone number")}
+
+                test-handle="phone-input"
+
+            />
 
             <div className={classes.inputContainer} test-handle="notes-container">
 

@@ -64,14 +64,21 @@ describe("\n\x1b[36mDashboard screen", () => {
 
         })
 
-        it("Should an add button", () => {
+        it("Should render a name input", () => {
 
-            const wrapper = findByTestAttribute(component, "button")
+            const wrapper = findByTestAttribute(component, "name-input")
             expect(wrapper.length).toBe(1)
 
         })
 
-        it("Should an add button", () => {
+        it("Should render a phone-input", () => {
+
+            const wrapper = findByTestAttribute(component, "phone-input")
+            expect(wrapper.length).toBe(1)
+
+        })
+
+        it("Should render an add button", () => {
 
             const wrapper = findByTestAttribute(component, "button")
             expect(wrapper.length).toBe(1)
