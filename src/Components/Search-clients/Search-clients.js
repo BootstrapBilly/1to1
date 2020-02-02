@@ -7,7 +7,7 @@ const SearchClients = props => {
 
         <div className={classes.container}>
 
-            {["Loren Knight","Scarlett Knight","Abdullah Mohammed","Prosperity Madengo","Olubisi Akanmu","Dave Daveson","Jeff Bezos","Catherine Taylor","Jimmy James Joe", "Yes"].map(item => {
+            {props.clients.map(item => {
 
                 return <div className={classes.clientContainer} key={item}><span className={classes.text}>{item}</span></div>
 
