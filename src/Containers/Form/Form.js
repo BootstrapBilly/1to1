@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react"
 import classes from "./Form.module.css"
 
 //components
-import FormInput from "./FormInput/FormInput"
+import FormInput from "../../Components/FormInput/FormInput"
 
 //redux hooks
 import { useDispatch, useSelector } from "../../Utils/hooks"

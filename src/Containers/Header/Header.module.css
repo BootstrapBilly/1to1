@@ -16,7 +16,10 @@
     font-size: 1.2rem;
     margin: 0;
     padding: 0;
-    color:blueviolet
+    color:rgba(137, 43, 226, 0.712);
+    font-weight: 700;
+    position: relative;
+    top:5px
 }
 
 .total {
@@ -26,12 +29,40 @@
     padding: 0;
 }
 
+.backArrow{
+
+    width: 6vw;
+    position: absolute;
+    left: 2.5vw;
+    top: 1vh;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 1vw;
+    border: 3px solid #e8eef7;
+    box-shadow: 4px 4px 8px rgb(163,177,198,0.6), -4px -4px 8px rgba(255,255,255, 0.5);
+    background:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
 .hamburgerMenu{
 
-    width: 8vw;
+    width: 6vw;
     position: absolute;
     right: 2.5vw;
     top: 1vh;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 1vw;
+    border: 3px solid #e8eef7;
+    box-shadow: 4px 4px 8px rgb(163,177,198,0.6), -4px -4px 8px rgba(255,255,255, 0.5);
+    background:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .sidePanel {

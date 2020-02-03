@@ -11,7 +11,7 @@ export const searchForClients = (clientName) => {
 
         try {
 
-            const response = await axios.post('http://localhost:4000/searchForClients', { clientName: clientName })
+            const response = await axios.post('http://localhost:4000/searchForClients', { name: clientName })
             if (response.data.success) return dispatch({ type: CLIENTS_FOUND, clients: response.data.clients })
 
         }

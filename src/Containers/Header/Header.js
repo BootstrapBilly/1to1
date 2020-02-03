@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 
 import hamburger from "../../Assets/Icons/hamburger-menu.svg"
+import backArrow from "../../Assets/Icons/back-arrow.svg"
 
 const Header = props => {
 
@@ -16,6 +17,8 @@ const Header = props => {
         <div test-handle="container" className={classes.container}>
 
             <img src={hamburger} alt="A menu icon" className={classes.hamburgerMenu} test-handle="hamburger" onClick={() => setPanelOpen(!panelOpen)} />
+            
+            {props.backArrow ? <img src={backArrow} alt="A back button" className={classes.backArrow} onClick={props.handleBack} /> : null}
 
             <p test-handle="header-text" className={classes.title}>{props.text}</p>
 
@@ -24,7 +27,7 @@ const Header = props => {
                 <div className={classes.navLinks}>
                     
                 {/* <Link to="/dashboard" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Dashboard</p></Link>  
-                <Link to="/new-client" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Add a new client</p></Link>   */}
+                <Link to="/new-client" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Add a new client</p></Link>    */}
                 <p>Find a client</p>
 
                 </div>
