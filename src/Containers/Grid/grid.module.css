@@ -4,12 +4,15 @@
     width: 100vw;
     overflow-y: scroll;
     height: 40vh;
+
 }
 
 .container {
 
     width: 90vw;
     height:100vh;
+    position: relative;
+    left:-1vw
     
 }
 

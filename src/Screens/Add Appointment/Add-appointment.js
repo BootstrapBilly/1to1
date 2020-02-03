@@ -7,18 +7,24 @@ import Header from "../../Containers/Header/Header"
 
 const AddToGrid = props => {
 
-    const [lengthChosen, setLengthChosen] = useState(false)
+    const [lengthChosen, setLengthChosen] = useState(null)
 
 
     return (
 
-        <div className={classes.container}>
+        <React.Fragment>
 
-            <Header text={lengthChosen ? "Select a client" : "Appointment length"} backArrow/>
+            <Header text={lengthChosen ? "Select a client" : "Appointment length"} backArrow 
+            handleBack={()=> lengthChosen ? setLengthChosen(null) : props.history.goBack()}/>
 
-            {lengthChosen ? <SelectClient /> : <SelectLength />}
+            <div className={classes.container}>
 
-        </div>
+                {lengthChosen ? <SelectClient /> : <SelectLength onClickOption={(value)=> setLengthChosen(value)}/>}
+
+            </div>
+
+        </React.Fragment>
+
     )
 
 }
