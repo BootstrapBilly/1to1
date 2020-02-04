@@ -40,8 +40,13 @@ const Dashboard = props => {
 
             <div className={classes.clientsWrapper} test-handle="next-client" style={{ height: sectionContent === "add-to-grid" ? "100vh" : null }}>
 
-                {sectionContent === "grid" ? <Grid onClickActive={() => setSectionContent("client-detail")} onClickEmpty={(cell) => navigateToAddAppointment(cell)} />
-                    :  <Appointment handleClickCross={() => setSectionContent("grid")} />}
+                {sectionContent === "grid" ? 
+                
+                <Grid onClickActive={() => setSectionContent("client-detail")} onClickEmpty={(cell) => navigateToAddAppointment(cell)} date={new Date().toISOString().split("T")[0]} />
+                    
+                :  
+                
+                <Appointment handleClickCross={() => setSectionContent("grid")} />}
 
             </div>
   

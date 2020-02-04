@@ -12,7 +12,7 @@
     width: 90vw;
     height:100vh;
     position: relative;
-    left:-1vw
+    left:-1vw;
     
 }
 
@@ -31,12 +31,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height:10%;
+    height:11%;
     width:100%;
     font-size: 1.5rem;
     position: relative;
     right: 20%;
-
+    top:1.5%
 }
 
 .minRow {
@@ -46,7 +46,7 @@
     height: 10%;
     position: relative;
     bottom:90%;
-    left:10%;
+    left:4%;
     
 }
 
@@ -69,8 +69,10 @@
     position: relative;
     left:10%;
     bottom:90%;
-    border: 1px solid black;
-    border-radius: 5px;
+    border: 3px solid #b8b8b8;
+    border-bottom: none;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
     padding:4px
 
 
@@ -84,34 +86,169 @@
 
 .rowSegment {
 
-    height:10%;
+    height:11%;
     width:100%;
     border: 1px solid transparent;
 
 
 }
 
-.activeSegmentJoined {
+.activeSegment {
 
     height:90%;
-    width:100%;
+    width:93%;
+    margin-top: 5%;
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+    background-color: pink;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    border-radius: 10px;
+
+}
+
+.activeSegmentOverFlow {
+
+    height:90%;
+    width:102%;
     margin-top: 5%;
     background-color: lightblue;
     justify-content: center;
     align-items: center;
     display: flex;
+    text-align: center;
 
 }
 
-.activeSegment {
+.activeSegmentOverFlowFirst {
 
     height:90%;
-    width:90%;
-    margin-left: 5%;
+    width:102%;
     margin-top: 5%;
-    background-color: pink;
+    background-color: lightblue;
     justify-content: center;
     align-items: center;
     display: flex;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.activeSegmentOverFlowLast {
+
+    height:90%;
+    width:102%;
+    margin-top: 5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.activeSegmentUnderFlow{
+
+    height:90%;
+    width:102.5%;
+    margin-top: 5%;
+    margin-right: 1.5%;
+    position: relative;
+    left:-4.5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+
+}
+
+.activeSegmentUnderFlowFirst{
+
+    height:90%;
+    width:102.5%;
+    margin-top: 5%;
+    margin-right: 1.5%;
+    position: relative;
+    left:-4.5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.activeSegmentUnderFlowLast{
+
+    height:90%;
+    width:102.5%;
+    margin-top: 5%;
+    margin-right: 1.5%;
+    position: relative;
+    left:-4.5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.activeSegmentFirst {
+
+    height:90%;
+    width:100%;
+    margin-top: 5%;
+    position: relative;
+    margin-left: 2.5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.activeSegmentJoined {
+
+    height:90%;
+    width:105%;
+    margin-top: 5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    position: relative;
+    left: -2.5%;
+
+}
+
+.activeSegmentLast {
+
+    height:90%;
+    width:100%;
+    position: relative;
+    left:-5.5%;
+    margin-top: 5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 
 }

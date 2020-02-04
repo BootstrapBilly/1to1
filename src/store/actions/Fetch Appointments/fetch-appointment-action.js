@@ -10,8 +10,8 @@ export const fetchAppointments = (customerDetails) => {
 
         try {
 
-            const response = await axios.post('http://localhost:4000/fetchAppointments', { customerDetails: customerDetails })
-            if (response.data.success) return dispatch({ type: APPOINTMENTS_FOUND })
+            const response = await axios.post('http://localhost:4000/fetchAppointments', { date: customerDetails })
+            if (response.data.success) return dispatch({ type: APPOINTMENTS_FOUND, appointments: response.data.appointments })
 
         }
 
@@ -24,10 +24,4 @@ export const fetchAppointments = (customerDetails) => {
 
     }
 
-}
-
-export const resetForm = () => {
-
-    return async dispatch => dispatch({type:RESET})
-    
 }
