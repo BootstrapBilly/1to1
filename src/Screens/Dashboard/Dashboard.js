@@ -18,9 +18,15 @@ const Dashboard = props => {
 
     }
 
-    const navigateToAddAppointment = (value, event) => {
+    const navigateToAddAppointment = (cell) => {
 
-        props.history.push(`/add-appointment`)
+        props.history.push({
+
+            pathname: `/add-appointment`,
+            cell:cell,
+            date: new Date()
+            
+        })
 
     }
 
@@ -34,7 +40,7 @@ const Dashboard = props => {
 
             <div className={classes.clientsWrapper} test-handle="next-client" style={{ height: sectionContent === "add-to-grid" ? "100vh" : null }}>
 
-                {sectionContent === "grid" ? <Grid onClickActive={() => setSectionContent("client-detail")} onClickEmpty={() => navigateToAddAppointment()} />
+                {sectionContent === "grid" ? <Grid onClickActive={() => setSectionContent("client-detail")} onClickEmpty={(cell) => navigateToAddAppointment(cell)} />
                     :  <Appointment handleClickCross={() => setSectionContent("grid")} />}
 
             </div>

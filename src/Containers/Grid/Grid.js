@@ -22,7 +22,7 @@ const Grid = props => {
                 <div className={segmentActive[1] ? classes.activeSegmentJoined : classes.activeSegment}>{segmentActive[2]}</div></div>
         }
 
-        else return <div test-handle={`${colSeg}-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClickEmpty}></div>
+        else return <div test-handle={`${colSeg}-seg${item}`} className={classes.rowSegment} key={item} onClick={props.onClickEmpty.bind(this, `${colSeg}-seg${item}`)}></div>
 
     }
 

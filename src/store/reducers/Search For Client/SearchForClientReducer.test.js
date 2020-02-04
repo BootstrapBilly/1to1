@@ -41,4 +41,12 @@ describe("Search for client reducer", ()=> {
 
     })
 
+    it("Reset coming from add appointment reducer", ()=> {
+
+        const newState = SearchForClient(undefined, {type:"RESET"});
+
+        expect(newState).toEqual({...initialState, clients:[], noClients:null, error:null})
+
+    })
+
 })

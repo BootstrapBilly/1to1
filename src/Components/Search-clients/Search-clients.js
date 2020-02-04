@@ -1,8 +1,11 @@
 import React from "react"
 import classes from "./Search-clients.module.css"
+import { useDispatch, useSelector } from "react-redux"
+import {setAppointmentHolder} from "../../store/actions/Add Appointment/Add-Appointment-action"
 
 const SearchClients = props => {
 
+    const dispatch = useDispatch()
 
     const Clients = []
     
@@ -14,7 +17,7 @@ const SearchClients = props => {
 
             {Clients.map(item => {
 
-                return <div className={classes.clientContainer} key={item}><span className={classes.text}>{item}</span></div>
+                    return <div className={classes.clientContainer} key={item} onClick={()=> dispatch(setAppointmentHolder(item))}><span className={classes.text}>{item}</span></div>
 
             })}
 

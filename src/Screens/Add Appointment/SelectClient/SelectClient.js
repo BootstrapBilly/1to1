@@ -27,7 +27,7 @@ const SelectClient = props => {
 
             <FormInput prompt={"Search for a client"} setBorder={{ height: "7vh", background: "white", marginTop: "2vh" }} placeholder="Loren Knight" handleChange={(e)=> sendRequest(e)}/>
 
-            <SearchClients clients={Clients} />
+            <SearchClients clients={Clients}/>
 
         </div>
     )

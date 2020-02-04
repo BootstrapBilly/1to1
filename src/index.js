@@ -10,6 +10,7 @@ import { Provider } from "react-redux"
 import authReducer from "./store/reducers/Auth/Auth-reducer"
 import newClientReducer from "./store/reducers/New Client/NewClient-reducer"
 import searchClientReducer from "./store/reducers/Search For Client/SearchForClient-reducer"
+import addAppointmentReducer from "./store/reducers/Add Appointment/Add-Appointment-reducer"
 
 // import Grid from "./Containers/Grid/Grid"
 import App from './App';
@@ -25,7 +26,8 @@ export const rootReducer = combineReducers({ //combine all the state reducers in
 
   auth: authReducer,
   newClient: newClientReducer,
-  searchClient: searchClientReducer
+  searchClient: searchClientReducer,
+  addAppointment: addAppointmentReducer
 
 })
 
