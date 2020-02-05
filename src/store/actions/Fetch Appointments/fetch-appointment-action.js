@@ -6,16 +6,25 @@ export const GENERIC = "GENERIC"
 
 export const fetchAppointments = (customerDetails) => {
 
-    return async dispatch => {
+    return async (dispatch, state) => {
 
         try {
 
-            const response = await axios.post('http://localhost:4000/fetchAppointments', { date: customerDetails })
+            const response = await axios.post('http://localhost:4000/fetchAppointments', 
+            {date: customerDetails},
+            {
+                headers: {
+                    Authorization: "Bearer " + state().auth.token
+                }
+            }
+            )
             if (response.data.success) return dispatch({ type: APPOINTMENTS_FOUND, appointments: response.data.appointments })
 
         }
 
         catch (error) {
+
+            console.log(error.response)
 
             if (error.response.status === 404) return dispatch({ type: NO_APPOINTMENTS_FOUND })
             if (error.response.status === 500) return dispatch({ type: GENERIC })

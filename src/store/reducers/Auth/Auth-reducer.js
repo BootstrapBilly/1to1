@@ -3,6 +3,7 @@ import {LOGINFAILURE, LOGINSUCCESS, LOCKOUT, GENERIC} from "../../actions/Auth/A
 const initialState = {//set the initial state
 
     loggedIn: false,
+    token:null,
     validationFailure: false,
     lockout: false,
     genericError:false
@@ -15,7 +16,7 @@ const authReducer = (state = initialState, action) => {
 
         case LOGINFAILURE: return { ...initialState, validationFailure: true}
 
-        case LOGINSUCCESS: return { ...initialState, validationFailure: false, loggedIn:true}
+        case LOGINSUCCESS: return { ...initialState, validationFailure: false, loggedIn:true, token:action.token}
 
         case LOCKOUT: return { ...initialState, validationFailure: false, loggedIn:false, lockout:true}
         

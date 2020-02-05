@@ -5,6 +5,7 @@ describe("Auth reducer", ()=> {
     const initialState = {//set the initial state
 
         loggedIn: false,
+        token:null,
         validationFailure: false,
         lockout: false,
         genericError:false
@@ -29,9 +30,9 @@ describe("Auth reducer", ()=> {
 
     it("Login success", ()=> {
 
-        const newState = authReducer(undefined, {type:"LOGINSUCCESS"});
+        const newState = authReducer(undefined, {type:"LOGINSUCCESS", token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVmVyaWZpZWQgQ29uc3VsdGFudCIsImlhdCI6MTU4MDkyNTMxMSwiZXhwIjoxNTgwOTI4OTExfQ.RIi8RaSDOm3MpySKAiU95UfyFKtmtjeQm8OBpYeAZ-g"});
 
-        expect(newState).toEqual({ ...initialState, validationFailure: false, loggedIn:true})
+        expect(newState).toEqual({ ...initialState, validationFailure: false, loggedIn:true, token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVmVyaWZpZWQgQ29uc3VsdGFudCIsImlhdCI6MTU4MDkyNTMxMSwiZXhwIjoxNTgwOTI4OTExfQ.RIi8RaSDOm3MpySKAiU95UfyFKtmtjeQm8OBpYeAZ-g"})
 
     })
 

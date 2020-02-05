@@ -13,7 +13,7 @@ export const login = (pin) => {
         try {
 
             const response = await axios.post('http://localhost:4000/verify', { pin: pin })
-            if (response.data.success) return dispatch({ type: LOGINSUCCESS })
+            if (response.data.success) return dispatch({ type: LOGINSUCCESS, token:response.data.token})
 
         }
 

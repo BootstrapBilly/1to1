@@ -13,7 +13,8 @@ const CalendarDate = props => {
            "July", "August", "September", "October", "November", "December" ];
 
     const dArr = date.split("-");  // ex input "2010-01-18"
-    const reformattedDate =  dArr[2] + " " + m[parseInt(dArr[1])]+ " " + dArr[0]; //ex out: "18/01/10"
+    
+    const reformattedDate =  dArr[2] + " " + m[parseInt(dArr[1]-1)]+ " " + dArr[0]; //ex out: "18/01/10"
 
     const navigateToAddAppointment = (cell) => {
 
