@@ -14,3 +14,5 @@ Enzyme.configure({
     
 })
 
+global.fetch = require('jest-fetch-mock');
+

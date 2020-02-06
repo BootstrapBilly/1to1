@@ -1,4 +1,4 @@
-import axios from "axios"
+import sendPost from "../util/sendPostReq"
 
 export const SUBMISSIONFAILURE = "SUBMISSIONFAILURE"
 export const SUBMISSIONSUCCESS = "SUBMISSIONSUCCESS"
@@ -7,11 +7,11 @@ export const GENERIC = "GENERIC"
 
 export const addNewClient = (customerDetails) => {
 
-    return async dispatch => {
+    return async (dispatch, state) => {
 
         try {
 
-            const response = await axios.post('http://localhost:4000/addNewClient', { customerDetails: customerDetails })
+            const response = await sendPost("addNewClient", { customerDetails: customerDetails }, state().auth.token)
             if (response.data.success) return dispatch({ type: SUBMISSIONSUCCESS })
 
         }

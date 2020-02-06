@@ -1,4 +1,4 @@
-import axios from "axios"
+import sendPost from "../util/sendPostReq"
 
 export const CLIENTS_FOUND = "CLIENTS_FOUND"
 export const NO_CLIENTS_FOUND = "NO_CLIENTS_FOUND"
@@ -7,11 +7,11 @@ export const GENERIC = "GENERIC"
 
 export const searchForClients = (clientName) => {
 
-    return async dispatch => {
+    return async (dispatch, state) => {
 
         try {
 
-            const response = await axios.post('http://localhost:4000/searchForClients', { name: clientName })
+            const response = await sendPost("searchForClients", { name: clientName }, state().auth.token)
             if (response.data.success) return dispatch({ type: CLIENTS_FOUND, clients: response.data.clients })
 
         }

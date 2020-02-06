@@ -1,4 +1,4 @@
-import axios from "axios"
+import sendPost from "../util/sendPostReq"
 
 export const SET_CLIENT = "SET_CLIENT"
 export const SUBMISSION_SUCCESS = "SUBMISSION_SUCCESS"
@@ -25,11 +25,11 @@ export const setAppointmentHolder = (clientName) => {
 
 export const addAppointment = (appointmentDetails) => {
 
-    return async dispatch => {
+    return async (dispatch, state) => {
 
         try {
 
-            const response = await axios.post('http://localhost:4000/addAppointment', { appointmentDetails: appointmentDetails })
+            const response = await sendPost("addAppointment", { appointmentDetails: appointmentDetails }, state().auth.token)
             if (response.data.success) return dispatch({ type: SUBMISSION_SUCCESS })
 
         }

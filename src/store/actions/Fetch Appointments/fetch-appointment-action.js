@@ -1,3 +1,5 @@
+import sendPost from "../util/sendPostReq"
+
 import axios from "axios"
 
 export const APPOINTMENTS_FOUND = "APPOINTMENTS_FOUND"
@@ -10,21 +12,12 @@ export const fetchAppointments = (customerDetails) => {
 
         try {
 
-            const response = await axios.post('http://localhost:4000/fetchAppointments', 
-            {date: customerDetails},
-            {
-                headers: {
-                    Authorization: "Bearer " + state().auth.token
-                }
-            }
-            )
+            const response = await sendPost("fetchAppointments", {date: customerDetails}, state().auth.token)
             if (response.data.success) return dispatch({ type: APPOINTMENTS_FOUND, appointments: response.data.appointments })
 
         }
 
         catch (error) {
-
-            console.log(error.response)
 
             if (error.response.status === 404) return dispatch({ type: NO_APPOINTMENTS_FOUND })
             if (error.response.status === 500) return dispatch({ type: GENERIC })

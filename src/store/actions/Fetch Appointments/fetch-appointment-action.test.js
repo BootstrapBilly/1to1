@@ -5,10 +5,17 @@ import moxios from 'moxios';
 import expect from 'expect';
 import {APPOINTMENTS_FOUND, NO_APPOINTMENTS_FOUND, GENERIC, fetchAppointments}  from './fetch-appointment-action';
 
+
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('Send add a new client request', () => {
+afterEach(()=> {
+
+    mockAxios.reset();
+
+})
+
+describe('Send fetch appointments request', () => {
 
     beforeEach(() => {//SET UP THE MOXIOS MIDDLEWARE
 
@@ -22,14 +29,14 @@ describe('Send add a new client request', () => {
 
     });
 
-    it('Dispatches APPOINTMENTS_FOUND after receiving a 404 from the api', () => {
+    it('Dispatches NO_APPOINTMENTS_FOUND after receiving a 404 from the api', () => {
 
         const mockError = error => ({ status: 404, response: error })
 
         moxios.wait(() => {
 
             const request = moxios.requests.mostRecent();//mock a moxios request
-
+           
             request.respondWith(mockError({success:false}));
 
         });
@@ -44,7 +51,7 @@ describe('Send add a new client request', () => {
 
         });
 
-    });
+   });
 
     it('Dispatches GENERIC after receiving a 500 from the api', () => {
 
@@ -96,4 +103,4 @@ describe('Send add a new client request', () => {
 
     });
     
- });
+})
