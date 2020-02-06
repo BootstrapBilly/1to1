@@ -26,7 +26,7 @@ const SelectLength = props => {
 
             if (appointments.find(item => item.col === (parseInt(currentCol) + 1).toString() && item.row === currentRow)) return options = []
             if (appointments.find(item => item.col === (parseInt(currentCol) + 2).toString() && item.row === currentRow)) return options = [30]
-            if (appointments.find(item => item.col === currentCol && item.row === (parseInt(currentRow) + 1).toString())) return options = [30, 45]
+            if (appointments.find(item => item.col === (parseInt(currentCol) - 1).toString() && item.row === (parseInt(currentRow) + 1).toString())) return options = [30, 45]
 
         case "3":
 

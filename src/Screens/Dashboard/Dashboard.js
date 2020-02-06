@@ -7,7 +7,11 @@ import Calendar from "../../Components/Calendar/Calendar"
 import Appointment from "../../Containers/Appointment/Appointment"
 import Grid from "../../Containers/Grid/Grid"
 
+
+import { useSwipeable, Swipeable } from 'react-swipeable'
+
 import classes from "./Dashboard.module.css"
+
 
 const Dashboard = props => {
 
@@ -31,12 +35,19 @@ const Dashboard = props => {
     }
 
     const [sectionContent, setSectionContent] = useState("grid")
+    const [calendarActive, setCalendarActive] = useState(false)
+
+    const handlers = useSwipeable({
+        onSwipedDown: () => setCalendarActive(!calendarActive),
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true
+      });
 
     return (
 
         <div className={classes.container} test-handle="container">
 
-            <Header test-handle="header" text={"45 minutes until Loren"} />
+            <Header test-handle="header" text={"Today"} />
 
             <div className={classes.clientsWrapper} test-handle="next-client" style={{ height: sectionContent === "add-to-grid" ? "100vh" : null }}>
 
@@ -50,7 +61,7 @@ const Dashboard = props => {
 
             </div>
   
-            <div className={classes.calendarWrapper} test-handle="calendar"><Calendar dashboardProps={props} onClickDay={(value, event) => navigateToDate(value, event)} /></div>
+           {calendarActive ?  <div  {...handlers} className={classes.calendarWrapper} test-handle="calendar"><Calendar dashboardProps={props} onClickDay={(value, event) => navigateToDate(value, event)} /></div> : <div className={classes.openCalButton} onClick={()=> setCalendarActive(!calendarActive)}>ME</div>}
 
         </div>
 

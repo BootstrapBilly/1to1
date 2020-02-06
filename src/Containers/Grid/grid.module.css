@@ -3,7 +3,7 @@
     justify-content: center;
     width: 100vw;
     overflow-y: scroll;
-    height: 50vh;
+    height: 80vh;
     
 }
 
@@ -48,7 +48,7 @@
     height: 10%;
     position: relative;
     bottom:90%;
-    left:11%;
+    left:23%;
     
 }
 
@@ -90,7 +90,7 @@
 
     height:11%;
     width:100%;
-    border: 0.5px solid #b8b8b825;
+    border: 0.5px solid #b8b8b831;
 
 
 }

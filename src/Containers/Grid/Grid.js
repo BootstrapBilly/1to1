@@ -80,7 +80,7 @@ const Grid = props => {
 
                     {
 
-                        ["0mins", "15mins", "30mins", "45mins"].map(item => {
+                        ["15mins", "30mins", "45mins"].map(item => {
 
                             const sliced = item.slice(0, -4)
 
