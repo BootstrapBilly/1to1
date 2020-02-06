@@ -21,6 +21,7 @@ const AddToGrid = props => {
     const selectedClient = useSelector(state => state.addAppointment.clientName)
     const appointmentAdded = useSelector(state => state.addAppointment.appointmentAdded)
 
+
     useEffect(()=> {
 
         if(selectedClient && cell && lengthChosen && date) dispatch(addAppointment({clientName: selectedClient, cell:cell, date:date, appointmentLength:lengthChosen}))
@@ -44,7 +45,7 @@ const AddToGrid = props => {
 
             <div className={classes.container}>
 
-                {lengthChosen ? <SelectClient /> : <SelectLength onClickOption={(value)=> setLengthChosen(value)}/>}
+                {lengthChosen ? <SelectClient /> : <SelectLength cell={cell} onClickOption={(value)=> setLengthChosen(value)}/>}
 
             </div>
 

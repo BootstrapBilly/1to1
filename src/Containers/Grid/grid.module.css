@@ -3,8 +3,8 @@
     justify-content: center;
     width: 100vw;
     overflow-y: scroll;
-    height: 45vh;
-
+    height: 50vh;
+    
 }
 
 .container {
@@ -13,6 +13,8 @@
     height:100vh;
     position: relative;
     left:-1vw;
+    margin-bottom: 10vh;
+
     
 }
 
@@ -46,7 +48,7 @@
     height: 10%;
     position: relative;
     bottom:90%;
-    left:4%;
+    left:11%;
     
 }
 
@@ -88,7 +90,7 @@
 
     height:11%;
     width:100%;
-    border: 1px solid transparent;
+    border: 0.5px solid #b8b8b825;
 
 
 }
@@ -125,8 +127,9 @@
 .activeSegmentOverFlowFirst {
 
     height:90%;
-    width:102%;
+    width:101.5%;
     margin-top: 5%;
+    margin-left: 3%;
     background-color: lightblue;
     justify-content: center;
     align-items: center;

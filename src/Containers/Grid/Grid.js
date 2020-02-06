@@ -39,7 +39,7 @@ const Grid = props => {
 
     //!Configuration
     const dispatch = useDispatch() //call the dispatch hook to dispatch redux actions
-    const rows = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]//set the amount of rows on the grid
+    const rows = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]//set the amount of rows on the grid
     const activeC1 = [], activeC2 = [], activeC3 = [], activeC4 = [] //define the columns to be populated with appointments
 
     //*Selectors
