@@ -35,6 +35,9 @@ import { fetchAppointments } from "../../store/actions/Fetch Appointments/fetch-
 import populateCellData from "./populateCellData"
 import styleCell from "./styleCell"//styles the cell based on the data
 
+//external
+import { useSwipeable, Swipeable } from 'react-swipeable'
+
 const Grid = props => {
 
     //!Configuration
@@ -52,11 +55,19 @@ const Grid = props => {
 
         dispatch(fetchAppointments(props.date))//fetch the appointment data for that date
 
-    }, [])
+    }, [props.date])
+
+    const handlers = useSwipeable({
+        onSwipedLeft: props.onSwipedLeft,
+        onSwipedRight: props.onSwipedRight,
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true
+    });
 
     return (
+        
 
-        <section className={classes.section} style={{ height: props.fullSize ? "90vh" : null }}>
+        <section {...handlers} className={classes.section} style={{ height: props.fullSize ? "90vh" : null }}>
 
             <div test-handle="container" className={classes.container}>
 

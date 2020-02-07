@@ -46,10 +46,3 @@
         transform: translateY(0);
     }
 }
-
-.openCalButton {
-
-    position: fixed;
-    bottom: 5vh;
-
-}

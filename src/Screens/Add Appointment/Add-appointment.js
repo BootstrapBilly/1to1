@@ -28,7 +28,7 @@ const AddToGrid = props => {
 
         if(appointmentAdded) {
 
-            props.history.goBack()
+            props.history.push(`/calendar-date/${date}`)
             dispatch(reset())
 
         }
