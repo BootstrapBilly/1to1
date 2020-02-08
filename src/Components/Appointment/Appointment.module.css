@@ -1,6 +1,5 @@
 .card {
 
-
     min-width: 80vw;
     max-width: 80vw;
     background: white;
@@ -16,7 +15,6 @@
     display: flex;
     justify-content: space-between;
     height: 8vh;
-    
     
 }
 
@@ -39,7 +37,6 @@
     color: #2196F3;
     margin: 15px 0;
 
-    
 }
 
 .notesRow {
@@ -66,9 +63,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     height: 6vh;
     padding: 1vh 2vw;
+
 }
 
 
@@ -80,72 +77,56 @@
     position: relative;
     top:-5px;
     font-size: 1.8rem;
+
 }
 
-.cross {
+.button {
 
     position: relative;
-    top:-45px;
-    left:5px;
-    border: 3px solid #e8eef7;
     box-shadow: 2px 2px 4px rgb(163,177,198,0.6), -2px -2px 4px rgba(255,255,255, 0.5);
+    border: 2px solid #e8eef7;
     background:white;
-    width: 12vw;
-    height: 12vw;
     border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    
+}
+
+.cross {
+
+    top:-45px;
+    left:5px;
+    width: 12vw;
+    height: 12vw;
     color: rgba(247, 16, 16, 0.562);
     font-weight: 700;
     font-size: 30px;
 
 }
 
-.edit {
 
+.bottomButton {
 
-    border: 2px solid #e8eef7;
-    box-shadow: 2px 2px 4px rgb(163,177,198,0.6), -2px -2px 4px rgba(255,255,255, 0.5);
-    background:white;
     width: 25vw;
     height: 5vh;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgba(25, 175, 235, 0.562);
     font-weight: 700;
     font-size: 20px;
+
+}
+
+.edit {
+
+    color: rgba(25, 175, 235, 0.562);
 
 }
 
 .finish {
 
-
-    border: 2px solid #e8eef7;
-    box-shadow: 2px 2px 4px rgb(163,177,198,0.6), -2px -2px 4px rgba(255,255,255, 0.5);
-    background:white;
-    width: 25vw;
-    height: 5vh;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: rgba(6, 112, 23, 0.562);
-    font-weight: 700;
-    font-size: 20px;
-
 }
 
-.phoneNumber {
-
-    margin: 0;
-    padding: 0;
-
-}
-
-.notes {
+.phoneNumber .notes {
 
     margin: 0;
     padding: 0;

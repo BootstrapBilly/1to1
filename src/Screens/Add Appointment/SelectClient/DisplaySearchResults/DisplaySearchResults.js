@@ -1,7 +1,7 @@
 import React from "react"
-import classes from "./Search-clients.module.css"
+import classes from "./DisplaySearchResults.module.css"
 import { useDispatch } from "react-redux"
-import {setAppointmentHolder} from "../../store/actions/Add Appointment/Add-Appointment-action"
+import {setAppointmentHolder} from "../../../../store/actions/Add Appointment/Add-Appointment-action"
 
 const SearchClients = props => {
 

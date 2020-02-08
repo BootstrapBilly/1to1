@@ -1,5 +1,10 @@
+//Core react
 import React from "react"
+
+//external
 import PropTypes from "prop-types"
+
+//css
 import classes from "./button.module.css"
 
 const Button = props => (
@@ -11,7 +16,7 @@ const Button = props => (
 Button.propTypes = {
 
     text: PropTypes.string,
-    onClick: PropTypes.func
+    handleClick: PropTypes.func
     
 }
 

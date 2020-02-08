@@ -9,7 +9,7 @@ import { login } from "../../store/actions/Auth/Auth-action"
 
 //Components
 import Logo from "../../Components/Logo/Logo"
-import Input from "../../Components/Input/Input"
+import AuthInput from "../../Components/AuthInput/AuthInput"
 import Button from "../../Components/Button/Button"
 
 //css
@@ -48,7 +48,7 @@ const Authentication = props => {
 
                 <Logo test-handle="logo" />
 
-                <Input test-handle="input" handleChange={e => setPin(e.target.value)} style={{ borderColor: validationFailure ? "red" : "none" }} />
+                <AuthInput test-handle="input" handleChange={e => setPin(e.target.value)} overWriteStyle={{ borderColor: validationFailure ? "red" : "none" }} />
 
                 {errorMessage}
 

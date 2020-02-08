@@ -1,7 +1,7 @@
 import React from "react"
 
 import FormInput from "../../../Components/FormInput/FormInput"
-import SearchClients from "../../../Components/Search-clients/Search-clients"
+import SearchResults from "./DisplaySearchResults/DisplaySearchResults"
 import classes from "./SelectClient.module.css"
 
 import {searchForClients} from "../../../store/actions/Search For Client/SearchForClient-action"
@@ -25,9 +25,9 @@ const SelectClient = props => {
 
         <div className={classes.container}>
 
-            <FormInput prompt={"Search for a client"} setBorder={{ height: "7vh", background: "white", marginTop: "2vh" }} placeholder="Loren Knight" handleChange={(e)=> sendRequest(e)}/>
+            <FormInput inputTitle={"Search for a client"} overWriteStyle={{ height: "7vh", background: "white", marginTop: "2vh" }} placeholder="Loren Knight" handleChange={(e)=> sendRequest(e)}/>
 
-            <SearchClients clients={Clients}/>
+            <SearchResults clients={Clients}/>
 
         </div>
     )

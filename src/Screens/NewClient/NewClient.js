@@ -3,21 +3,26 @@ import React from "react"
 import Form from "../../Containers/Form/Form"
 
 import Header from "../../Containers/Header/Header"
+import classes from "./NewClient.module.css"
 
 const NewClient = props => {
 
     return (
 
-    <div test-handle="container">
+        <div test-handle="container" className={classes.container}>
 
-        <Header text={"Add a new client"} test-handle="header" backArrow handleBack={()=> props.history.goBack()}/>
+            <Header text={"Add a new client"} test-handle="header" backArrow handleBack={() => props.history.push("/dashboard")} />
 
-        <Form test-handle="form" />
+            <div className={classes.innerContainer}>
 
-        <div test-handle="submit"></div>
-        
-    </div>
-    
+                <Form test-handle="form" />
+
+                <div test-handle="submit"></div>
+
+            </div>
+
+        </div>
+
     )
 
 }

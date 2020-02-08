@@ -19,7 +19,7 @@
     
 }
 
-.promptText {
+.inputTitle {
 
     color:blueviolet;
     font-weight: 700;
@@ -27,7 +27,7 @@
     font-size: 1rem;
 }
 
-.errorText {
+.errorMessage {
 
     color:red;
     font-weight: 700;
@@ -45,6 +45,7 @@
     color: black;
     font-size: 1.2REM;
     font-family: 'Libre Baskerville', serif;
+    background-color: transparent;
 }
 
 .input::placeholder {

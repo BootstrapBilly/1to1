@@ -14,11 +14,9 @@
     color: black;
     box-shadow: 2px 2px 4px rgb(163,177,198,0.6), -2px -2px 4px rgba(255,255,255, 0.5);
 
-
-    
 }
 
-.calendarArrowRight {
+.calendarArrow {
 
     display: flex;
     height: 12vw;
@@ -26,20 +24,18 @@
     background-color: white;
     position: relative;
     top:-0.2vw;
-    left: -1.7vw;
-
 
 }
-/* here*/
+
+.calendarArrowRight {
+
+    left: -1.7vw;
+
+}
 
 .calendarArrowLeft {
 
     transform: rotate(180deg);
-    height: 12vw;
-    width: 20vw;
-    background-color: white;
-    position: relative;
-    top:-0.2vw;
     left: -2.2vw;
 
 }

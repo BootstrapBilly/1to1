@@ -4,7 +4,7 @@ import React, { useState } from "react"
 //components
 import Header from "../../Containers/Header/Header"
 import Calendar from "../../Components/Calendar/Calendar"
-import Appointment from "../../Containers/Appointment/Appointment"
+import Appointment from "../../Components/Appointment/Appointment"
 import Grid from "../../Containers/Grid/Grid"
 import Footer from "../../Components/Footer/Footer"
 

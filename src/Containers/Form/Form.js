@@ -31,7 +31,7 @@ const Form = props => {
 
         if (successfulAddition)//if the form has been submitted successfully
 
-        setFormInfo({ name: "", phone: "", notes: "" })//clear the form
+            setFormInfo({ name: "", phone: "", notes: "" })//clear the form
         dispatch(resetForm())//dispatch to reset any errors
 
     }, [successfulAddition, dispatch])
@@ -47,17 +47,17 @@ const Form = props => {
 
         if (!formInfo.name.length) {
 
-        errorPresent = true
-        setEmptyInputs(emptyInputs => [...emptyInputs, "name"]) //if the name field is empty add it to the error fields array
+            errorPresent = true
+            setEmptyInputs(emptyInputs => [...emptyInputs, "name"]) //if the name field is empty add it to the error fields array
 
-    }
+        }
 
         if (formInfo.phone.length < 9 || formInfo.phone.includes(" ") || formInfo.phone.match(/^[0-9]+$/) === null) {
-        
-        errorPresent = true
-        setEmptyInputs(emptyInputs => [...emptyInputs, "phone"])//if the phone field is empty, has spaces, or contains letters, set the errors
 
-    }
+            errorPresent = true
+            setEmptyInputs(emptyInputs => [...emptyInputs, "phone"])//if the phone field is empty, has spaces, or contains letters, set the errors
+
+        }
 
         if (!errorPresent) dispatch(addNewClient(formInfo)) //if there are no errors, submit the form
 
@@ -72,27 +72,27 @@ const Form = props => {
 
         <div test-handle="container" className={classes.container}>
 
-            <FormInput prompt={"NAME :"} placeholder={"LOREN KNIGHT"} value={formInfo.name} handleChange={e => setFormInfo({ ...formInfo, name: e.target.value })}
+            <FormInput inputTitle={"NAME :"} placeholder={"LOREN KNIGHT"} value={formInfo.name} handleChange={e => setFormInfo({ ...formInfo, name: e.target.value })}
 
-                setBorder={{ borderColor: submissionFailure ? "red" : setBorder("name") }}
+                overWriteStyle={{ borderColor: submissionFailure ? "red" : setBorder("name"), background: "white" }}
 
-                setError={submissionFailure ? "That client name is in use" : setError("name", "Enter a name")}
+                errorMessage={submissionFailure ? "That client name is in use" : setError("name", "Enter a name")}
 
                 test-handle="name-input"
 
             />
 
-            <FormInput prompt={"PHONE :"} placeholder={"07684485839"} value={formInfo.phone} handleChange={e => setFormInfo({ ...formInfo, phone: e.target.value })}
+            <FormInput inputTitle={"PHONE :"} placeholder={"07684485839"} value={formInfo.phone} handleChange={e => setFormInfo({ ...formInfo, phone: e.target.value })}
 
-                setBorder={{ borderColor: setBorder("phone") }}
+                overWriteStyle={{ borderColor: setBorder("phone"), background: "white" }}
 
-                setError={setError("phone", "Enter a valid phone number")}
+                errorMessage={setError("phone", "Enter a valid phone number")}
 
                 test-handle="phone-input"
 
             />
 
-            <div className={classes.inputContainer} test-handle="notes-container">
+            <div className={classes.inputContainer} test-handle="notes-container" style={{background: "white"}}>
 
                 <span className={classes.promptText} test-handle="notes-prompt">NOTES :</span>
                 <textarea className={classes.input} test-handle="notes-input" placeholder="Optional" style={{ height: "10vh", marginTop: "1vh", fontSize: "1.3rem" }} value={formInfo.notes} onChange={e => setFormInfo({ ...formInfo, notes: e.target.value })} />
