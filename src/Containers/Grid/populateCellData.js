@@ -106,11 +106,13 @@ const populateCellData = (appointments, activeC1, activeC2, activeC3, activeC4) 
                         activeC4.push([...appointmentInfo, "overFlowFirst"])
                         activeC1.push([(parseInt(item.row) + 1).toString(), item.joined, null, item.length, "underFlow"])
                         activeC2.push([(parseInt(item.row) + 1).toString(), item.joined, null, item.length])
-                        activeC3.push([(parseInt(item.row) + 1).toString(), item.joined, null, item.length, "last"])
+                        return activeC3.push([(parseInt(item.row) + 1).toString(), item.joined, null, item.length, "last"])
                     }
                     default: return
 
                 }
+
+                default: return
 
         }
 

@@ -10,7 +10,7 @@ const NewClient = props => {
 
     <div test-handle="container">
 
-        <Header text={"Add a new client"} test-handle="header"/>
+        <Header text={"Add a new client"} test-handle="header" backArrow handleBack={()=> props.history.goBack()}/>
 
         <Form test-handle="form" />
 

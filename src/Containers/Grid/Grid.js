@@ -27,7 +27,7 @@
 import React, { useEffect } from "react"
 import classes from "./grid.module.css"
 
-import PropTypes, { array } from "prop-types"
+import PropTypes from "prop-types"
 import { useDispatch, useSelector } from "react-redux"
 
 import { fetchAppointments } from "../../store/actions/Fetch Appointments/fetch-appointment-action"
@@ -36,7 +36,7 @@ import populateCellData from "./populateCellData"
 import styleCell from "./styleCell"//styles the cell based on the data
 
 //external
-import { useSwipeable, Swipeable } from 'react-swipeable'
+import { useSwipeable } from 'react-swipeable'
 
 const Grid = props => {
 
@@ -54,7 +54,7 @@ const Grid = props => {
     useEffect(() => {
 
         dispatch(fetchAppointments(props.date))//fetch the appointment data for that date
-
+  // eslint-disable-next-line
     }, [props.date])
 
     const handlers = useSwipeable({

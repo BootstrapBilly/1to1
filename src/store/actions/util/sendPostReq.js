@@ -2,7 +2,7 @@ import axios from "axios"
 
 const sendPost = (url, body, token) => {
 
-    if (typeof body !== "object" || typeof body === null)
+    if (typeof body !== "object" || body === null)
 
         console.log("\nSENDPOSTREQ - INVALID PARAMETER SUPPLIED : \nThe body(second) parameter must be an object")
 

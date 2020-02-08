@@ -9,7 +9,7 @@ import Grid from "../../Containers/Grid/Grid"
 import Footer from "../../Components/Footer/Footer"
 
 //external libraries
-import { useSwipeable, Swipeable } from 'react-swipeable'
+import { useSwipeable } from 'react-swipeable'
 
 //css
 import classes from "./Dashboard.module.css"
@@ -20,6 +20,7 @@ const Dashboard = props => {
     const navigateToDate = (value, event) => {
 
         const date = value.toISOString().split("T")[0]
+        console.log(date)
         props.history.push(`/calendar-date/${date}`)
 
     }

@@ -22,11 +22,15 @@ const SelectLength = props => {
             if (appointments.find(item => item.col === (parseInt(currentCol) + 2).toString() && item.row === currentRow)) return options = [30]
             if (appointments.find(item => item.col === (parseInt(currentCol) + 3).toString() && item.row === currentRow)) return options = [30, 45]
 
+            break;
+
         case "2":
 
             if (appointments.find(item => item.col === (parseInt(currentCol) + 1).toString() && item.row === currentRow)) return options = []
             if (appointments.find(item => item.col === (parseInt(currentCol) + 2).toString() && item.row === currentRow)) return options = [30]
             if (appointments.find(item => item.col === (parseInt(currentCol) - 1).toString() && item.row === (parseInt(currentRow) + 1).toString())) return options = [30, 45]
+
+            break;
 
         case "3":
 
@@ -34,11 +38,17 @@ const SelectLength = props => {
             if (appointments.find(item => item.col === (parseInt(currentCol) - 2).toString() && item.row === (parseInt(currentRow) + 1).toString())) return options = [30]
             if (appointments.find(item => item.col === (parseInt(currentCol) - 1).toString() && item.row === (parseInt(currentRow) + 1).toString())) return options = [30, 45]
 
+            break;
+
         case "4":
 
             if (appointments.find(item => item.col === (parseInt(currentCol) - 3).toString() && item.row === (parseInt(currentRow) + 1).toString())) return options = []
             if (appointments.find(item => item.col === (parseInt(currentCol) - 2).toString() && item.row === (parseInt(currentRow) + 1).toString())) return options = [30]
             if (appointments.find(item => item.col === (parseInt(currentCol) - 1).toString() && item.row === (parseInt(currentRow) + 1).toString())) return options = [30, 45]
+
+            break;
+
+            default: return options = []
 
     }
 

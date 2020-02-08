@@ -1,7 +1,5 @@
 import sendPost from "../util/sendPostReq"
 
-import axios from "axios"
-
 export const APPOINTMENTS_FOUND = "APPOINTMENTS_FOUND"
 export const NO_APPOINTMENTS_FOUND = "NO_APPOINTMENTS_FOUND"
 export const GENERIC = "GENERIC"

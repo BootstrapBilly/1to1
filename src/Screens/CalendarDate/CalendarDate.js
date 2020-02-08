@@ -7,7 +7,7 @@ import Grid from "../../Containers/Grid/Grid"
 import Footer from "../../Components/Footer/Footer"
 import Calendar from "../../Components/Calendar/Calendar"
 
-import { useSwipeable, Swipeable } from 'react-swipeable'
+import { useSwipeable } from 'react-swipeable'
 
 //css
 import classes from "./CalendarDate.module.css"
@@ -16,8 +16,6 @@ const CalendarDate = props => {
 
     const [date, setDate] = useState(props.match.params.date)
     const [calendarActive, setCalendarActive] = useState(false)
-
-    console.log(date)
 
     // let date = props.match.params.date
 
@@ -54,7 +52,7 @@ const CalendarDate = props => {
     const navigateToDate = (value, event) => {
 
         const date = value.toISOString().split("T")[0]
-        props.history.push(`/calendar-date/${date}`)
+        setDate(date)
 
     }
     

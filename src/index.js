@@ -15,9 +15,9 @@ import fetchAppointmentsReducer from "./store/reducers/Fetch Appointments/fetch-
 
 // import Grid from "./Containers/Grid/Grid"
 import App from './App';
-import Dashboard from './Screens/Dashboard/Dashboard';
-import NewClient from "./Screens/NewClient/NewClient"
-import AddAppointment from "./Screens/Add Appointment/Add-appointment"
+// import Dashboard from './Screens/Dashboard/Dashboard';
+// import NewClient from "./Screens/NewClient/NewClient"
+// import AddAppointment from "./Screens/Add Appointment/Add-appointment"
 
 
 require('react-web-vector-icons/fonts');
