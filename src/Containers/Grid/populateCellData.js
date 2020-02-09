@@ -1,47 +1,67 @@
-const populateCellData = (appointments, activeC1, activeC2, activeC3, activeC4) => {
+/*
+
+Special cell types
+
+first = first cell
+first overflow = first cell but appointment overflows onto the next row
+
+last = last cell
+last underflow = last cell but the rest of the appointment is on the row above
+
+overflow = not the first or last cell, but some of the appointment onto the row below
+underflow = not the first or last cell, but some of the appointment is on the row above
+
+*/
+
+const pushToNextRow = row => (parseInt(row) + 1).toString()
+
+const populateCellData = (appointments, column1, column2, column3, column4) => {//takes in the appointment data from the api, and the 4 arrays of columns
 
     return appointments.forEach(item => {
 
-        const appointmentInfo = [item.row, item.joined, item.name, item.length]
-        const appointmentMulti = [item.row, item.joined, null, item.length]
+        const appointmentInfo = [item.row, item.joined, item.name, item.length]//Set the appointment info
+        const appointmentMulti = [item.row, item.joined, null, item.length]//Set the appointment info, but leave the name null so it can stretch across multiple cells
+        const nextRowMulti = [pushToNextRow(item.row), item.joined, null, item.length]//Same as above but pushed down onto the next row
 
-        switch (item.length) {
+        switch (item.length) {//switch the length of the appointment
 
-            case 15:
+            case 15: //if its 15 mins long (A single appointment)
 
-                switch (item.col) {
+                switch (item.col) { //switch the column ---> WHICH IT STARTS ON <------
 
-                    case "1": return activeC1.push(appointmentInfo) 
-                    case "2": return activeC2.push(appointmentInfo)
-                    case "3": return activeC3.push(appointmentInfo)
-                    case "4": return activeC4.push(appointmentInfo)
-                    default: return
+                    case "1": return column1.push(appointmentInfo) //col 1 ? push the info to col 1
+                    case "2": return column2.push(appointmentInfo) //.... col 2
+                    case "3": return column3.push(appointmentInfo) //.... col 3
+                    case "4": return column4.push(appointmentInfo) //.... col 4
+
+                    default: return //default, do nothing
 
                 }
 
-            case 30:
+            case 30: //if its 30 mins long
 
-                switch (item.col) {
+                switch (item.col) { //switch the column ---> WHICH IT STARTS ON <------
 
-                    case "1": {
-                        activeC1.push([...appointmentInfo, "first"])
-                        return activeC2.push([...appointmentMulti, "last"])
+                    case "1": { //if it starts on col 1, 
+                        column1.push([...appointmentInfo, "first"]) //push the whole appointment info array, and add the "first" tag to give it a unique style
+                        return column2.push([...appointmentMulti, "last"]) //and on column 2, push the multi appointment info, (Because only the first cell has the name), and the "last" tag to style it
                     } 
 
-                    case "2": {
-                        activeC2.push([...appointmentInfo, "first"])
-                        return activeC3.push([...appointmentMulti, "last"])
+                    case "2": { //same as above but starting column 2
+                        column2.push([...appointmentInfo, "first"])
+                        return column3.push([...appointmentMulti, "last"])
                     } 
 
-                    case "3": {
-                        activeC3.push([...appointmentInfo, "first"])
-                        return activeC4.push([...appointmentMulti, "last"])
+                    case "3": {//same as above but starting column 3
+                        column3.push([...appointmentInfo, "first"])
+                        return column4.push([...appointmentMulti, "last"])
                     }
 
-                    case "4": {
-                        activeC4.push([...appointmentInfo, "overFlowFirst"])
-                        return activeC1.push([(parseInt(item.row) + 1).toString(), item.joined, null, item.length, "underFlowLast"])
+                    case "4": {//Push the first appointment info onto column 4, however this will overflow onto the next line
+                        column4.push([...appointmentInfo, "overFlowFirst"])//so give it the overflow first class
+                        return column1.push([...nextRowMulti, "underFlowLast"])//and push appointment info onto the next line col 1 because the appointment overflows
                     }
+
                     default: return
 
                 }
@@ -51,27 +71,27 @@ const populateCellData = (appointments, activeC1, activeC2, activeC3, activeC4) 
                 switch (item.col) {
 
                     case "1": {
-                        activeC1.push([...appointmentInfo, "first"])
-                        activeC2.push([...appointmentMulti])
-                        return activeC3.push([...appointmentMulti, "last"])
+                        column1.push([...appointmentInfo, "first"])
+                        column2.push([...appointmentMulti])
+                        return column3.push([...appointmentMulti, "last"])
                     } 
 
                     case "2": {
-                        activeC2.push([...appointmentInfo, "first"])
-                        activeC3.push([...appointmentMulti])
-                        return activeC4.push([...appointmentMulti, "last"])
+                        column2.push([...appointmentInfo, "first"])
+                        column3.push([...appointmentMulti])
+                        return column4.push([...appointmentMulti, "last"])
                     } 
 
                     case "3": {
-                        activeC3.push([...appointmentInfo, "first"])
-                        activeC4.push([...appointmentMulti, "overFlow"])
-                        return activeC1.push([(parseInt(item.row) + 1).toString(), item.joined, null, item.length, "underFlowLast"])
+                        column3.push([...appointmentInfo, "first"])
+                        column4.push([...appointmentMulti, "overFlow"])
+                        return column1.push([...nextRowMulti, "underFlowLast"])
                     }
 
                     case "4": {
-                        activeC4.push([...appointmentInfo, "overFlowFirst"])
-                        activeC1.push([(parseInt(item.row) + 1).toString(), item.joined, null, item.length, "underFlow"])
-                        return activeC2.push([(parseInt(item.row) + 1).toString(), item.joined, null, item.length, "last"])
+                        column4.push([...appointmentInfo, "overFlowFirst"])
+                        column1.push([...nextRowMulti, "underFlow"])
+                        return column2.push([...nextRowMulti, "last"])
                     }
                     default: return
 
@@ -82,31 +102,31 @@ const populateCellData = (appointments, activeC1, activeC2, activeC3, activeC4) 
                 switch (item.col) {
 
                     case "1": {
-                        activeC1.push([...appointmentInfo, "first"])
-                        activeC2.push([...appointmentMulti])
-                        activeC3.push([...appointmentMulti])
-                        return activeC4.push([...appointmentMulti, "last"])
+                        column1.push([...appointmentInfo, "first"])
+                        column2.push([...appointmentMulti])
+                        column3.push([...appointmentMulti])
+                        return column4.push([...appointmentMulti, "last"])
                     } 
 
                     case "2": {
-                        activeC2.push([...appointmentInfo, "first"])
-                        activeC3.push([...appointmentMulti])
-                        activeC4.push([...appointmentMulti, "overFlow"])
-                        return activeC1.push([(parseInt(item.row) + 1).toString(), item.joined, null, item.length, "underFlowLast"])
+                        column2.push([...appointmentInfo, "first"])
+                        column3.push([...appointmentMulti])
+                        column4.push([...appointmentMulti, "overFlow"])
+                        return column1.push([...nextRowMulti, "underFlowLast"])
                     } 
 
                     case "3": {
-                        activeC3.push([...appointmentInfo, "first"])
-                        activeC4.push([...appointmentMulti, "overFlow"])
-                        activeC1.push([(parseInt(item.row) + 1).toString(), item.joined, null, item.length, "underFlow"])
-                        return activeC2.push([(parseInt(item.row) + 1).toString(), item.joined, null, item.length, "last"])
+                        column3.push([...appointmentInfo, "first"])
+                        column4.push([...appointmentMulti, "overFlow"])
+                        column1.push([...nextRowMulti, "underFlow"])
+                        return column2.push([...nextRowMulti, "last"])
                     }
 
                     case "4": {
-                        activeC4.push([...appointmentInfo, "overFlowFirst"])
-                        activeC1.push([(parseInt(item.row) + 1).toString(), item.joined, null, item.length, "underFlow"])
-                        activeC2.push([(parseInt(item.row) + 1).toString(), item.joined, null, item.length])
-                        return activeC3.push([(parseInt(item.row) + 1).toString(), item.joined, null, item.length, "last"])
+                        column4.push([...appointmentInfo, "overFlowFirst"])
+                        column1.push([...nextRowMulti, "underFlow"])
+                        column2.push([...nextRowMulti])
+                        return column3.push([...nextRowMulti, "last"])
                     }
                     default: return
 

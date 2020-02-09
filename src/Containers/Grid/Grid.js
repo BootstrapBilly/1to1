@@ -24,19 +24,26 @@
         E.g "overFlow" will apply an overflow styling class
 
 */
+
+//react
 import React, { useEffect } from "react"
+
+//css
 import classes from "./grid.module.css"
 
+//external
 import PropTypes from "prop-types"
+import { useSwipeable } from 'react-swipeable'
+
+//redux hooks
 import { useDispatch, useSelector } from "react-redux"
 
+//redux actions
 import { fetchAppointments } from "../../store/actions/Fetch Appointments/fetch-appointment-action"
 
+//Utility functions
 import populateCellData from "./populateCellData"
 import styleCell from "./styleCell"//styles the cell based on the data
-
-//external
-import { useSwipeable } from 'react-swipeable'
 
 const Grid = props => {
 
@@ -44,6 +51,13 @@ const Grid = props => {
     const dispatch = useDispatch() //call the dispatch hook to dispatch redux actions
     const rows = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]//set the amount of rows on the grid
     const activeC1 = [], activeC2 = [], activeC3 = [], activeC4 = [] //define the columns to be populated with appointments
+
+    const handlers = useSwipeable({//makes the grid swipable 
+        onSwipedLeft: props.onSwipedLeft,
+        onSwipedRight: props.onSwipedRight,
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true
+    });
 
     //*Selectors
     const appointments = useSelector(state => state.fetchAppointments.appointments)//get the appointment data fetched from the api
@@ -56,13 +70,6 @@ const Grid = props => {
         dispatch(fetchAppointments(props.date))//fetch the appointment data for that date
   // eslint-disable-next-line
     }, [props.date])
-
-    const handlers = useSwipeable({
-        onSwipedLeft: props.onSwipedLeft,
-        onSwipedRight: props.onSwipedRight,
-        preventDefaultTouchmoveEvent: true,
-        trackMouse: true
-    });
 
     return (
         
@@ -77,13 +84,12 @@ const Grid = props => {
 
                         ["9am", "10am", "11am", "12pm", "13pm", "14pm", "15pm", "16pm", "17pm"].map(item => {
 
-                            const sliced = item.slice(0, -2)
+                            const sliced = item.slice(0, -2) //E.g. 12, 13, 14
 
                             return <div test-handle={item} className={classes.hourColSegment} key={item}>{sliced}</div>
                         })
 
                     }
-
 
                 </div>
 
@@ -93,7 +99,7 @@ const Grid = props => {
 
                         ["15mins", "30mins", "45mins"].map(item => {
 
-                            const sliced = item.slice(0, -4)
+                            const sliced = item.slice(0, -4)//e.g 15,30,45
 
                             return <div test-handle={item} className={classes.minRowSegment} key={item}>{sliced}</div>
                         })
@@ -110,6 +116,13 @@ const Grid = props => {
 
                             rows.map(item => {
 
+                                /* It feeds from the rows array set in the config, at the top of the file
+                                
+                                It calls the stylecell helper function to style the cell based on its properties, then returns the cells and maps 
+                                the whole column, styling each cell as it goes
+
+                                styleCell returns a html element, so it maps 9 styled cells
+                                */
                                 const cell = styleCell(activeC1, "col1", item, props, classes)
                                 return cell
 
@@ -126,6 +139,7 @@ const Grid = props => {
 
                             rows.map(item => {
 
+                                //same as above but for col 2
                                 const cell = styleCell(activeC2, "col2", item, props, classes)
                                 return cell
 
@@ -141,6 +155,7 @@ const Grid = props => {
 
                             rows.map(item => {
 
+                                //same as above but for col 3
                                 const cell = styleCell(activeC3, "col3", item, props, classes)
                                 return cell
 
@@ -156,6 +171,7 @@ const Grid = props => {
 
                             rows.map(item => {
 
+                                //same as above but for col 4
                                 const cell = styleCell(activeC4, "col4", item, props, classes)
                                 return cell
 
@@ -178,6 +194,11 @@ Grid.propTypes = {
 
     onClickActive: PropTypes.func,
     onClickInactive: PropTypes.func,
+    onSwipedLeft: PropTypes.func,
+    onSwipedRight: PropTypes.func,
+    date: PropTypes.string,
+    fullSize: PropTypes.bool,
+
 
 }
 

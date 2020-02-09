@@ -12,8 +12,8 @@ export const login = (pin) => {
 
         try {
 
-            const response = await axios.post('http://localhost:4000/verify', { pin: pin })
-            if (response.data.success) return dispatch({ type: LOGINSUCCESS, token:response.data.token})
+            const response = await axios.post('http://localhost:4000/verify', { pin: pin })//send the pin to the api 
+            if (response.data.success) return dispatch({ type: LOGINSUCCESS, token:response.data.token})//if it is correct, dispatch login success and pass the response jwt
 
         }
 
