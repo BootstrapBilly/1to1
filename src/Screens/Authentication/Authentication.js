@@ -17,28 +17,27 @@ import classes from "./Authentication.module.css"
 
 const Authentication = props => {
 
-    //Redux state selectors
-    const loggedIn = useSelector(state => state.auth.loggedIn)
-    const validationFailure = useSelector(state => state.auth.validationFailure)
-    const lockout = useSelector(state => state.auth.lockout)
-    const genericError = useSelector(state => state.auth.genericError)
+    //_config
+    const dispatch = useDispatch()//initialise the redux action dispatcher
+    let errorMessage = null//declaring the error message which pops up on validation errors
 
-    //pin entered to be verified by the backend, set by the value of the input
-    const [pin, setPin] = useState("")
+    //*states
+    const [pin, setPin] = useState("")//pin entered to be verified by the backend, set by the value of the input
 
-    //seting up the usedispatch hook
-    const dispatch = useDispatch()
+    //-Selectors
+    const loggedIn = useSelector(state => state.auth.loggedIn)//whether the user is logged in
+    const validationFailure = useSelector(state => state.auth.validationFailure)//catches incorrect passwords
+    const lockout = useSelector(state => state.auth.lockout)//catches brute force attempts
+    const genericError = useSelector(state => state.auth.genericError)//catches database errors
 
-    //declaring the error message which pops up on validation errors
-    let errorMessage = null
-
-    //conditional error message rendering
+    //= conditional content
+    //error message rendering
     if (validationFailure) errorMessage = <p test-handle="errorMessage" className={classes.errorText}>The pin you have entered is incorrect</p>
     if (lockout) errorMessage = <p test-handle="errorMessage2" className={classes.errorText}>To many incorrect attempts<p>You have been locked out for 5 minutes</p></p>
     if (genericError) errorMessage = <p test-handle="errorMessage1" className={classes.errorText}>An error occured, we are working to fix it</p>
 
-    //if the user is logged in (dependant on redux state), route them through to the dashboard
-    useEffect(() => {if (loggedIn) props.history.push("/dashboard")}, [loggedIn, props.history])
+    //!effects
+    useEffect(() => { if (loggedIn) props.history.push("/dashboard") }, [loggedIn, props.history])//if the user is logged in, route them through to the dashboard
 
     return (
 
@@ -54,7 +53,7 @@ const Authentication = props => {
 
             </div>
 
-            <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}><Button test-handle="button" text={"LOG IN"} handleClick={() => { if (pin.length > 0) dispatch(login(pin)) }} /></div>
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}><Button test-handle="button" text={"LOG IN"} handleClick={() => { if (pin.length > 0) dispatch(login(pin)) }} /></div>
 
         </React.Fragment>
     )

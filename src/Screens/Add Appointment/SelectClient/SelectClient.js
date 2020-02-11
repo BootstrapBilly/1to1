@@ -1,23 +1,31 @@
+//react
 import React from "react"
 
+//components
 import FormInput from "../../../Components/FormInput/FormInput"
 import SearchResults from "./DisplaySearchResults/DisplaySearchResults"
+
+//css
 import classes from "./SelectClient.module.css"
 
+//redux actions
 import {searchForClients} from "../../../store/actions/Search For Client/SearchForClient-action"
+
+//redux hooks
 import { useDispatch, useSelector } from "react-redux"
 
 const SelectClient = props => {
 
-    const dispatch = useDispatch()
+    //_config
+    const dispatch = useDispatch()//initialise the action dispatcher hook
 
-    const Clients = useSelector(state => state.searchClient.clients)
+    //-selectors
+    const Clients = useSelector(state => state.searchClient.clients)//grab the list of clients stored in the redux state(Dispatched every key change by the form input)
 
     const sendRequest = e => {
 
-        const searchValue = e.target.value
-
-        searchValue ? dispatch(searchForClients(searchValue)) : dispatch(searchForClients("#"))
+        const searchValue = e.target.value//extract the search string from the form input
+        searchValue ? dispatch(searchForClients(searchValue)) : dispatch(searchForClients("#"))//unless the box is empty, dispatch a search with the current value of the input
         
     }
 

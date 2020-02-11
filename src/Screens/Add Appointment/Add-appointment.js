@@ -17,12 +17,6 @@ import {addAppointment, reset} from "../../store/actions/Add Appointment/Add-App
 
 const AddToGrid = props => {
 
-    /*//!
-
-Bug caused by the props not being passed in when going back
-
-   //! */
-
     //_Config
     const dispatch = useDispatch()//initialise the action dispatcher
     const cell = props.history.location.cell//grab the first cell where the appointment starts from, from props
@@ -56,7 +50,7 @@ Bug caused by the props not being passed in when going back
         <React.Fragment>
 
             <Header text={lengthChosen ? "Select a client" : "Appointment length"} backArrow 
-            handleBack={()=> lengthChosen ? setLengthChosen(null) : props.history.push(`/add-appointment`)}/>
+            handleBack={()=> lengthChosen ? setLengthChosen(null) : props.history.goBack()}/>
 
             <div className={classes.container}>
 

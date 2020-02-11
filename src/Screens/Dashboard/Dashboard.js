@@ -14,8 +14,11 @@ import { useSwipeable } from 'react-swipeable'
 //css
 import classes from "./Dashboard.module.css"
 
-
 const Dashboard = props => {
+
+    //*states
+    const [sectionContent, setSectionContent] = useState("grid")
+    const [calendarVisible, setcalendarVisible] = useState(false)//show or hide the calendar, (initially hidden)
 
     const navigateToDate = (value, event) => {
 
@@ -37,11 +40,8 @@ const Dashboard = props => {
 
     }
 
-    const [sectionContent, setSectionContent] = useState("grid")
-    const [calendarActive, setCalendarActive] = useState(false)
-
     const handlers = useSwipeable({
-        onSwipedDown: () => setCalendarActive(!calendarActive),
+        onSwipedDown: () => setcalendarVisible(!calendarVisible),
         preventDefaultTouchmoveEvent: true,
         trackMouse: true
     });
@@ -64,11 +64,11 @@ const Dashboard = props => {
 
             </div>
 
-            {calendarActive ? <div  {...handlers} className={classes.calendarWrapper} test-handle="calendar"><Calendar dashboardProps={props} onClickDay={(value, event) => navigateToDate(value, event)} /></div> 
+            {calendarVisible ? <div  {...handlers} className={classes.calendarWrapper} test-handle="calendar"><Calendar dashboardProps={props} onClickDay={(value, event) => navigateToDate(value, event)} /></div> 
             
             :
 
-                    <Footer onOpen={() => setCalendarActive(!calendarActive)} />
+                    <Footer onOpen={() => setcalendarVisible(!calendarVisible)} />
 
              }
 
