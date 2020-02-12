@@ -1,6 +1,9 @@
 //react
 import React from "react"
 
+//external
+import PropTypes from "prop-types"
+
 //css
 import classes from "./selectLength.module.css"
 
@@ -84,6 +87,13 @@ setOptions()
         </div>
 
     )
+
+}
+
+SelectLength.propTypes = {
+
+    cell:PropTypes.object,
+    onClickOption: PropTypes.func,
 
 }
 

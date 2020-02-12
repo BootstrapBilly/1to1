@@ -1,15 +1,25 @@
+//react
 import React from "react"
+
+//external
+import PropTypes from "prop-types"
+
+//css
 import classes from "./DisplaySearchResults.module.css"
+
+//redux hooks
 import { useDispatch } from "react-redux"
-import {setAppointmentHolder} from "../../../../store/actions/Add Appointment/Add-Appointment-action"
+
+//redux actions
+import { setAppointmentHolder } from "../../../../store/actions/Add Appointment/Add-Appointment-action"
 
 const SearchClients = props => {
 
-    const dispatch = useDispatch()
+    //_config
+    const dispatch = useDispatch()//initialise the redux action dispatcher hook
+    const Clients = []//initialise an empty array to hold clients
 
-    const Clients = []
-    
-    props.clients.forEach(item => Clients.push(item.name))
+    props.clients.forEach(item => Clients.push(item.name))//fill the clients array with the clients fetched from the database(passed in by parent component)
 
     return (
 
@@ -17,13 +27,19 @@ const SearchClients = props => {
 
             {Clients.map(item => {
 
-                    return <div className={classes.clientContainer} key={item} onClick={()=> dispatch(setAppointmentHolder(item))}><span className={classes.text}>{item}</span></div>
+                return <div className={classes.clientContainer} key={item} onClick={() => dispatch(setAppointmentHolder(item))}><span className={classes.text}>{item}</span></div>
 
             })}
 
         </div>
-        
+
     )
+
+}
+
+SearchClients.propTypes = {
+
+    clients:PropTypes.object,
 
 }
 

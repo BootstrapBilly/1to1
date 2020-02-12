@@ -1,7 +1,8 @@
+//react
 import React from "react"
 
+//components
 import Form from "../../Containers/Form/Form"
-
 import Header from "../../Containers/Header/Header"
 import classes from "./NewClient.module.css"
 

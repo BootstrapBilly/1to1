@@ -1,76 +1,73 @@
 //core react
-import React, { useState } from "react"
+import React from "react"
 
 //components
 import Header from "../../Containers/Header/Header"
-import Calendar from "../../Components/Calendar/Calendar"
-import Appointment from "../../Components/Appointment/Appointment"
-import Grid from "../../Containers/Grid/Grid"
-import Footer from "../../Components/Footer/Footer"
-
-//external libraries
-import { useSwipeable } from 'react-swipeable'
 
 //css
 import classes from "./Dashboard.module.css"
 
+//assets
+import diary from "../../Assets/Icons/diary.svg"
+import add_client from "../../Assets/Icons/add-client.svg"
+import search_client from "../../Assets/Icons/search-client.svg"
+import tutorial from "../../Assets/Icons/tutorial.svg"
+
 const Dashboard = props => {
 
     //*states
-    const [sectionContent, setSectionContent] = useState("grid")
-    const [calendarVisible, setcalendarVisible] = useState(false)//show or hide the calendar, (initially hidden)
+    // const [calendarVisible, setcalendarVisible] = useState(false)//show or hide the calendar, (initially hidden)
 
-    const navigateToDate = (value, event) => {
+    // const navigateToDate = (value, event) => {
 
-        const date = value.toISOString().split("T")[0]
-        console.log(date)
-        props.history.push(`/calendar-date/${date}`)
+    //     const date = value.toISOString().split("T")[0]
+    //     props.history.push(`/calendar-date/${date}`)
 
-    }
+    // }
 
-    const navigateToAddAppointment = (cell) => {
+    // const navigateToAddAppointment = (cell) => {
 
-        props.history.push({
+    //     props.history.push({
 
-            pathname: `/add-appointment`,
-            cell: cell,
-            date: new Date()
+    //         pathname: `/add-appointment`,
+    //         cell: cell,
+    //         date: new Date()
 
-        })
+    //     })
 
-    }
+    // }
 
-    const handlers = useSwipeable({
-        onSwipedDown: () => setcalendarVisible(!calendarVisible),
-        preventDefaultTouchmoveEvent: true,
-        trackMouse: true
-    });
+    // const handlers = useSwipeable({
+    //     onSwipedDown: () => setcalendarVisible(!calendarVisible),
+    //     preventDefaultTouchmoveEvent: true,
+    //     trackMouse: true
+    // });
 
     return (
 
         <div className={classes.container} test-handle="container">
 
-            <Header test-handle="header" text={"Today"} />
+            <Header test-handle="header" text={""} />
 
-            <div className={classes.clientsWrapper} test-handle="next-client" style={{ height: sectionContent === "add-to-grid" ? "100vh" : null }}>
+            <section className={classes.topSection}>
 
-                {sectionContent === "grid" ?
+                <header className={classes.clientsTodayContainer}>You have <p className={classes.amount}>8</p> Clients today</header>
 
-                    <Grid onClickActive={() => setSectionContent("client-detail")} onClickEmpty={(cell) => navigateToAddAppointment(cell)} date={new Date().toISOString().split("T")[0]} />
+            </section>
 
-                    :
+            <section className={classes.menuContainer}>
 
-                    <Appointment handleClickCross={() => setSectionContent("grid")} />}
+                {[["Diary", diary], ["Add a client", add_client], ["Search Clients", search_client], ["Tutorial", tutorial]].map(item =>
 
-            </div>
+                    <div className={classes.menuBoxContainer}>
 
-            {calendarVisible ? <div  {...handlers} className={classes.calendarWrapper} test-handle="calendar"><Calendar dashboardProps={props} onClickDay={(value, event) => navigateToDate(value, event)} /></div> 
-            
-            :
+                        <img src={item[1]} alt="A menu icon" className={[classes.hamburgerMenu, classes.icon].join(" ")} test-handle="hamburger" />
 
-                    <Footer onOpen={() => setcalendarVisible(!calendarVisible)} />
+                        {item[0]}
 
-             }
+                    </div>)}
+
+            </section>
 
         </div>
 

@@ -21,18 +21,18 @@ const CalendarDate = props => {
 
     //_config
     const current = new Date(date)//create a new date from the current day to be manipulated
-    const months = [ "January", "February", "March", "April", "May", "June", 
-    "July", "August", "September", "October", "November", "December" ];//store the months in an array for display purposes, (a JS date is converted into a more readable date)
+    const months = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];//store the months in an array for display purposes, (a JS date is converted into a more readable date)
 
     const dArr = date.split("-"); //split the array into 3 seperate elements e.g [2020, 11, 2]
-    const reformattedDate =  dArr[2] + " " + months[parseInt(dArr[1]-1)]+ " " + dArr[0]; //take the day, then convert the month using the months array, then the year
+    const reformattedDate = dArr[2] + " " + months[parseInt(dArr[1] - 1)] + " " + dArr[0]; //take the day, then convert the month using the months array, then the year
     //date is now 11 February 2020
 
     //=Functions
     const setNewDate = direction => {//changes the date based on the direction which the user swipes on the grid
 
-        if(direction === "left")  current.setDate(current.getDate()+1)//if they swipe left, increase the date
-        if(direction === "right")  current.setDate(current.getDate()-1)//if they swipe left, decrease it
+        if (direction === "left") current.setDate(current.getDate() + 1)//if they swipe left, increase the date
+        if (direction === "right") current.setDate(current.getDate() - 1)//if they swipe left, decrease it
 
         return setDate(current.toISOString().split("T")[0])//set the new date state(at the top) to the date. Trim off the time with .toiso.split()
 
@@ -50,13 +50,13 @@ const CalendarDate = props => {
         props.history.push({
 
             pathname: `/add-appointment`,
-            cell:cell,
+            cell: cell,
             date: date
-            
+
         })
 
     }
-    
+
     const listenForSwipes = useSwipeable({//a function which uses the swipable library to listen for swiping down on the calendar, it hides it on swipe
 
         onSwipedDown: () => setCalendarActive(!calendarActive),
@@ -69,17 +69,25 @@ const CalendarDate = props => {
 
         <div test-handle="container">
 
-            <Header test-handle="header" text={reformattedDate} backArrow handleBack={()=> props.history.goBack()}/>
+            <Header test-handle="header" text={reformattedDate} backArrow handleBack={() => props.history.goBack()} />
 
-            <div className={classes.gridContainer}><Grid date={date} onClickActive={() => console.log("placeholder")} onClickEmpty={(cell) => navigateToAddAppointment(cell)} fullSize onSwipedLeft={()=> setNewDate("left")} onSwipedRight={()=> setNewDate("right")}/></div>
+            <div className={classes.gridContainer}>
 
-            {calendarActive ? <div  {...listenForSwipes} className={classes.calendarWrapper} test-handle="calendar"><Calendar dashboardProps={props} onClickDay={(value, event) => navigateToDate(value, event)} /></div> 
-            
-            :
+                <Grid date={date} onClickActive={() => console.log("placeholder")} onClickEmpty={(cell) => navigateToAddAppointment(cell)} fullSize onSwipedLeft={() => setNewDate("left")} onSwipedRight={() => setNewDate("right")} />
 
-                    <Footer onOpen={() => setCalendarActive(!calendarActive)} />
+            </div>
 
-             }
+            {calendarActive ?
+
+                <div  {...listenForSwipes} className={classes.calendarWrapper} test-handle="calendar">
+
+                    <Calendar dashboardProps={props} onClickDay={(value, event) => navigateToDate(value, event)} />
+
+                </div>
+
+                : <Footer onOpen={() => setCalendarActive(!calendarActive)} />
+
+            }
 
 
         </div>

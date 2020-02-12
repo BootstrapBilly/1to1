@@ -30,8 +30,8 @@ const Header = props => {
 
                 <div className={classes.navLinks}>
 
-                    <Link to="/dashboard" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Dashboard</p></Link>
-                    <Link to="/new-client" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Add a new client</p></Link>
+                    <Link to="/dashboard" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Home</p></Link>
+                    <Link to="/new-client" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Add a client</p></Link>
                     <p>Find a client</p>
 
                 </div>
