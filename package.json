@@ -22,6 +22,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "react-swipeable": "^5.5.0",
+    "react-tiger-transition": "^4.1.1",
+    "react-transition-group": "^4.3.0",
     "react-web-vector-icons": "^1.0.2",
     "redux": "^4.0.5",
     "redux-mock-store": "^1.5.4",

@@ -21,6 +21,7 @@ import ProtectedRoute from "./HOC/ProtectedRoute"
 
 function App() {
 
+
   const Authenticated = useSelector(state => state.auth.loggedIn)
 
   return (
@@ -32,7 +33,7 @@ function App() {
         <Switch>
 
           <Route path="/" exact component={Authentication} />
-          <ProtectedRoute path="/dashboard" component={Dashboard} authenticated={Authenticated} />
+          <ProtectedRoute path="/dashboard" component={Dashboard} authenticated={Authenticated}/>
           <ProtectedRoute path="/calendar-date/:date" component={CalendarDate} authenticated={Authenticated} />
           <ProtectedRoute path="/new-client" component={NewClient} authenticated={Authenticated} />
           <ProtectedRoute path="/add-appointment" component={AddAppointment} authenticated={Authenticated} />

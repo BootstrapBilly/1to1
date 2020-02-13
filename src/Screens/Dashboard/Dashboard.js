@@ -25,6 +25,9 @@ const Dashboard = props => {
 
     // }
 
+const navigateToPage = navLinkURL => props.history.push({pathname: navLinkURL})
+
+
     // const navigateToAddAppointment = (cell) => {
 
     //     props.history.push({
@@ -57,9 +60,9 @@ const Dashboard = props => {
 
             <section className={classes.menuContainer}>
 
-                {[["Diary", diary], ["Add a client", add_client], ["Search Clients", search_client], ["Tutorial", tutorial]].map(item =>
+                {[["Diary", diary, `/calendar-date/${new Date()}`], ["Add a client", add_client, `/new-client`], ["Search Clients", search_client], ["Tutorial", tutorial]].map(item =>
 
-                    <div className={classes.menuBoxContainer}>
+                    <div className={classes.menuBoxContainer} key={item} onClick={()=> navigateToPage(item[2])}>
 
                         <img src={item[1]} alt="A menu icon" className={[classes.hamburgerMenu, classes.icon].join(" ")} test-handle="hamburger" />
 
