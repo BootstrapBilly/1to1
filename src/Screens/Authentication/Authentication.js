@@ -49,7 +49,7 @@ const Authentication = props => {
 
                 <AuthInput test-handle="input" handleChange={e => setPin(e.target.value)} overWriteStyle={{ borderColor: validationFailure ? "red" : "none" }} />
 
-                {errorMessage}
+                {<span test-handle="errorMsg">{errorMessage}</span>}
 
             </div>
 
