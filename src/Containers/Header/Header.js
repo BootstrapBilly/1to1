@@ -8,13 +8,32 @@ import classes from "./Header.module.css"
 import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 
+//redux hooks
+import {useDispatch} from "react-redux"
+
+//redux actions
+import {logout} from "../../store/actions/Auth/Auth-action"
+
 //assets
 import hamburger from "../../Assets/Icons/hamburger-menu.svg"
 import backArrow from "../../Assets/Icons/back-arrow.svg"
 
 const Header = props => {
 
+    //config
+    const dispatch = useDispatch()
+
+    //states
     const [panelOpen, setPanelOpen] = useState(false)//set the intial state of the side panel to closed
+
+    //functions
+    const handleLogout = () => {
+
+        if (panelOpen) setPanelOpen(false)
+
+        dispatch(logout())
+
+    }
 
     return (
 
@@ -33,6 +52,7 @@ const Header = props => {
                     <Link to="/dashboard" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Home</p></Link>
                     <Link to="/new-client" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Add a client</p></Link>
                     <p>Find a client</p>
+                    <p onClick={()=> handleLogout()}>Log out</p>
 
                 </div>
 

@@ -1,4 +1,4 @@
-import {LOGINFAILURE, LOGINSUCCESS, LOCKOUT, GENERIC} from "../../actions/Auth/Auth-action"
+import {LOGINFAILURE, LOGINSUCCESS, LOCKOUT, GENERIC, LOGOUT} from "../../actions/Auth/Auth-action"
 
 const initialState = {//set the initial state
 
@@ -21,6 +21,8 @@ const authReducer = (state = initialState, action) => {
         case LOCKOUT: return { ...initialState, validationFailure: false, loggedIn:false, lockout:true}
         
         case GENERIC: return { ...initialState, validationFailure: false, loggedIn:false, lockout:false, genericError: true}
+
+        case LOGOUT: return { ...initialState, validationFailure: false, loggedIn:false, lockout:false, genericError: false}
 
         default: return state
 

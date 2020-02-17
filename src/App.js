@@ -3,8 +3,13 @@ import React from 'react';
 
 //external
 import {useSelector} from "./Utils/hooks"
-
 import { BrowserRouter, Switch, Route } from "react-router-dom"
+
+//redux hooks
+import {useDispatch} from "react-redux"
+
+//redux action creators
+import {try_auto_login} from "./store/actions/Auth/Auth-action"
 
 //screens
 import Authentication from "../src/Screens/Authentication/Authentication"
@@ -17,16 +22,15 @@ import AddAppointment from "./Screens/Add Appointment/Add-appointment"
 import ProtectedRoute from "./HOC/ProtectedRoute"
 
 //reducers
-
-
 function App() {
 
+  const dispatch = useDispatch()
+
+  dispatch(try_auto_login())
 
   const Authenticated = useSelector(state => state.auth.loggedIn)
 
   return (
-
-    
 
       <BrowserRouter>
 
@@ -41,7 +45,6 @@ function App() {
         </Switch>
 
       </BrowserRouter>
-
 
   );
 
