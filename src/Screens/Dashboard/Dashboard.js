@@ -62,7 +62,7 @@ const navigateToPage = navLinkURL => props.history.push({pathname: navLinkURL})
 
                 {[["Diary", diary, `/calendar-date/${new Date()}`], ["Add a client", add_client, `/new-client`], ["Search Clients", search_client], ["Tutorial", tutorial]].map(item =>
 
-                    <div className={classes.menuBoxContainer} key={item} onClick={()=> navigateToPage(item[2])}>
+                    <div test-handle={item[0]} className={classes.menuBoxContainer} key={item} onClick={()=> navigateToPage(item[2])}>
 
                         <img src={item[1]} alt="A menu icon" className={[classes.hamburgerMenu, classes.icon].join(" ")} test-handle="hamburger" />
 

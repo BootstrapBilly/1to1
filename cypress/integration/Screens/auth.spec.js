@@ -1,3 +1,35 @@
+describe("Protected routes deny access unless authenticated", ()=> {
+
+    it("Dashboard", ()=> {
+
+        cy.visit("/dashboard")
+        cy.url().should("eq", Cypress.config().baseUrl + "/")
+        
+    })
+
+    it("Diary date", ()=> {
+
+        cy.visit("/calendar-date/17/02/2020")
+        cy.url().should("eq", Cypress.config().baseUrl + "/")
+
+    })
+
+    it("new-client", ()=> {
+
+        cy.visit("/calendar-date/17/02/2020")
+        cy.url().should("eq", Cypress.config().baseUrl + "/")
+
+    })
+
+    it("add-appointment", ()=> {
+
+        cy.visit("/calendar-date/17/02/2020")
+        cy.url().should("eq", Cypress.config().baseUrl + "/")
+
+    })
+    
+})
+
 describe("Input form", ()=> {
 
     beforeEach(()=> {
@@ -63,7 +95,7 @@ describe("Input form", ()=> {
     
             cy.get("[test-handle='button']").click()//get the button and click it
 
-            cy.location().should(loc => expect(loc.href).to.eq("http://localhost:3000/dashboard"))//expect the user to be routed to the dashboard on successful login
+            cy.url().should("eq", Cypress.config().baseUrl + "/dashboard")//expect the user to be routed to the dashboard on successful login
         })
 
     })
