@@ -16,10 +16,12 @@ export const login = (pin) => {
 
             if (response.data.success) {//if it is correct
 
-                localStorage.setItem("jwt", response.data.token)//store the jwt inside the local storage
-                localStorage.setItem("expirationDate", new Date(new Date().getTime() + response.data.expiresIn * 1000))//set the logout timer to 41 days (3600000 returned by the api)
+                console.log(response.data.refreshToken)
 
-                return dispatch({ type: LOGINSUCCESS, token: response.data.token })//dispatch login success with the token
+                localStorage.setItem("jwt", response.data.token)//store the jwt inside the local storage
+                localStorage.setItem("expirationDate", new Date(new Date().getTime() + response.data.expiresIn * 1000))//set the logout timer to 41 days (3600000 returned by 
+
+                return dispatch({ type: LOGINSUCCESS, token: response.data.token, refreshToken: response.data.refreshToken })//dispatch login success with the token
 
             }
 
@@ -56,13 +58,10 @@ export const try_auto_login = () => {
 
         const jwt = localStorage.getItem("jwt")
         const expirationDate = localStorage.getItem("expirationDate")
-        console.log(jwt)
         if (!jwt) dispatch({ type: LOGOUT })
         if (new Date(expirationDate) < new Date()) dispatch({ type: LOGOUT })
-
-        
-
         else return dispatch({type: LOGINSUCCESS, token:jwt})
+
     }
 
 }

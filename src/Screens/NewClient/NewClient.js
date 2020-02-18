@@ -12,7 +12,7 @@ const NewClient = props => {
 
         <div test-handle="container" className={classes.container}>
 
-            <Header text={"Add a new client"} test-handle="header" backArrow handleBack={() => props.history.push("/dashboard")} />
+            <Header text={"success-alert"} test-handle="header" backArrow handleBack={() => props.history.push("/dashboard")} />
 
             <div className={classes.innerContainer}>
 

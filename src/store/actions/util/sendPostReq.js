@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const sendPost = (url, body, token) => {
+const sendPost = (url, body, token, refreshToken) => {
 
     if (typeof body !== "object" || body === null)
 
@@ -12,7 +12,8 @@ const sendPost = (url, body, token) => {
 
         {
             headers: {
-                Authorization: "Bearer " + token
+                Authorization: "Bearer " + token,
+                Refresh: "Refresh " + refreshToken
             }
         }
     )
