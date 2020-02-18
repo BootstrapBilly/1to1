@@ -50,16 +50,17 @@ export const logout = () => {
 
 }
 
-
 export const try_auto_login = () => {
 
     return async dispatch => {
 
         const jwt = localStorage.getItem("jwt")
         const expirationDate = localStorage.getItem("expirationDate")
-
+        console.log(jwt)
         if (!jwt) dispatch({ type: LOGOUT })
         if (new Date(expirationDate) < new Date()) dispatch({ type: LOGOUT })
+
+        
 
         else return dispatch({type: LOGINSUCCESS, token:jwt})
     }

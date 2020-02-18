@@ -2,14 +2,14 @@
 import React from 'react';
 
 //external
-import {useSelector} from "./Utils/hooks"
+import { useSelector } from "./Utils/hooks"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 
 //redux hooks
-import {useDispatch} from "react-redux"
+import { useDispatch } from "react-redux"
 
 //redux action creators
-import {try_auto_login} from "./store/actions/Auth/Auth-action"
+import { try_auto_login } from "./store/actions/Auth/Auth-action"
 
 //screens
 import Authentication from "../src/Screens/Authentication/Authentication"
@@ -32,19 +32,19 @@ function App() {
 
   return (
 
-      <BrowserRouter>
+    <BrowserRouter>
 
-        <Switch>
+      <Switch>
 
-          <Route path="/" exact component={Authentication} />
-          <ProtectedRoute path="/dashboard" component={Dashboard} authenticated={Authenticated}/>
-          <ProtectedRoute path="/calendar-date/:date" component={CalendarDate} authenticated={Authenticated} />
-          <ProtectedRoute path="/new-client" component={NewClient} authenticated={Authenticated} />
-          <ProtectedRoute path="/add-appointment" component={AddAppointment} authenticated={Authenticated} />
+        <Route path="/" exact component={Authentication} />
+        <ProtectedRoute path="/dashboard" component={Dashboard} authenticated={Authenticated} />
+        <ProtectedRoute path="/calendar-date/:date" component={CalendarDate} authenticated={Authenticated} />
+        <ProtectedRoute path="/new-client" component={NewClient} authenticated={Authenticated} />
+        <ProtectedRoute path="/add-appointment" component={AddAppointment} authenticated={Authenticated} />
 
-        </Switch>
+      </Switch>
 
-      </BrowserRouter>
+    </BrowserRouter>
 
   );
 

@@ -101,3 +101,24 @@ describe("Input form", ()=> {
     })
 
 })
+
+describe("Logout button works and removes token from local storage", ()=> {
+
+    it("Redirects the user to the authentication page on logging out", ()=> {
+
+        cy.get("[test-handle='hamburger-icon']").click()//get the input and enter the correct pin
+
+        cy.get("[test-handle='logout']").click()//get the button and click it
+
+        cy.url().should("eq", Cypress.config().baseUrl + "/")//expect the user to be routed to the dashboard on successful login
+    })
+
+    it("The token is removed from local storage, blocking access to all other routes", ()=> {
+
+        cy.visit("/dashboard")
+
+        cy.url().should("eq", Cypress.config().baseUrl + "/")//expect the user to be routed to the dashboard on successful login
+        
+    })
+
+})

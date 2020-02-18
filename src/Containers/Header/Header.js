@@ -41,7 +41,7 @@ const Header = props => {
 
             {props.backArrow ? <img src={backArrow} alt="A back button" className={[classes.backArrow, classes.icon].join(" ")} onClick={props.handleBack} /> : null}
 
-            <img src={hamburger} alt="A menu icon" className={[classes.hamburgerMenu, classes.icon].join(" ")} test-handle="hamburger" onClick={() => setPanelOpen(!panelOpen)} />
+            <img src={hamburger} alt="A menu icon" className={[classes.hamburgerMenu, classes.icon].join(" ")} test-handle="hamburger-icon" onClick={() => setPanelOpen(!panelOpen)} />
             
             <p test-handle="header-text" className={classes.title}>{props.text}</p>
 
@@ -52,7 +52,7 @@ const Header = props => {
                     <Link to="/dashboard" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Home</p></Link>
                     <Link to="/new-client" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Add a client</p></Link>
                     <p>Find a client</p>
-                    <p onClick={()=> handleLogout()}>Log out</p>
+                    <p test-handle="logout" onClick={()=> handleLogout()}>Log out</p>
 
                 </div>
 
