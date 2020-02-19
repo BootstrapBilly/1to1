@@ -24,7 +24,9 @@ const CalendarDate = props => {
     const months = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"];//store the months in an array for display purposes, (a JS date is converted into a more readable date)
 
-    const dArr = date.split("-"); //split the array into 3 seperate elements e.g [2020, 11, 2]
+    const dateToIsoString = new Date(date).toISOString().split("T")[0]//convert the date state into an string which can be further split
+    const dArr = dateToIsoString.split("-"); //split the date into 3 seperate elements e.g [2020, 11, 2]
+
     const reformattedDate = dArr[2] + " " + months[parseInt(dArr[1] - 1)] + " " + dArr[0]; //take the day, then convert the month using the months array, then the year
     //date is now 11 February 2020
 
@@ -64,6 +66,8 @@ const CalendarDate = props => {
         trackMouse: true
 
     });
+
+    console.log(reformattedDate)
 
     return (
 

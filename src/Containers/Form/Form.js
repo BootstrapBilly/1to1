@@ -71,7 +71,7 @@ const Form = props => {
         setFormInfo({ name: "", phone: "", notes: "" })//clear the form
         dispatch(resetForm())//dispatch to reset any errors
         alert.show(<div test-handle="Client Added successfully">Client added successfully!</div>, {type:"success"})}
-
+// eslint-disable-next-line
     }, [successfulAddition, dispatch])
 
 

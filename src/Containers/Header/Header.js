@@ -39,7 +39,7 @@ const Header = props => {
 
         <div test-handle="container" className={classes.container}>
 
-            {props.backArrow ? <img src={backArrow} alt="A back button" className={[classes.backArrow, classes.icon].join(" ")} onClick={props.handleBack} /> : null}
+            {props.backArrow ? <img test-handle="back-button" src={backArrow} alt="A back button" className={[classes.backArrow, classes.icon].join(" ")} onClick={props.handleBack} /> : null}
 
             <img src={hamburger} alt="A menu icon" className={[classes.hamburgerMenu, classes.icon].join(" ")} test-handle="hamburger-icon" onClick={() => setPanelOpen(!panelOpen)} />
             
@@ -49,8 +49,8 @@ const Header = props => {
 
                 <div className={classes.navLinks}>
 
-                    <Link to="/dashboard" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Home</p></Link>
-                    <Link to="/new-client" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Add a client</p></Link>
+                    <Link to="/dashboard" test-handle="home-link" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Home</p></Link>
+                    <Link to="/new-client" test-handle="new-client-link" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Add a client</p></Link>
                     <p>Find a client</p>
                     <p test-handle="logout" onClick={()=> handleLogout()}>Log out</p>
 
@@ -58,7 +58,7 @@ const Header = props => {
 
             </div>
 
-            <div test-handle="closeArea">{panelOpen ? <div onClick={() => { if (panelOpen) setPanelOpen(false) }} className={classes.closeArea}></div> : null}</div>
+            <div>{panelOpen ? <div test-handle="close-area" onClick={() => { if (panelOpen) setPanelOpen(false) }} className={classes.closeArea}></div> : null}</div>
 
         </div>
 

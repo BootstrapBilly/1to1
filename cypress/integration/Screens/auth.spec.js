@@ -110,14 +110,14 @@ describe("Logout button works and removes token from local storage", ()=> {
 
         cy.get("[test-handle='logout']").click()//get the button and click it
 
-        cy.url().should("eq", Cypress.config().baseUrl + "/")//expect the user to be routed to the dashboard on successful login
+        cy.url().should("eq", Cypress.config().baseUrl + "/")
     })
 
     it("The token is removed from local storage, blocking access to all other routes", ()=> {
 
         cy.visit("/dashboard")
 
-        cy.url().should("eq", Cypress.config().baseUrl + "/")//expect the user to be routed to the dashboard on successful login
+        cy.url().should("eq", Cypress.config().baseUrl + "/")
         
     })
 
