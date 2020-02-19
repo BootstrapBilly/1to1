@@ -259,3 +259,8 @@
     border-bottom-right-radius: 10px;
 
 }
+
+.selected {
+
+    background-color: lawngreen;
+}

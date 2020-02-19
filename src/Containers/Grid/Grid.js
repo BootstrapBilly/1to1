@@ -43,7 +43,9 @@ import { fetchAppointments } from "../../store/actions/Fetch Appointments/fetch-
 
 //Utility functions
 import populateCellData from "./populateCellData"
-import styleCell from "./styleCell"//styles the cell based on the data
+
+//!Move me
+import StyleCell from "./styleCell"//styles the cell based on the data
 
 const Grid = props => {
 
@@ -123,8 +125,8 @@ const Grid = props => {
 
                                 styleCell returns a html element, so it maps 9 styled cells
                                 */
-                                const cell = styleCell(activeC1, "col1", item, props, classes)
-                                return cell
+                                //const cell = styleCell(activeC1, "col1", item, props, classes)
+                                return <StyleCell column={activeC1} colNumber={"col1"} rowNumber={item} props={props} classes={classes}  onClickEmpty={props.onClickEmpty} key={item}/>
 
                             })
 
@@ -140,8 +142,8 @@ const Grid = props => {
                             rows.map(item => {
 
                                 //same as above but for col 2
-                                const cell = styleCell(activeC2, "col2", item, props, classes)
-                                return cell
+                               // const cell = styleCell(activeC2, "col2", item, props, classes)
+                                return <StyleCell column={activeC2} colNumber={"col2"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item}/>
 
                             })
 
@@ -156,8 +158,8 @@ const Grid = props => {
                             rows.map(item => {
 
                                 //same as above but for col 3
-                                const cell = styleCell(activeC3, "col3", item, props, classes)
-                                return cell
+                               // const cell = styleCell(activeC3, "col3", item, props, classes)
+                                return <StyleCell column={activeC3} colNumber={"col3"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item}/>
 
                             })
 
@@ -172,8 +174,8 @@ const Grid = props => {
                             rows.map(item => {
 
                                 //same as above but for col 4
-                                const cell = styleCell(activeC4, "col4", item, props, classes)
-                                return cell
+                               // const cell = styleCell(activeC4, "col4", item, props, classes)
+                                return <StyleCell column={activeC4} colNumber={"col4"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item}/>
 
                             })
 
@@ -198,7 +200,6 @@ Grid.propTypes = {
     onSwipedRight: PropTypes.func,
     date: PropTypes.string,
     fullSize: PropTypes.bool,
-
 
 }
 

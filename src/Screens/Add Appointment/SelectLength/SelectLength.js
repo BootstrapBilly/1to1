@@ -92,7 +92,7 @@ setOptions()
 
 SelectLength.propTypes = {
 
-    cell:PropTypes.object,
+    cell:PropTypes.string,
     onClickOption: PropTypes.func,
 
 }

@@ -39,7 +39,7 @@ const SearchClients = props => {
 
 SearchClients.propTypes = {
 
-    clients:PropTypes.object,
+    clients:PropTypes.array,
 
 }
 
