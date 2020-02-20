@@ -13,7 +13,6 @@ const StyleCell = (props) => {
 
     if (rowData) {//if any rows do have data
 
-
         return (<div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickActive.bind(this, rowData[4])} 
         
         >
