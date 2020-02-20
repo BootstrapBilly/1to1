@@ -1,36 +1,46 @@
 //core react
-import React from "react"
+import React, {useState} from "react"
 
-/*takes in the column of the cell, 
-The number of the column as "col1", "col2" ect, the cell data,
+/*takes in the props.column of the cell, 
+The number of the props.column as "col1", "col2" ect, the cell data,
 The row number, (current mapping passed in by grid),
 Props of grid,
-css classes of grid */
+css props.classes of grid */
 
-const styleCell = (column, colNumber, rowNumber, props, classes) => {
+const StyleCell = (props) => {
 
-    const rowData = column.find(item => item[0] === rowNumber)//search the given column to see if any of its rows have appointment data
+    const rowData = props.column.find(item => item[0] === props.rowNumber)//search the given props.column to see if any of its rows have appointment data
 
     if (rowData) {//if any rows do have data
 
-        return <div test-handle={`${colNumber}-seg${rowNumber}`} className={classes.rowSegment} key={rowNumber} onClick={props.onClickActive}>
 
-            <div className={
+        return (<div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickActive.bind(this, rowData[4])} 
+        
+        >
+
+            <div className={[
 
                 //Check the tag of each row item and apply the css class accordingly - //* The meanings of the tags are at the top of populateCellData.js
-                rowData[4] === "first" ? classes.activeSegmentFirst
-                    : rowData[4] === "last" ? classes.activeSegmentLast
-                        : rowData[4] === "overFlow" ? classes.activeSegmentOverFlow
-                            : rowData[4] === "underFlow" ? classes.activeSegmentUnderFlow
-                                    : rowData[4] === "underFlowLast" ? classes.activeSegmentUnderFlowLast
-                                        : rowData[4] === "overFlowFirst" ? classes.activeSegmentOverFlowFirst
+                rowData[5] === "first" ? props.classes.activeSegmentFirst
+                    : rowData[5] === "last" ? props.classes.activeSegmentLast
+                        : rowData[5] === "overFlow" ? props.classes.activeSegmentOverFlow
+                            : rowData[5] === "underFlow" ? props.classes.activeSegmentUnderFlow
+                                    : rowData[5] === "underFlowLast" ? props.classes.activeSegmentUnderFlowLast
+                                        : rowData[5] === "overFlowFirst" ? props.classes.activeSegmentOverFlowFirst
 
                                         //if no tags are present, check to see if the cell is a joined appointment
-                                                : rowData[1] ? classes.activeSegmentJoined //if it is, apply the class
-                                                    : classes.activeSegment}//otherwise apply a single style class
+                                                : rowData[1] ? props.classes.activeSegmentJoined //if it is, apply the class
+                                                    : props.classes.activeSegment,
 
-                //If the appointment is 45 mins long apply an orange colour, otherwise a green for 60 mins, otherwise let the css classes handle it
-                style={{ backgroundColor: rowData[3] === 45 ? "#d7743b" : rowData[3] === 60 ? "lightseagreen" : null }}
+                                                    rowData[3] === 45 ? props.classes.triple : 
+                                                    
+                                                    rowData[3] === 60 ? props.classes.quad:
+
+                                                    null,                                       
+                                                    
+                                                    props.overWriteClass].join(" ") }
+
+                                                //otherwise apply a single style class
 
             //output the name of the appointment holder, or null if it is a joined cell
             >{rowData[2]}
@@ -38,11 +48,11 @@ const styleCell = (column, colNumber, rowNumber, props, classes) => {
 
             </div>
 
-        </div>
+        </div>)
     }
 
-    else return <div test-handle={`${colNumber}-seg${rowNumber}`} className={classes.rowSegment} key={rowNumber} onClick={props.onClickEmpty.bind(this, `${colNumber}-seg${rowNumber}`)}></div>
+    else return (<div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickEmpty.bind(this, `${props.colNumber}-seg${props.rowNumber}`)}></div>)
 
 }
 
-export default styleCell
+export default StyleCell

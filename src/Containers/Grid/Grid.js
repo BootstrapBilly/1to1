@@ -26,7 +26,7 @@
 */
 
 //react
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 
 //css
 import classes from "./grid.module.css"
@@ -40,10 +40,13 @@ import { useDispatch, useSelector } from "react-redux"
 
 //redux actions
 import { fetchAppointments } from "../../store/actions/Fetch Appointments/fetch-appointment-action"
+import { currentlySelectedAppointment } from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
 
 //Utility functions
 import populateCellData from "./populateCellData"
-import styleCell from "./styleCell"//styles the cell based on the data
+
+//!Move me
+import StyleCell from "./styleCell"//styles the cell based on the data
 
 const Grid = props => {
 
@@ -59,6 +62,9 @@ const Grid = props => {
         trackMouse: true
     });
 
+    //-States
+    const [selectedAppointmentId, setSelectedAppointmentId] = useState(null)
+
     //*Selectors
     const appointments = useSelector(state => state.fetchAppointments.appointments)//get the appointment data fetched from the api
 
@@ -70,6 +76,29 @@ const Grid = props => {
         dispatch(fetchAppointments(props.date))//fetch the appointment data for that date
   // eslint-disable-next-line
     }, [props.date])
+
+    const styleTheTing = (col, item) => {
+
+        if(!col[(item-1)]) return null
+        if(col[(item-1)][4] === selectedAppointmentId) return classes.selected
+
+        return null
+
+    }
+
+    const handleSelectAppointment = id => {
+
+        if(selectedAppointmentId === id){
+
+            setSelectedAppointmentId(null)
+            return dispatch(currentlySelectedAppointment(null))
+
+        }
+
+        setSelectedAppointmentId(id)
+        return dispatch(currentlySelectedAppointment(id))
+        
+    }
 
     return (
         
@@ -114,8 +143,11 @@ const Grid = props => {
 
                         {
 
-                            rows.map(item => {
 
+                            rows.map(item => {
+                                
+                                // if(activeC1[(item-1)]) console.log(activeC1[(item-1)][4] + " " + item)
+                                
                                 /* It feeds from the rows array set in the config, at the top of the file
                                 
                                 It calls the stylecell helper function to style the cell based on its properties, then returns the cells and maps 
@@ -123,8 +155,9 @@ const Grid = props => {
 
                                 styleCell returns a html element, so it maps 9 styled cells
                                 */
-                                const cell = styleCell(activeC1, "col1", item, props, classes)
-                                return cell
+                                //const cell = styleCell(activeC1, "col1", item, props, classes)
+                                return <StyleCell allData={activeC1.concat(activeC2, activeC3, activeC4)} column={activeC1} colNumber={"col1"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(id)=> handleSelectAppointment(id)} 
+                                overWriteClass={styleTheTing(activeC1, item)}/>
 
                             })
 
@@ -140,8 +173,10 @@ const Grid = props => {
                             rows.map(item => {
 
                                 //same as above but for col 2
-                                const cell = styleCell(activeC2, "col2", item, props, classes)
-                                return cell
+                               // const cell = styleCell(activeC2, "col2", item, props, classes)
+                                return <StyleCell allData={activeC1.concat(activeC2, activeC3, activeC4)} column={activeC2} colNumber={"col2"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(id)=> handleSelectAppointment(id)}
+                                overWriteClass={!activeC2[(item-1)] ? null : activeC2[(item-1)][4] === selectedAppointmentId ? classes.selected : null}
+                                />
 
                             })
 
@@ -156,8 +191,9 @@ const Grid = props => {
                             rows.map(item => {
 
                                 //same as above but for col 3
-                                const cell = styleCell(activeC3, "col3", item, props, classes)
-                                return cell
+                               // const cell = styleCell(activeC3, "col3", item, props, classes)
+                                return <StyleCell allData={activeC1.concat(activeC2, activeC3, activeC4)} column={activeC3} colNumber={"col3"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(id)=> handleSelectAppointment(id)}
+                                overWriteClass={!activeC3[(item-1)] ? null : activeC3[(item-1)][4] === selectedAppointmentId ? classes.selected : null}/>
 
                             })
 
@@ -172,8 +208,9 @@ const Grid = props => {
                             rows.map(item => {
 
                                 //same as above but for col 4
-                                const cell = styleCell(activeC4, "col4", item, props, classes)
-                                return cell
+                               // const cell = styleCell(activeC4, "col4", item, props, classes)
+                                return <StyleCell allData={activeC1.concat(activeC2, activeC3, activeC4)} column={activeC4} colNumber={"col4"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(id)=> handleSelectAppointment(id)}
+                                overWriteClass={!activeC4[(item-1)] ? null : activeC4[(item-1)][4] === selectedAppointmentId ? classes.selected : null}/>
 
                             })
 
@@ -198,7 +235,6 @@ Grid.propTypes = {
     onSwipedRight: PropTypes.func,
     date: PropTypes.string,
     fullSize: PropTypes.bool,
-
 
 }
 

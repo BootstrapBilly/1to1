@@ -259,3 +259,19 @@
     border-bottom-right-radius: 10px;
 
 }
+
+.triple {
+
+    background-color: #d7743b;
+}
+
+.quad {
+
+    background-color: lightseagreen;
+
+}
+.selected {
+
+    background-color: lawngreen;
+    
+}
