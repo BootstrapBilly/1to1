@@ -30,7 +30,7 @@ const Footer = props => {
 
         <div className={classes.container}>
 
-            <img src={trash} alt="A delete icon" className={classes.iconWrapper} onClick={props.onOpen} />
+            <img src={trash} alt="A delete icon" className={classes.iconWrapper} onClick={props.onDelete} />
             <img src={time} alt="A reschedule icon" className={classes.iconWrapper} onClick={props.onOpen} />
 
         </div>

@@ -7,11 +7,16 @@ import Grid from "../../Containers/Grid/Grid"
 import Footer from "../../Components/Footer/Footer"
 import Calendar from "../../Components/Calendar/Calendar"
 
+
+import {confirmDelete} from "./confirmDelete"
 //external
 import { useSwipeable } from 'react-swipeable'
 
 //redux hooks
-import {useSelector} from "react-redux"
+import {useSelector, useDispatch} from "react-redux"
+
+//redux actions
+import {sendDeleteAppointment} from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
 
 //css
 import classes from "./CalendarDate.module.css"
@@ -21,6 +26,7 @@ const CalendarDate = props => {
     //*states
     const [date, setDate] = useState(props.match.params.date)//the date which determines which appointments are rendered(initially passed in by props)
     const [calendarActive, setCalendarActive] = useState(false)//state which shows or hides the calendar overlay which is used to select a new date
+    const dispatch = useDispatch()
 
     //_config
     const current = new Date(date)//create a new date from the current day to be manipulated
@@ -65,6 +71,43 @@ const CalendarDate = props => {
 
     }
 
+    const handleDelete = () => {
+
+        const dispatchDelete = () => {
+            
+            dispatch(sendDeleteAppointment(currentSelectedAppointment))
+
+        }
+
+        confirmDelete(currentSelectedAppointment, dispatchDelete)
+
+        // confirmAlert({
+        //     customUI: ({ onClose }) => {
+        //       return (
+        //         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+        //           <h1>Are you sure?</h1>
+        //           <p>Delete this appointment?</p>
+
+        //         <div style={{display:"flex", justifyContent:"space-around", width:"100%"}}>
+
+        //         <button onClick={onClose}>NO</button>
+        //           <button
+        //             onClick={() => {
+        //               onClose();
+        //             }}
+        //           >
+        //             YES
+        //           </button>
+
+        //         </div>
+
+        //         </div>
+        //       );
+        //     }
+        //   });
+
+    }
+
     const listenForSwipes = useSwipeable({//a function which uses the swipable library to listen for swiping down on the calendar, it hides it on swipe
 
         onSwipedDown: () => setCalendarActive(!calendarActive),
@@ -93,7 +136,7 @@ const CalendarDate = props => {
 
                 </div>
 
-                : <Footer onOpen={() => setCalendarActive(!calendarActive)} appointmentSelected={currentSelectedAppointment}/>
+                : <Footer onOpen={() => setCalendarActive(!calendarActive)} appointmentSelected={currentSelectedAppointment} onDelete={()=> handleDelete()}/>
 
             }
 

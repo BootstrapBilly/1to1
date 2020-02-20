@@ -27,3 +27,14 @@
         transform: translateY(0);
     }
 }
+
+.alert-container{
+
+    background-color: red;
+    border: 1px solid black;
+
+}
+
+.alert-header{
+    color:red
+}
