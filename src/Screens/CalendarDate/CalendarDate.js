@@ -10,6 +10,9 @@ import Calendar from "../../Components/Calendar/Calendar"
 //external
 import { useSwipeable } from 'react-swipeable'
 
+//redux hooks
+import {useSelector} from "react-redux"
+
 //css
 import classes from "./CalendarDate.module.css"
 
@@ -29,6 +32,9 @@ const CalendarDate = props => {
 
     const reformattedDate = dArr[2] + " " + months[parseInt(dArr[1] - 1)] + " " + dArr[0]; //take the day, then convert the month using the months array, then the year
     //date is now 11 February 2020
+
+    //? Selectors
+    const currentSelectedAppointment = useSelector(state => state.selectedAppointment.selectedAppointment)
 
     //=Functions
     const setNewDate = direction => {//changes the date based on the direction which the user swipes on the grid
@@ -87,7 +93,7 @@ const CalendarDate = props => {
 
                 </div>
 
-                : <Footer onOpen={() => setCalendarActive(!calendarActive)} />
+                : <Footer onOpen={() => setCalendarActive(!calendarActive)} appointmentSelected={currentSelectedAppointment}/>
 
             }
 
