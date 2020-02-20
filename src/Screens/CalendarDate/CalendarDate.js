@@ -75,7 +75,7 @@ const CalendarDate = props => {
 
             <div className={classes.gridContainer}>
 
-                <Grid date={dateToIsoString} onClickActive={() => console.log("placeholder")} onClickEmpty={(cell) => navigateToAddAppointment(cell)} fullSize onSwipedLeft={() => setNewDate("left")} onSwipedRight={() => setNewDate("right")} />
+                <Grid date={dateToIsoString} onClickEmpty={(cell) => navigateToAddAppointment(cell)} fullSize onSwipedLeft={() => setNewDate("left")} onSwipedRight={() => setNewDate("right")} />
 
             </div>
 

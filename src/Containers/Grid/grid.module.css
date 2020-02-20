@@ -260,7 +260,18 @@
 
 }
 
+.triple {
+
+    background-color: #d7743b;
+}
+
+.quad {
+
+    background-color: lightseagreen;
+
+}
 .selected {
 
     background-color: lawngreen;
+    
 }
