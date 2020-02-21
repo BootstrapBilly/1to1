@@ -12,28 +12,30 @@ import calendar from "../../Assets/Icons/calendar.svg"
 import trash from "../../Assets/Icons/delete.svg"
 import time from "../../Assets/Icons/time.svg"
 
+
 const Footer = props => {
 
-    if (!props.appointmentSelected)
+    return (
 
-        return (
+        <React.Fragment>
 
-            <div className={classes.container}>
+            {props.appointmentSelected ?
 
-                <img src={calendar} alt="A menu icon" className={classes.iconWrapper} onClick={props.onOpen} />
+                <div className={classes.container}>
 
-            </div>
+                    <img src={trash} alt="A delete icon" className={classes.iconWrapper} onClick={props.onDelete} />
+                    <img src={time} alt="A reschedule icon" className={classes.iconWrapper} onClick={props.onOpen} />
 
-        )
+                </div>
+                :
 
-    else return (
+                <div className={classes.container}>
 
-        <div className={classes.container}>
+                    <img src={calendar} alt="A menu icon" className={classes.iconWrapper} onClick={props.onOpen} />
 
-            <img src={trash} alt="A delete icon" className={classes.iconWrapper} onClick={props.onDelete} />
-            <img src={time} alt="A reschedule icon" className={classes.iconWrapper} onClick={props.onOpen} />
+                </div>}
 
-        </div>
+        </React.Fragment>
 
     )
 
