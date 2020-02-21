@@ -63,6 +63,7 @@ const CalendarDate = props => {
 
         const date = value.toISOString().split("T")[0]//get the date where they pressed, and split the time off of it
         setDate(date)//set the new date, changing the grid and information along with it
+        setCalendarActive(false)
 
     }
 
