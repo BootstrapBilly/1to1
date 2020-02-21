@@ -6,9 +6,8 @@ import Header from "../../Containers/Header/Header"
 import Grid from "../../Containers/Grid/Grid"
 import Footer from "../../Components/Footer/Footer"
 import Calendar from "../../Components/Calendar/Calendar"
-
-
 import {confirmDelete} from "./confirmDelete"
+
 //external
 import { useSwipeable } from 'react-swipeable'
 
@@ -16,7 +15,7 @@ import { useSwipeable } from 'react-swipeable'
 import {useSelector, useDispatch} from "react-redux"
 
 //redux actions
-import {sendDeleteAppointment} from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
+import {sendDeleteAppointment, currentlySelectedAppointment} from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
 
 //css
 import classes from "./CalendarDate.module.css"
@@ -43,10 +42,18 @@ const CalendarDate = props => {
     const currentSelectedAppointment = useSelector(state => state.selectedAppointment.selectedAppointment)
 
     //=Functions
+
+    const handleSwipe = modifier => {
+
+        current.setDate(current.getDate() + modifier)
+        return dispatch(currentlySelectedAppointment(null))
+
+    }
+
     const setNewDate = direction => {//changes the date based on the direction which the user swipes on the grid
 
-        if (direction === "left") current.setDate(current.getDate() + 1)//if they swipe left, increase the date
-        if (direction === "right") current.setDate(current.getDate() - 1)//if they swipe left, decrease it
+        if (direction === "left") handleSwipe(1)//if they swipe left, increase the date
+        if (direction === "right") handleSwipe(-1)//if they swipe left, decrease it
 
         return setDate(current.toISOString().split("T")[0])//set the new date state(at the top) to the date. Trim off the time with .toiso.split()
 
@@ -81,31 +88,6 @@ const CalendarDate = props => {
 
         confirmDelete(currentSelectedAppointment, dispatchDelete)
 
-        // confirmAlert({
-        //     customUI: ({ onClose }) => {
-        //       return (
-        //         <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-        //           <h1>Are you sure?</h1>
-        //           <p>Delete this appointment?</p>
-
-        //         <div style={{display:"flex", justifyContent:"space-around", width:"100%"}}>
-
-        //         <button onClick={onClose}>NO</button>
-        //           <button
-        //             onClick={() => {
-        //               onClose();
-        //             }}
-        //           >
-        //             YES
-        //           </button>
-
-        //         </div>
-
-        //         </div>
-        //       );
-        //     }
-        //   });
-
     }
 
     const listenForSwipes = useSwipeable({//a function which uses the swipable library to listen for swiping down on the calendar, it hides it on swipe
@@ -124,7 +106,7 @@ const CalendarDate = props => {
 
             <div className={classes.gridContainer}>
 
-                <Grid date={dateToIsoString} onClickEmpty={(cell) => navigateToAddAppointment(cell)} fullSize onSwipedLeft={() => setNewDate("left")} onSwipedRight={() => setNewDate("right")} />
+                <Grid date={dateToIsoString} onClickEmpty={(cell) => navigateToAddAppointment(cell)} fullSize onSwipedLeft={() => setNewDate("left")} onSwipedRight={() => setNewDate("right")}/>
 
             </div>
 

@@ -62,12 +62,13 @@ const Grid = props => {
         trackMouse: true
     });
 
-    //-States
-    const [selectedAppointmentId, setSelectedAppointmentId] = useState(null)
-
     //*Selectors
     const appointments = useSelector(state => state.fetchAppointments.appointments)//get the appointment data fetched from the api
     const lastDeletedAppointment = useSelector(state => state.selectedAppointment.deletedId)//get the appointment data fetched from the api
+    const currentSelectedAppointment = useSelector(state => state.selectedAppointment.selectedAppointment)
+
+    //-States
+    const [selectedAppointmentId, setSelectedAppointmentId] = useState(null)
 
     populateCellData(appointments, activeC1, activeC2, activeC3, activeC4)//populate the 4 column arrays with the appointment data fetched from the api
 
@@ -88,6 +89,8 @@ const Grid = props => {
 
         col.forEach(innerItem => {
 
+            if(!currentSelectedAppointment) return null
+
             if (innerItem[0] === item) {
 
                 if (selectedAppointmentId === innerItem[4]) {
@@ -103,7 +106,7 @@ const Grid = props => {
 
     const handleSelectAppointment = id => {
 
-        if (selectedAppointmentId === id) {
+        if (selectedAppointmentId === id && currentSelectedAppointment) {
 
             setSelectedAppointmentId(null)
             return dispatch(currentlySelectedAppointment(null))
