@@ -81,8 +81,6 @@ const Grid = props => {
         // eslint-disable-next-line
     }, [props.date, lastDeletedAppointment])
 
-
-
     const checkForSelectedClass = (col, item) => {
 
         let classname = null
@@ -104,17 +102,17 @@ const Grid = props => {
 
     }
 
-    const handleSelectAppointment = id => {
+    const handleSelectAppointment = appointment => {
 
-        if (selectedAppointmentId === id && currentSelectedAppointment) {
+        if (selectedAppointmentId === appointment.id && currentSelectedAppointment) {
 
             setSelectedAppointmentId(null)
             return dispatch(currentlySelectedAppointment(null))
 
         }
 
-        setSelectedAppointmentId(id)
-        return dispatch(currentlySelectedAppointment(id))
+        setSelectedAppointmentId(appointment.id)
+        return dispatch(currentlySelectedAppointment(appointment))
 
     }
 
@@ -173,10 +171,15 @@ const Grid = props => {
 
                                 styleCell returns a html element, so it maps 9 styled cells
                                 */
-                                //const cell = styleCell(activeC1, "col1", item, props, classes)
+                                const next4 = {
+                                    1: `col-1_row${item}`,
+                                    2: `col-2_row${item}`,
+                                    3: `col-3_row${item}`,
+                                    4: `col-4_row${item}`
+                            }
 
-                                return <StyleCell column={activeC1} colNumber={"col1"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(id) => handleSelectAppointment(id)}
-                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC1, item) : null} />
+                                return <StyleCell rescheduleMode={props.rescheduleMode} column={activeC1} colNumber={"col1"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(appointment) => handleSelectAppointment(appointment)}
+                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC1, item) : null} next4={next4} />
 
                             })
 
@@ -193,8 +196,15 @@ const Grid = props => {
 
                                 //same as above but for col 2
                                 // const cell = styleCell(activeC2, "col2", item, props, classes)
-                                return <StyleCell column={activeC2} colNumber={"col2"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(id) => handleSelectAppointment(id)}
-                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC2, item) : null}
+                                const next4 = {
+                                    1: `col-2_row${item}`,
+                                    2: `col-3_row${item}`,
+                                    3: `col-4_row${item}`,
+                                    4: `col-1_row${parseInt(item)+1}`
+                            }
+
+                                return <StyleCell rescheduleMode={props.rescheduleMode} column={activeC2} colNumber={"col2"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(appointment) => handleSelectAppointment(appointment)}
+                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC2, item) : null} next4={next4}
                                 />
 
                             })
@@ -211,8 +221,18 @@ const Grid = props => {
 
                                 //same as above but for col 3
                                 // const cell = styleCell(activeC3, "col3", item, props, classes)
-                                return <StyleCell column={activeC3} colNumber={"col3"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(id) => handleSelectAppointment(id)}
-                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC3, item) : null} />
+
+                                const next4 = {
+
+                                    1: `col-3_row${item}`,
+                                    2: `col-4_row${item}`,
+                                    3: `col-1_row${parseInt(item)+1}`,
+                                    4: `col-2_row${parseInt(item)+1}`
+
+                            }
+
+                                return <StyleCell rescheduleMode={props.rescheduleMode} column={activeC3} colNumber={"col3"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(appointment) => handleSelectAppointment(appointment)}
+                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC3, item) : null} next4={next4}  appointments={appointments}/>
 
                             })
 
@@ -228,8 +248,16 @@ const Grid = props => {
 
                                 //same as above but for col 4
                                 // const cell = styleCell(activeC4, "col4", item, props, classes)
-                                return <StyleCell column={activeC4} colNumber={"col4"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(id) => handleSelectAppointment(id)}
-                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC4, item) : null} />
+
+                                const next4 = {
+                                    1: `col-4_row${item}`,
+                                    2: `col-1_row${parseInt(item)+1}`,
+                                    3: `col-2_row${parseInt(item)+1}`,
+                                    4: `col-3_row${parseInt(item)+1}`
+                            }
+
+                                return <StyleCell rescheduleMode={props.rescheduleMode} column={activeC4} colNumber={"col4"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(appointment) => handleSelectAppointment(appointment)}
+                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC4, item) : null} next4={next4} />
 
                             })
 

@@ -1,4 +1,4 @@
-import axios from "axios"
+import sendPost from "../util/sendPostReq"
 
 export const LOGINFAILURE = "LOGINFAILURE";
 export const LOGINSUCCESS = "LOGINSUCCESS";
@@ -12,7 +12,7 @@ export const login = (pin) => {
 
         try {
 
-            const response = await axios.post('http://localhost:4000/verify', { pin: pin })//send the pin to the api 
+            const response = await sendPost("verify", { pin: pin })
 
             if (response.data.success) {//if it is correct
 

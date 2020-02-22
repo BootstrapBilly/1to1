@@ -25,6 +25,8 @@ const CalendarDate = props => {
     //*states
     const [date, setDate] = useState(props.match.params.date)//the date which determines which appointments are rendered(initially passed in by props)
     const [calendarActive, setCalendarActive] = useState(false)//state which shows or hides the calendar overlay which is used to select a new date
+    const [rescheduleMode, setRescheduleMode] = useState(false)
+
     const dispatch = useDispatch()
 
     //_config
@@ -40,6 +42,7 @@ const CalendarDate = props => {
 
     //? Selectors
     const currentSelectedAppointment = useSelector(state => state.selectedAppointment.selectedAppointment)
+    const appointments = useSelector(state => state.fetchAppointments.appointments)//get the appointment data fetched from the api
 
     //=Functions
 
@@ -83,11 +86,21 @@ const CalendarDate = props => {
 
         const dispatchDelete = () => {
             
-            dispatch(sendDeleteAppointment(currentSelectedAppointment))
+            dispatch(sendDeleteAppointment(currentSelectedAppointment.id))
 
         }
 
         confirmDelete(currentSelectedAppointment, dispatchDelete)
+
+    }
+
+    //!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+    const handleReschedule = () => {
+
+        //console.log(currentSelectedAppointment)
+        console.log(rescheduleMode)
+        setRescheduleMode(!rescheduleMode)
 
     }
 
@@ -107,7 +120,7 @@ const CalendarDate = props => {
 
             <div className={classes.gridContainer}>
 
-                <Grid date={dateToIsoString} onClickEmpty={(cell) => navigateToAddAppointment(cell)} fullSize onSwipedLeft={() => setNewDate("left")} onSwipedRight={() => setNewDate("right")}/>
+                <Grid date={dateToIsoString} onClickEmpty={(cell) => navigateToAddAppointment(cell)} fullSize onSwipedLeft={() => setNewDate("left")} onSwipedRight={() => setNewDate("right")} rescheduleMode={rescheduleMode}/>
 
             </div>
 
@@ -119,7 +132,7 @@ const CalendarDate = props => {
 
                 </div>
 
-                : <Footer onOpen={() => setCalendarActive(!calendarActive)} appointmentSelected={currentSelectedAppointment} onDelete={()=> handleDelete()}/>
+                : <Footer onOpen={() => setCalendarActive(!calendarActive)} appointmentSelected={currentSelectedAppointment} onDelete={()=> handleDelete()} onReschedule={()=> handleReschedule()}/>
 
             }
 
