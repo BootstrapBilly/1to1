@@ -9,8 +9,6 @@ css props.classes of grid */
 
 const StyleCell = (props) => {
 
-    console.log(props.rescheduleMode)
-
     const rowData = props.column.find(item => item[0] === props.rowNumber)//search the given props.column to see if any of its rows have appointment data
 
     if (rowData) {//if any rows do have data
@@ -52,10 +50,18 @@ const StyleCell = (props) => {
         </div>)
     } else if(props.rescheduleMode){
 
+        // if(props.colNumber === "col2"){
+
+        //     console.log(props.next4)
+
+        // }
+
+        // console.log(props.colNumber)
+        console.log(props.appointments)
+
         return (
-        
-        
-            <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.availableSegment} key={props.rowNumber}>
+    
+        <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.availableSegment} key={props.rowNumber}>
         
         <div className={props.classes.emptySegment}
    

@@ -86,7 +86,7 @@ const CalendarDate = props => {
 
         const dispatchDelete = () => {
             
-            dispatch(sendDeleteAppointment(currentSelectedAppointment))
+            dispatch(sendDeleteAppointment(currentSelectedAppointment.id))
 
         }
 
@@ -99,8 +99,8 @@ const CalendarDate = props => {
     const handleReschedule = () => {
 
         //console.log(currentSelectedAppointment)
+        console.log(rescheduleMode)
         setRescheduleMode(!rescheduleMode)
-
 
     }
 
