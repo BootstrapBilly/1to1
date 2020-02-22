@@ -3,13 +3,13 @@ import sendPost from "../util/sendPostReq"
 export const SET_SELECTED_APPOINTMENT = "SET_SELECTED_APPOINTMENT"
 export const APPOINTMENT_DELETED = "APPOINTMENT_DELETED"
 
-export const currentlySelectedAppointment = (id) => {
+export const currentlySelectedAppointment = (appointment) => {
 
     return async dispatch => {
 
         return dispatch({
             type:SET_SELECTED_APPOINTMENT,
-            payload:id
+            payload:appointment
         })
 
     }

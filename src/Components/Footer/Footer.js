@@ -14,7 +14,7 @@ import time from "../../Assets/Icons/time.svg"
 
 
 const Footer = props => {
-
+    
     return (
 
         <React.Fragment>
@@ -24,7 +24,7 @@ const Footer = props => {
                 <div className={classes.container}>
 
                     <img src={trash} alt="A delete icon" className={classes.iconWrapper} onClick={props.onDelete} />
-                    <img src={time} alt="A reschedule icon" className={classes.iconWrapper} onClick={props.onOpen} />
+                    <img src={time} alt="A reschedule icon" className={classes.iconWrapper} onClick={props.onReschedule} />
 
                 </div>
                 :

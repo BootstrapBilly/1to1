@@ -1,5 +1,5 @@
 //core react
-import React, {useState} from "react"
+import React from "react"
 
 /*takes in the props.column of the cell, 
 The number of the props.column as "col1", "col2" ect, the cell data,
@@ -9,11 +9,13 @@ css props.classes of grid */
 
 const StyleCell = (props) => {
 
+    console.log(props.rescheduleMode)
+
     const rowData = props.column.find(item => item[0] === props.rowNumber)//search the given props.column to see if any of its rows have appointment data
 
     if (rowData) {//if any rows do have data
 
-        return (<div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickActive.bind(this, rowData[4])} 
+        return (<div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickActive.bind(this, {length: rowData[3], id:rowData[4]})} 
         
         >
 
@@ -48,9 +50,28 @@ const StyleCell = (props) => {
             </div>
 
         </div>)
+    } else if(props.rescheduleMode){
+
+        return (
+        
+        
+            <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.availableSegment} key={props.rowNumber}>
+        
+        <div className={props.classes.emptySegment}
+   
+        // ting={props.handleRescheduleMode.bind(this, props.rowNumber)}
+         
+         ></div>
+         
+         </div>)
+
     }
 
-    else return (<div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickEmpty.bind(this, `${props.colNumber}-seg${props.rowNumber}`)}></div>)
+    else return (<div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickEmpty.bind(this, `${props.colNumber}-seg${props.rowNumber}`)}
+   
+   // ting={props.handleRescheduleMode.bind(this, props.rowNumber)}
+    
+    ></div>)
 
 }
 
