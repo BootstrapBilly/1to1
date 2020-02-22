@@ -48,16 +48,84 @@ const StyleCell = (props) => {
             </div>
 
         </div>)
-    } else if(props.rescheduleMode){
 
-        // if(props.colNumber === "col2"){
+    } 
+    
+    else if(props.rescheduleMode){
 
-        //     console.log(props.next4)
 
-        // }
+        if(props.colNumber === "col1"){
 
-        // console.log(props.colNumber)
-        console.log(props.appointments)
+            console.log(props.rowNumber)
+
+ 
+
+            const  first = {
+                
+                col:props.next4.one.slice(4,5),
+                row:props.next4.one.slice(-1)
+            
+            }
+
+            const  second = {
+
+                col:props.next4.two.slice(4,5),
+                row:props.next4.two.slice(-1)
+            
+            }
+
+            const third = {
+
+                col:props.next4.three.slice(4,5),
+                row:props.next4.three.slice(-1)
+            
+            }
+
+            const last = {
+
+                col:props.next4.four.slice(4,5),
+                row:props.next4.four.slice(-1)
+            
+            }
+
+            
+        // console.log(first)
+        // console.log(second)
+        // console.log(third)
+        // console.log(last)
+        // console.log(props.appointments)
+
+        for (let item of props.appointments){
+
+            // console.log(item)
+            // console.log(first)
+            // console.log(second)
+            // console.log(third)
+            // console.log(last)
+
+            if(
+                
+                (item.col === first.col && item.row === first.row) ||
+                (item.col === second.col && item.row === second.row) ||
+                (item.col === third.col && item.row === third.row) ||
+                (item.col === last.col && item.row === last.row)
+                
+                ) {
+                    console.log("triggered")
+
+                    return (<div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickEmpty.bind(this, `${props.colNumber}-seg${props.rowNumber}`)}
+   
+   // ting={props.handleRescheduleMode.bind(this, props.rowNumber)}
+    
+    ></div>)
+
+                }
+                
+        }
+
+
+        }
+
 
         return (
     

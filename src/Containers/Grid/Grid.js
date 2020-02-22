@@ -172,14 +172,14 @@ const Grid = props => {
                                 styleCell returns a html element, so it maps 9 styled cells
                                 */
                                 const next4 = {
-                                    1: `col-1_row${item}`,
-                                    2: `col-2_row${item}`,
-                                    3: `col-3_row${item}`,
-                                    4: `col-4_row${item}`
+                                    one: `col-1_row${item}`,
+                                    two: `col-2_row${item}`,
+                                    three: `col-3_row${item}`,
+                                    four: `col-4_row${item}`
                             }
 
                                 return <StyleCell rescheduleMode={props.rescheduleMode} column={activeC1} colNumber={"col1"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(appointment) => handleSelectAppointment(appointment)}
-                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC1, item) : null} next4={next4} />
+                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC1, item) : null} next4={next4} appointments={appointments} />
 
                             })
 
