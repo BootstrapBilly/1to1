@@ -1,6 +1,8 @@
-const apply_selected_css = (given_column, selected_row, selectedAppointmentId, classes) => {
+const apply_selected_css = (given_column, selected_row, classes, currentSelectedAppointment, rescheduleMode) => {
 
-    if (!selectedAppointmentId) return null //if there is no currently selected appointment, return
+    console.log(rescheduleMode)
+
+    if (!currentSelectedAppointment) return null //if there is no currently selected appointment, return
 
     let classname = null //define the classname to be returned
 
@@ -11,9 +13,9 @@ const apply_selected_css = (given_column, selected_row, selectedAppointmentId, c
 
         if (row === selected_row) { //if the row matches the row of the selected appointment
 
-            if (id === selectedAppointmentId) {//and the id matches the selected id
+            if (id === currentSelectedAppointment.id) {//and the id matches the selected id
 
-                classname = classes.selected //apply the selected classname
+                classname = rescheduleMode ? classes.selectedReschedule : classes.selected //apply the selected classname
 
             }
         }

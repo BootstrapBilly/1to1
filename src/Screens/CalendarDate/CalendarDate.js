@@ -15,7 +15,7 @@ import { useSwipeable } from 'react-swipeable'
 import {useSelector, useDispatch} from "react-redux"
 
 //redux actions
-import {sendDeleteAppointment, currentlySelectedAppointment} from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
+import {sendDeleteAppointment, dispatch_set_selected_appointment} from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
 
 //css
 import classes from "./CalendarDate.module.css"
@@ -42,14 +42,13 @@ const CalendarDate = props => {
 
     //? Selectors
     const currentSelectedAppointment = useSelector(state => state.selectedAppointment.selectedAppointment)
-    const appointments = useSelector(state => state.fetchAppointments.appointments)//get the appointment data fetched from the api
 
     //=Functions
 
     const handleSwipe = modifier => {
 
         current.setDate(current.getDate() + modifier)
-        return dispatch(currentlySelectedAppointment(null))
+        return dispatch(dispatch_set_selected_appointment(null))
 
     }
 

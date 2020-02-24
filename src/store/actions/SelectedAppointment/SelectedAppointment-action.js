@@ -3,7 +3,7 @@ import sendPost from "../util/sendPostReq"
 export const SET_SELECTED_APPOINTMENT = "SET_SELECTED_APPOINTMENT"
 export const APPOINTMENT_DELETED = "APPOINTMENT_DELETED"
 
-export const currentlySelectedAppointment = (appointment) => {
+export const dispatch_set_selected_appointment = (appointment) => {
 
     return async dispatch => {
 

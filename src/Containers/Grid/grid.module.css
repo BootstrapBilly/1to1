@@ -297,11 +297,8 @@
 
 }
 
-.emptySelected{
+.selectedReschedule{
 
-    height:90%;
-    width:90%;
-    border-radius: 10px;
     background-color: blue;
 
 }

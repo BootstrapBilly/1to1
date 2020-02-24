@@ -40,11 +40,12 @@ import { useDispatch, useSelector } from "react-redux"
 
 //redux actions
 import { fetchAppointments } from "../../store/actions/Fetch Appointments/fetch-appointment-action"
-import { currentlySelectedAppointment } from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
+import { dispatch_set_selected_appointment} from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
 
 //functions
-import populateCellData from "./populateCellData"
+import populate_column_data from "./functions/populate_column_data"
 import apply_selected_css from "./functions/apply_selected_css"
+import set_selected_appointment from "./functions/set_select_appointment"
 
 //!Move me
 import StyleCell from "./styleCell"//styles the cell based on the data
@@ -70,38 +71,24 @@ const Grid = props => {
     const lastDeletedAppointment = useSelector(state => state.selectedAppointment.deletedId)//get the appointment data fetched from the api
     const currentSelectedAppointment = useSelector(state => state.selectedAppointment.selectedAppointment)
 
-    //*States
-    const [selectedAppointmentId, setSelectedAppointmentId] = useState(null)
-
     //!functions
-    populateCellData(appointments, column1, column2, column3, column4)//populate the 4 column arrays with the appointment data fetched from the api
+    populate_column_data(appointments, column1, column2, column3, column4)//populate the 4 column arrays with the appointment data fetched from the api
 
-    const handle_class_assignment = (column, row) => apply_selected_css(column, row, selectedAppointmentId, classes)
+    //run the apply selected class helper function
+    const handle_class_assignment = (column, row) => apply_selected_css(column, row, classes, currentSelectedAppointment, props.rescheduleMode)
+
+    //run the set selected appointment helper function
+    const handle_select_appointment = (new_appointment) => set_selected_appointment(currentSelectedAppointment, new_appointment, dispatch, dispatch_set_selected_appointment)
 
     //_ Effects
     useEffect(() => {
 
         dispatch(fetchAppointments(props.date))//fetch the appointment data for that date
 
-        if (lastDeletedAppointment) setSelectedAppointmentId(null)
+        if (lastDeletedAppointment) dispatch(set_selected_appointment(null))
         // eslint-disable-next-line
     }, [props.date, lastDeletedAppointment])
 
-
-
-    const handleSelectAppointment = appointment => {
-
-        if (selectedAppointmentId === appointment.id && currentSelectedAppointment) {
-
-            setSelectedAppointmentId(null)
-            return dispatch(currentlySelectedAppointment(null))
-
-        }
-
-        setSelectedAppointmentId(appointment.id)
-        return dispatch(currentlySelectedAppointment(appointment))
-
-    }
 
     return (
 
@@ -127,7 +114,6 @@ const Grid = props => {
                 <div test-handle="minRow" className={classes.minRow}>
 
                     {
-                        //Map all minute labels on the top of grid
                         ["15mins", "30mins", "45mins"].map(item => {
 
                             const sliced = item.slice(0, -4)
@@ -144,20 +130,36 @@ const Grid = props => {
                 <div test-handle="inner-container" className={classes.innerContainer}>
 
                     {
-                        [["col1", column1], ["col2", column2], ["col3", column3], ["col4", column4]]
+                        [["col1", column1], ["col2", column2], ["col3", column3], ["col4", column4]]//map the array of 4 columns, rendering a column for each
 
                             .map(columnArray => {
 
-                                return <div test-handle={columnArray[0]} className={classes.column}>
+                                //the container for the column 
+                                return <div test-handle={columnArray[0]} className={classes.column} key={columnArray[0]}>
 
                                     {
+                                                                           
+                                        rows.map(row => {//inside the column, map the array of rows (defined at the top in config)
 
-                                        rows.map(row => {
+                                            return <StyleCell //for every column, render a cell component
 
+                                                key={row} //set the key as the row number
+                                                column={columnArray[1]} //pass in the column data (set by the populateCellData function)
+                                                colNumber={columnArray[0]} //pass in the column number
+                                                rowNumber={row} //pass in the row number
+                                                props={props} //pass in the props of this component
+                                                classes={classes} //and the classes of this compoment
+                                                appointments={appointments} //pass in the full appointment data (from redux selector)
 
-                                            return <StyleCell rescheduleMode={props.rescheduleMode} column={columnArray[1]} colNumber={columnArray[0]} rowNumber={row} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={row} onClickActive={(appointment) => handleSelectAppointment(appointment)}
-                                                
-                                            overWriteClass={selectedAppointmentId ? handle_class_assignment(columnArray[1], row) : null} appointments={appointments} />
+                                                rescheduleMode={props.rescheduleMode}//pass on whether its reschedule mode or not(set by the icon on the footer in calendardate)
+
+                                                onClickEmpty={props.onClickEmpty} //handle when an empty cell is clicked               
+                                                onClickActive={(new_appointment) => handle_select_appointment(new_appointment)} //handle when an active cell is clicked
+
+                                                //if an appointment is selected, assign the selected css class to it, pass in the current column and row
+                                                overWriteClass={currentSelectedAppointment ? handle_class_assignment(columnArray[1], row) : null}
+
+                                            />
 
                                         })
 
@@ -167,7 +169,7 @@ const Grid = props => {
 
                             }
 
-                        )
+                            )
 
                     }
 
