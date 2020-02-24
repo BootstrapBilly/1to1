@@ -20,13 +20,13 @@ import backArrow from "../../Assets/Icons/back-arrow.svg"
 
 const Header = props => {
 
-    //config
+    //_config
     const dispatch = useDispatch()
 
-    //states
+    //*states
     const [panelOpen, setPanelOpen] = useState(false)//set the intial state of the side panel to closed
 
-    //functions
+    //!functions
     const handleLogout = () => {
 
         if (panelOpen) setPanelOpen(false)
