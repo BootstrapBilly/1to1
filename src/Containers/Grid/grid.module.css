@@ -103,7 +103,7 @@
 
     height:11%;
     width:100%;
-    border: 0.5px solid #b8b8b831;
+    border: 0.5px solid #b8b8b865;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -294,5 +294,14 @@
     width:90%;
     border-radius: 10px;
     background-color: red;
+
+}
+
+.emptySelected{
+
+    height:90%;
+    width:90%;
+    border-radius: 10px;
+    background-color: blue;
 
 }

@@ -7,7 +7,7 @@ import PropTypes from "prop-types"
 //css
 import classes from "./Footer.module.css"
 
-//components
+//assets
 import calendar from "../../Assets/Icons/calendar.svg"
 import trash from "../../Assets/Icons/delete.svg"
 import time from "../../Assets/Icons/time.svg"
@@ -43,7 +43,9 @@ const Footer = props => {
 
 Footer.propTypes = {
 
-    onOpen: PropTypes.func
+    onOpen: PropTypes.func,
+    onDelete: PropTypes.func,
+    onReschedule: PropTypes.func
 
 }
 

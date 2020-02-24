@@ -27,7 +27,7 @@ export const addNewClient = (customerDetails) => {
 
 }
 
-export const resetForm = () => {
+export const clearPreviousErrors = () => {
 
     return async dispatch => dispatch({type:RESET})
     

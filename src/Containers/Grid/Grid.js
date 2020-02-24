@@ -162,8 +162,6 @@ const Grid = props => {
 
                             rows.map(item => {
 
-                                // if(activeC1[(item-1)]) console.log(activeC1[(item-1)][4] + " " + item)
-
                                 /* It feeds from the rows array set in the config, at the top of the file
                                 
                                 It calls the stylecell helper function to style the cell based on its properties, then returns the cells and maps 
@@ -171,15 +169,9 @@ const Grid = props => {
 
                                 styleCell returns a html element, so it maps 9 styled cells
                                 */
-                                const next4 = {
-                                    one: `col-1_row${item}`,
-                                    two: `col-2_row${item}`,
-                                    three: `col-3_row${item}`,
-                                    four: `col-4_row${item}`
-                            }
 
                                 return <StyleCell rescheduleMode={props.rescheduleMode} column={activeC1} colNumber={"col1"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(appointment) => handleSelectAppointment(appointment)}
-                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC1, item) : null} next4={next4} appointments={appointments} />
+                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC1, item) : null}  appointments={appointments} />
 
                             })
 
@@ -194,17 +186,8 @@ const Grid = props => {
 
                             rows.map(item => {
 
-                                //same as above but for col 2
-                                // const cell = styleCell(activeC2, "col2", item, props, classes)
-                                const next4 = {
-                                    1: `col-2_row${item}`,
-                                    2: `col-3_row${item}`,
-                                    3: `col-4_row${item}`,
-                                    4: `col-1_row${parseInt(item)+1}`
-                            }
-
                                 return <StyleCell rescheduleMode={props.rescheduleMode} column={activeC2} colNumber={"col2"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(appointment) => handleSelectAppointment(appointment)}
-                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC2, item) : null} next4={next4}
+                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC2, item) : null}  appointments={appointments}
                                 />
 
                             })
@@ -219,20 +202,8 @@ const Grid = props => {
 
                             rows.map(item => {
 
-                                //same as above but for col 3
-                                // const cell = styleCell(activeC3, "col3", item, props, classes)
-
-                                const next4 = {
-
-                                    1: `col-3_row${item}`,
-                                    2: `col-4_row${item}`,
-                                    3: `col-1_row${parseInt(item)+1}`,
-                                    4: `col-2_row${parseInt(item)+1}`
-
-                            }
-
                                 return <StyleCell rescheduleMode={props.rescheduleMode} column={activeC3} colNumber={"col3"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(appointment) => handleSelectAppointment(appointment)}
-                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC3, item) : null} next4={next4}  appointments={appointments}/>
+                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC3, item) : null}   appointments={appointments} appointments={appointments}/>
 
                             })
 
@@ -246,18 +217,8 @@ const Grid = props => {
 
                             rows.map(item => {
 
-                                //same as above but for col 4
-                                // const cell = styleCell(activeC4, "col4", item, props, classes)
-
-                                const next4 = {
-                                    1: `col-4_row${item}`,
-                                    2: `col-1_row${parseInt(item)+1}`,
-                                    3: `col-2_row${parseInt(item)+1}`,
-                                    4: `col-3_row${parseInt(item)+1}`
-                            }
-
                                 return <StyleCell rescheduleMode={props.rescheduleMode} column={activeC4} colNumber={"col4"} rowNumber={item} props={props} classes={classes} onClickEmpty={props.onClickEmpty} key={item} onClickActive={(appointment) => handleSelectAppointment(appointment)}
-                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC4, item) : null} next4={next4} />
+                                    overWriteClass={selectedAppointmentId ? checkForSelectedClass(activeC4, item) : null} appointments={appointments}/>
 
                             })
 
