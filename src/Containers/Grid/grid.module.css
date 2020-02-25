@@ -7,6 +7,7 @@
     overflow-x: hidden;
     height: 80vh;
     -ms-overflow-style: none;
+
     
 }
 
@@ -18,7 +19,7 @@
     height:100vh;
     position: relative;
     left:-1vw;
-    margin-bottom: 10vh;
+    margin-bottom: 15vh;
     
 }
 
@@ -285,7 +286,7 @@
 .selected {
 
     background-color: lawngreen;
-    
+
 }
 
 .emptySegment{
@@ -297,8 +298,11 @@
 
 }
 
-.selectedReschedule{
+
+.test{
 
     background-color: blue;
-
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
 }

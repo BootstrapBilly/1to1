@@ -15,7 +15,7 @@ const apply_selected_css = (given_column, selected_row, classes, currentSelected
 
             if (id === currentSelectedAppointment.id) {//and the id matches the selected id
 
-                classname = rescheduleMode ? classes.selectedReschedule : classes.selected //apply the selected classname
+                classname = classes.selected //apply the selected classname
 
             }
         }

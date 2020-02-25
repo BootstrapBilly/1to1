@@ -6,7 +6,7 @@ The number of the props.column as "col1", "col2" ect, the cell data,
 The row number, (current mapping passed in by grid),
 Props of grid,
 css props.classes of grid */
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux"
 
 const StyleCell = (props) => {
 
@@ -15,13 +15,6 @@ const StyleCell = (props) => {
     const rowData = props.column.find(item => item[0] === props.rowNumber)//search the given props.column to see if any of its rows have appointment data
 
     if (rowData) {//if any rows do have data
-
-        // if(props.colNumber === "col1" && props.rescheduleMode) {
-            
-        //     console.log(rowData)            
-        //     console.log(currentSelectedAppointment)            
-        
-        // }
 
         return (<div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickActive.bind(this, { length: rowData[3], id: rowData[4] })}
 
@@ -53,8 +46,12 @@ const StyleCell = (props) => {
             //output the name of the appointment holder, or null if it is a joined cell
             >{rowData[2]}
 
+                {//if the cells are selected, and reschedule mode is active, insert another cell inside the selected cell to show a possible move
+                props.rescheduleMode && (rowData[4] === currentSelectedAppointment.id) && (rowData[5] !== "first") ? <div className={props.classes.test}></div> : null}
 
             </div>
+
+
 
         </div>)
 

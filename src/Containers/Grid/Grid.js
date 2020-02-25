@@ -26,7 +26,7 @@
 */
 
 //react
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 
 //css
 import classes from "./grid.module.css"
@@ -46,6 +46,7 @@ import { dispatch_set_selected_appointment} from "../../store/actions/SelectedAp
 import populate_column_data from "./functions/populate_column_data"
 import apply_selected_css from "./functions/apply_selected_css"
 import set_selected_appointment from "./functions/set_select_appointment"
+import get_next_four_cells from "./functions/get_next_four_cells"
 
 //!Move me
 import StyleCell from "./styleCell"//styles the cell based on the data
@@ -72,6 +73,7 @@ const Grid = props => {
     const currentSelectedAppointment = useSelector(state => state.selectedAppointment.selectedAppointment)
 
     //!functions
+
     populate_column_data(appointments, column1, column2, column3, column4)//populate the 4 column arrays with the appointment data fetched from the api
 
     //run the apply selected class helper function
@@ -79,6 +81,9 @@ const Grid = props => {
 
     //run the set selected appointment helper function
     const handle_select_appointment = (new_appointment) => set_selected_appointment(currentSelectedAppointment, new_appointment, dispatch, dispatch_set_selected_appointment)
+
+    //Generate the next four cells after the appointment (used to check space available for appointment reassignment)
+    const handle_next_four_cells = (colNumber, rowNumber) => get_next_four_cells(colNumber, rowNumber)
 
     //_ Effects
     useEffect(() => {
@@ -88,7 +93,6 @@ const Grid = props => {
         if (lastDeletedAppointment) dispatch(set_selected_appointment(null))
         // eslint-disable-next-line
     }, [props.date, lastDeletedAppointment])
-
 
     return (
 
@@ -125,8 +129,6 @@ const Grid = props => {
 
                 </div>
 
-                //? Inner container ================================================================================================
-
                 <div test-handle="inner-container" className={classes.innerContainer}>
 
                     {
@@ -152,6 +154,7 @@ const Grid = props => {
                                                 appointments={appointments} //pass in the full appointment data (from redux selector)
 
                                                 rescheduleMode={props.rescheduleMode}//pass on whether its reschedule mode or not(set by the icon on the footer in calendardate)
+                                                nextFourCells={handle_next_four_cells(columnArray[0], row)}
 
                                                 onClickEmpty={props.onClickEmpty} //handle when an empty cell is clicked               
                                                 onClickActive={(new_appointment) => handle_select_appointment(new_appointment)} //handle when an active cell is clicked
