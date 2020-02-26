@@ -1,8 +1,10 @@
 import React from "react"
 
-const highlight_available_cells = (currentSelectedAppointment, props) => {
+const highlight_available_cells = (currentSelectedAppointment, props, selected) => {
 
-    let cellType = <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber}>
+    let cellType = selected ? <div className={props.classes.test}></div> :
+    
+    <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber}>
 
         <div className={props.classes.available}></div>
 
@@ -21,8 +23,10 @@ const highlight_available_cells = (currentSelectedAppointment, props) => {
                 if (appointment.row === cell.row && (appointment.col === cell.col) && cells_checked < maxCount) {
 
                     return cellType = <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickEmpty.bind(this, `${props.colNumber}-seg${props.rowNumber}`)}
+                    >
+                        {selected ? null : <div className={props.classes.notAvailable}></div>}
 
-                    ></div>
+                    </div>
                 }
 
             })
@@ -31,6 +35,7 @@ const highlight_available_cells = (currentSelectedAppointment, props) => {
         }
 
     }
+
 
     switch (currentSelectedAppointment.length) {
 

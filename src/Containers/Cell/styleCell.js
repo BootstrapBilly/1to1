@@ -11,6 +11,7 @@ import { useSelector } from "react-redux"
 //functions
 import highlight_available_cells from "./functions/highlight_available_cells"
 
+
 const StyleCell = (props) => {
 
     const currentSelectedAppointment = useSelector(state => state.selectedAppointment.selectedAppointment)
@@ -50,11 +51,15 @@ const StyleCell = (props) => {
             >{rowData[2]}
 
                 {//if the cells are selected, and reschedule mode is active, insert another cell inside the selected cell to show a possible move //*Selected and available
-                    props.rescheduleMode && (rowData[4] === currentSelectedAppointment.id) && (rowData[5] !== "first") && (currentSelectedAppointment.length !== 15) ? <div className={props.classes.test}></div> : null}
+
+                    props.rescheduleMode && 
+                    (rowData[4] === currentSelectedAppointment.id) && 
+                    (rowData[5] !== "first") 
+                    && (currentSelectedAppointment.length !== 15) ? 
+
+                    highlight_available_cells(currentSelectedAppointment, props, true) : null}
 
             </div>
-
-
 
         </div>)
 
@@ -63,7 +68,7 @@ const StyleCell = (props) => {
     else if (!rowData && (props.rescheduleMode)) {
 
         //if theres no data for the cell and reschedule mode is active, run the algorithm to check which cells the appointment can be moved to, and highlight them
-        return (highlight_available_cells(currentSelectedAppointment, props))
+        return (highlight_available_cells(currentSelectedAppointment, props, false))
 
     }
 

@@ -97,6 +97,9 @@
     height:11%;
     width:100%;
     border: 0.5px solid #b8b8b831;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -291,18 +294,30 @@
 
 .available{
 
-    height:90%;
-    width:90%;
+    height:80%;
+    width:80%;
     border-radius: 10px;
-    background-color: red;
+    background-color: #E8EEF7;
 
 }
 
 
 .test{
 
-    background-color: blue;
+    background-color: #E8EEF7;
+    width: 95%;
+    height: 95%;
+    border-radius: 10px;
+
+}
+
+.notAvailable {
+
+    background-image: url("../../Assets/Icons/cross.svg");
+    background-repeat: no-repeat;
+    background-size: inherit;
     width: 80%;
     height: 80%;
-    border-radius: 10px;
+    margin-left:1.5vw;
+
 }
