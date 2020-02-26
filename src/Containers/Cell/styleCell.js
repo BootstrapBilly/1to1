@@ -8,6 +8,9 @@ Props of grid,
 css props.classes of grid */
 import { useSelector } from "react-redux"
 
+//functions
+import highlight_available_cells from "./functions/highlight_available_cells"
+
 const StyleCell = (props) => {
 
     const currentSelectedAppointment = useSelector(state => state.selectedAppointment.selectedAppointment)
@@ -46,8 +49,8 @@ const StyleCell = (props) => {
             //output the name of the appointment holder, or null if it is a joined cell
             >{rowData[2]}
 
-                {//if the cells are selected, and reschedule mode is active, insert another cell inside the selected cell to show a possible move
-                props.rescheduleMode && (rowData[4] === currentSelectedAppointment.id) && (rowData[5] !== "first") ? <div className={props.classes.test}></div> : null}
+                {//if the cells are selected, and reschedule mode is active, insert another cell inside the selected cell to show a possible move //*Selected and available
+                    props.rescheduleMode && (rowData[4] === currentSelectedAppointment.id) && (rowData[5] !== "first") && (currentSelectedAppointment.length !== 15) ? <div className={props.classes.test}></div> : null}
 
             </div>
 
@@ -57,10 +60,15 @@ const StyleCell = (props) => {
 
     }
 
+    else if (!rowData && (props.rescheduleMode)) {
 
-    else return (<div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickEmpty.bind(this, `${props.colNumber}-seg${props.rowNumber}`)}
+        //if theres no data for the cell and reschedule mode is active, run the algorithm to check which cells the appointment can be moved to, and highlight them
+        return (highlight_available_cells(currentSelectedAppointment, props))
 
-    ></div>)
+    }
+
+    else return (
+    <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickEmpty.bind(this, `${props.colNumber}-seg${props.rowNumber}`)}></div>)
 
 }
 

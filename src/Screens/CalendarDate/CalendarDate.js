@@ -98,7 +98,6 @@ const CalendarDate = props => {
     const handleReschedule = () => {
 
         //console.log(currentSelectedAppointment)
-        console.log(rescheduleMode)
         setRescheduleMode(!rescheduleMode)
 
     }
