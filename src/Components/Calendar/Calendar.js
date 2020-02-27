@@ -17,10 +17,10 @@ const Calendar_ = props => {
         <Calendar value={new Date()}//set the date as the current date
 
             //set the prev label - (the left arrow) to an icon, and the second prev label to null
-            prevLabel={<img src={arrow} alt="An arrow pointing left" className={[classes.calendarArrowLeft, classes.calendarArrow].join(" ")} />} prev2Label={null}
+            prevLabel={<img test-handle="left-arrow" src={arrow} alt="An arrow pointing left" className={[classes.calendarArrowLeft, classes.calendarArrow].join(" ")} />} prev2Label={null}
 
             //set the calendar title to the date
-            navigationLabel={({ date, view, label }) => <p className={classes.calendarTitle}>{label}</p>}
+            navigationLabel={({ date, view, label }) => <p className={classes.calendarTitle} test-handle="calendar-title">{label}</p>}
 
             //set the next label - (the right arrow) to an icon, and the second next label to null
             nextLabel={<img src={arrow} alt="An arrow pointing right" className={[classes.calendarArrowRight, classes.calendarArrow].join(" ")} />} next2Label={null}

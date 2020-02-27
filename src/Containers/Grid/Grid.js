@@ -40,7 +40,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 //redux actions
 import { fetchAppointments } from "../../store/actions/Fetch Appointments/fetch-appointment-action"
-import { dispatch_set_selected_appointment} from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
+import { dispatch_set_selected_appointment } from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
 
 //functions
 import populate_column_data from "./functions/populate_column_data"
@@ -48,8 +48,8 @@ import apply_selected_css from "./functions/apply_selected_css"
 import set_selected_appointment from "./functions/set_select_appointment"
 import get_next_four_cells from "./functions/get_next_four_cells"
 
-//!Move me
-import StyleCell from "../Cell/styleCell"//styles the cell based on the data
+//components
+import Cell from "../Cell/Cell"//styles the cell based on the data
 
 const Grid = props => {
 
@@ -90,7 +90,7 @@ const Grid = props => {
 
         dispatch(fetchAppointments(props.date))//fetch the appointment data for that date
 
-        if (lastDeletedAppointment) dispatch(set_selected_appointment(null))
+        if (lastDeletedAppointment) dispatch(dispatch_set_selected_appointment(null))
         // eslint-disable-next-line
     }, [props.date, lastDeletedAppointment])
 
@@ -140,10 +140,10 @@ const Grid = props => {
                                 return <div test-handle={columnArray[0]} className={classes.column} key={columnArray[0]}>
 
                                     {
-                                                                           
+
                                         rows.map(row => {//inside the column, map the array of rows (defined at the top in config)
 
-                                            return <StyleCell //for every column, render a cell component
+                                            return <Cell //for every column, render a cell component
 
                                                 key={row} //set the key as the row number
                                                 column={columnArray[1]} //pass in the column data (set by the populateCellData function)
@@ -155,7 +155,8 @@ const Grid = props => {
 
                                                 rescheduleMode={props.rescheduleMode}//pass on whether its reschedule mode or not(set by the icon on the footer in calendardate)
                                                 nextFourCells={handle_next_four_cells(columnArray[0], row)}
-                                                appointments={appointments}
+                                                // eslint-disable-next-line
+                                                appointments={appointments}//pass in all appointments
 
                                                 onClickEmpty={props.onClickEmpty} //handle when an empty cell is clicked               
                                                 onClickActive={(new_appointment) => handle_select_appointment(new_appointment)} //handle when an active cell is clicked

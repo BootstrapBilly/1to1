@@ -12,7 +12,7 @@ import { useSelector } from "react-redux"
 import highlight_available_cells from "./functions/highlight_available_cells"
 
 
-const StyleCell = (props) => {
+const Cell = (props) => {
 
     const currentSelectedAppointment = useSelector(state => state.selectedAppointment.selectedAppointment)
 
@@ -24,7 +24,7 @@ const StyleCell = (props) => {
 
         >
 
-            <div className={[
+            <div test-handle={`${rowData[2]}`} className={[
 
                 //Check the tag of each row item and apply the css class accordingly - //* The meanings of the tags are at the top of populateCellData.js
                 rowData[5] === "first" ? props.classes.activeSegmentFirst
@@ -77,4 +77,4 @@ const StyleCell = (props) => {
 
 }
 
-export default StyleCell
+export default Cell

@@ -71,6 +71,8 @@ const CalendarDate = props => {
 
     const navigateToAddAppointment = (cell) => {//navigates to add appointment(called when an empty cell is pressed)
 
+        if(currentSelectedAppointment) return dispatch(dispatch_set_selected_appointment(null))
+
         props.history.push({
 
             pathname: `/add-appointment`,
