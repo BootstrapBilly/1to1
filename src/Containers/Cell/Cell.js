@@ -1,79 +1,70 @@
 //core react
 import React from "react"
 
-/*takes in the props.column of the cell, 
-The number of the props.column as "col1", "col2" ect, the cell data,
-The row number, (current mapping passed in by grid),
-Props of grid,
-css props.classes of grid */
+//redux hooks
 import { useSelector } from "react-redux"
 
 //functions
 import highlight_available_cells from "./functions/highlight_available_cells"
+import compute_classname from "./functions/compute_classname"
 
+import classes from "./cell.module.css"
 
 const Cell = (props) => {
 
+    //_config
+    const cellData = props.column.find(item => item[0] === props.rowNumber)//search the given props.column to see if any of its rows have appointment data
+
+    //-Selectors
     const currentSelectedAppointment = useSelector(state => state.selectedAppointment.selectedAppointment)
 
-    const rowData = props.column.find(item => item[0] === props.rowNumber)//search the given props.column to see if any of its rows have appointment data
+    if (cellData) {//The cell is not empty
 
-    if (rowData) {//if any rows do have data
+        //const row = cellData[0]
+        const longer_than_15 = cellData[1]
+        const client_name = cellData[2]
+        const appointment_length = cellData[3]
+        const appointment_id = cellData[4]
+        const special_style = cellData[5]
 
-        return (<div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickActive.bind(this, { length: rowData[3], id: rowData[4] })}
+        return (
 
-        >
+            <div
 
-            <div test-handle={`${rowData[2]}`} className={[
+                test-handle={`${props.colNumber}-seg${props.rowNumber}`}
+                className={classes.rowSegment}
+                key={props.rowNumber}
+                onClick={props.onClickActive.bind(this, { length: appointment_length, id: appointment_id })}
 
-                //Check the tag of each row item and apply the css class accordingly - //* The meanings of the tags are at the top of populateCellData.js
-                rowData[5] === "first" ? props.classes.activeSegmentFirst
-                    : rowData[5] === "last" ? props.classes.activeSegmentLast
-                        : rowData[5] === "overFlow" ? props.classes.activeSegmentOverFlow
-                            : rowData[5] === "underFlow" ? props.classes.activeSegmentUnderFlow
-                                : rowData[5] === "underFlowLast" ? props.classes.activeSegmentUnderFlowLast
-                                    : rowData[5] === "overFlowFirst" ? props.classes.activeSegmentOverFlowFirst
+            >
 
-                                        //if no tags are present, check to see if the cell is a joined appointment
-                                        : rowData[1] ? props.classes.activeSegmentJoined //if it is, apply the class
-                                            : props.classes.activeSegment,
+                <div test-handle={`${client_name}`} className={compute_classname(special_style, props, longer_than_15, appointment_length, classes)}>
 
-                rowData[3] === 45 ? props.classes.triple :
+                    {client_name}
 
-                    rowData[3] === 60 ? props.classes.quad :
+                    {props.rescheduleMode && appointment_id === currentSelectedAppointment.id && (special_style !== "first" && special_style !== "overFlowFirst") && currentSelectedAppointment.length !== 15 ? highlight_available_cells(currentSelectedAppointment, props, true, classes) : null}
 
-                        null,
+                </div>
 
-                props.overWriteClass].join(" ")}
-
-            //otherwise apply a single style class
-            //output the name of the appointment holder, or null if it is a joined cell
-            >{rowData[2]}
-
-                {//if the cells are selected, and reschedule mode is active, insert another cell inside the selected cell to show a possible move //*Selected and available
-
-                    props.rescheduleMode && 
-                    (rowData[4] === currentSelectedAppointment.id) && 
-                    (rowData[5] !== "first") 
-                    && (currentSelectedAppointment.length !== 15) ? 
-
-                    highlight_available_cells(currentSelectedAppointment, props, true) : null}
-
-            </div>
-
-        </div>)
+            </div>)
 
     }
 
-    else if (!rowData && (props.rescheduleMode)) {
+    //If the cell is empty, and reschedule mode is //*active
+    else if (!cellData && (props.rescheduleMode)) return (highlight_available_cells(currentSelectedAppointment, props, false, classes))
 
-        //if theres no data for the cell and reschedule mode is active, run the algorithm to check which cells the appointment can be moved to, and highlight them
-        return (highlight_available_cells(currentSelectedAppointment, props, false))
-
-    }
-
+    //If the cell is empty and reschedule mode is //!Not active
     else return (
-    <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickEmpty.bind(this, `${props.colNumber}-seg${props.rowNumber}`)}></div>)
+
+        <div
+
+            test-handle={`${props.colNumber}-seg${props.rowNumber}`}
+            className={classes.rowSegment} key={props.rowNumber}
+            onClick={props.onClickEmpty.bind(this, `${props.colNumber}-seg${props.rowNumber}`)}>
+
+        </div>
+
+    )
 
 }
 

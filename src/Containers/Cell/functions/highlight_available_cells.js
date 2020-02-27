@@ -1,12 +1,12 @@
 import React from "react"
 
-const highlight_available_cells = (currentSelectedAppointment, props, selected) => {
+const highlight_available_cells = (currentSelectedAppointment, props, selected, classes) => {
 
-    let cellType = selected ? <div className={props.classes.test}></div> :
+    let cellType = selected ? <div className={classes.test}></div> :
     
-    <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber}>
+    <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={classes.rowSegment} key={props.rowNumber}>
 
-        <div className={props.classes.available}></div>
+        <div className={classes.available}></div>
 
     </div>
 
@@ -22,9 +22,9 @@ const highlight_available_cells = (currentSelectedAppointment, props, selected) 
 
                 if (appointment.row === cell.row && (appointment.col === cell.col) && cells_checked < maxCount) {
 
-                    return cellType = <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={props.classes.rowSegment} key={props.rowNumber} onClick={props.onClickEmpty.bind(this, `${props.colNumber}-seg${props.rowNumber}`)}
+                    return cellType = <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={classes.rowSegment} key={props.rowNumber} onClick={props.onClickEmpty.bind(this, `${props.colNumber}-seg${props.rowNumber}`)}
                     >
-                        {selected ? null : <div className={props.classes.notAvailable}></div>}
+                        {selected ? null : <div className={classes.notAvailable}></div>}
 
                     </div>
                 }
@@ -38,7 +38,7 @@ const highlight_available_cells = (currentSelectedAppointment, props, selected) 
 
 
     switch (currentSelectedAppointment.length) {
-
+        
         case 30: checkCells(2) 
         break;
 
@@ -48,7 +48,6 @@ const highlight_available_cells = (currentSelectedAppointment, props, selected) 
         case 60: checkCells(4) 
         break;
 
-        default: return
 
     }
 

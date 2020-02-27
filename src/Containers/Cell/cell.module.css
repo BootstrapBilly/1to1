@@ -1,0 +1,225 @@
+.rowSegment {
+
+    height:11%;
+    width:100%;
+    border: 0.5px solid #b8b8b831;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.availableSegment {
+
+    height:11%;
+    width:100%;
+    border: 0.5px solid #b8b8b865;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.activeSegment {
+
+    height:90%;
+    width:93%;
+    margin-top: 5%;
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+    background-color: pink;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    border-radius: 10px;
+
+}
+
+.activeSegmentOverFlow {
+
+    height:90%;
+    width:102%;
+    margin-top: 5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+
+}
+
+.activeSegmentOverFlowFirst {
+
+    height:90%;
+    width:101.5%;
+    margin-top: 5%;
+    margin-left: 3%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.activeSegmentOverFlowLast {
+
+    height:90%;
+    width:102%;
+    margin-top: 5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.activeSegmentUnderFlow{
+
+    height:90%;
+    width:103.5%;
+    margin-top: 5%;
+    margin-right: -1.5%;
+    position: relative;
+    left:-4.5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+
+}
+
+.activeSegmentUnderFlowFirst{
+
+    height:90%;
+    width:102.5%;
+    margin-top: 5%;
+    margin-right: 1.5%;
+    position: relative;
+    left:-4.5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.activeSegmentUnderFlowLast{
+
+    height:90%;
+    width:102.5%;
+    margin-top: 5%;
+    margin-right: 1.5%;
+    position: relative;
+    left:-4.5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.activeSegmentFirst {
+
+    height:90%;
+    width:100%;
+    margin-top: 5%;
+    position: relative;
+    margin-left: 2.5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.activeSegmentJoined {
+
+    height:90%;
+    width:105%;
+    margin-top: 5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    position: relative;
+    left: -2.5%;
+
+}
+
+.activeSegmentLast {
+
+    height:90%;
+    width:100%;
+    position: relative;
+    left:-5.5%;
+    margin-top: 5%;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.triple {
+
+    background-color: #d7743b;
+}
+
+.quad {
+
+    background-color: lightseagreen;
+
+}
+
+
+
+.available{
+
+    height:80%;
+    width:80%;
+    border-radius: 10px;
+    background-color: #E8EEF7;
+
+}
+
+
+.test{
+
+    background-color: #E8EEF7;
+    width: 95%;
+    height: 95%;
+    border-radius: 10px;
+
+}
+
+.notAvailable {
+
+    background-image: url("../../Assets/Icons/cross.svg");
+    background-repeat: no-repeat;
+    background-size: inherit;
+    width: 80%;
+    height: 80%;
+    margin-left:1.5vw;
+
+}
