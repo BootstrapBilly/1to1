@@ -2,17 +2,18 @@ const compute_classname = (special_style, props, longer_than_15, appointment_len
 
     const classArray = []
 
-    if(special_style === "first") classArray.push(classes.activeSegmentFirst)
-    else if(special_style === "last") classArray.push(classes.activeSegmentLast)
-    else if(special_style === "overFlow") classArray.push(classes.activeSegmentOverFlow)
-    else if(special_style === "underFlow") classArray.push(classes.activeSegmentUnderFlow)
-    else if(special_style === "underFlowLast") classArray.push(classes.activeSegmentUnderFlowLast)
-    else if(special_style === "overFlowFirst") classArray.push(classes.activeSegmentOverFlowFirst)
-    else if(longer_than_15) classArray.push(classes.activeSegmentJoined) 
-    else if(!longer_than_15) classArray.push(classes.activeSegment) 
-    
-    if(appointment_length === 45) classArray.push(classes.triple) 
-    else if(appointment_length === 60) classArray.push(classes.quad) 
+    if(special_style === "first") classArray.push(classes.sharedFormatting, classes.firstCell, classes.leftRadius)
+    else if(special_style === "last") classArray.push(classes.sharedFormatting, classes.lastCell, classes.rightRadius )
+    else if(special_style === "overFlow") classArray.push(classes.sharedFormatting, classes.spillsDownToNextLine)
+    else if(special_style === "underFlow") classArray.push(classes.sharedFormatting, classes.spillsFromPreviousLine)
+    else if(special_style === "underFlowLast") classArray.push(classes.sharedFormatting, classes.lastSpillsFromPrevious, classes.rightRadius)
+    else if(special_style === "overFlowFirst") classArray.push(classes.sharedFormatting, classes.firstSpillsToNext, classes.leftRadius)
+    else classArray.push(classes.joined)
+
+    if(appointment_length === 15) classArray.push(classes.sharedFormatting, classes.single) 
+    else if(appointment_length === 30) classArray.push(classes.sharedFormatting, classes.double) 
+    else if(appointment_length === 45) classArray.push(classes.sharedFormatting, classes.triple) 
+    else if(appointment_length === 60) classArray.push(classes.sharedFormatting, classes.quad) 
 
     return([...classArray, props.overWriteClass].join(" "))
 
