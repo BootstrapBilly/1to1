@@ -160,6 +160,7 @@ const Grid = props => {
 
                                                 onClickEmpty={props.onClickEmpty} //handle when an empty cell is clicked               
                                                 onClickActive={(new_appointment) => handle_select_appointment(new_appointment)} //handle when an active cell is clicked
+                                                onClickAvailable={() => console.log(row)} //handle when an active cell is clicked
 
                                                 //if an appointment is selected, assign the selected css class to it, pass in the current column and row
                                                 overWriteClass={currentSelectedAppointment ? handle_class_assignment(columnArray[1], row) : null}
