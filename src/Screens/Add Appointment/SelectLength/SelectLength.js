@@ -76,11 +76,11 @@ setOptions()
 
             <span className={classes.headerText}>Select an appointment length</span>
 
-            <div className={classes.mainOption} onClick={props.onClickOption.bind(this, 15)}><span>15</span><span>Minutes</span></div>
+            <div test-handle="15-mins" className={classes.mainOption} onClick={props.onClickOption.bind(this, 15)}><span>15</span><span>Minutes</span></div>
 
             <div className={classes.otherOptions}>
 
-                {options.map(item => <div className={classes.option} onClick={props.onClickOption.bind(this, item)} key={item}>{item}<span>Minutes</span></div>)}
+                {options.map(item => <div test-handle={`${item}-mins`} className={classes.option} onClick={props.onClickOption.bind(this, item)} key={item}>{item}<span>Minutes</span></div>)}
 
             </div>
 

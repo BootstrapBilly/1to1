@@ -15,7 +15,7 @@ export const confirmDelete = (currentSelectedAppointment, dispatchDelete) => {
             <div style={{display:"flex", justifyContent:"space-around", width:"100%"}}>
 
             <button onClick={onClose}>NO</button>
-              <button
+              <button test-handle="yes-button"
                 onClick={() => {
 
                 dispatchDelete()

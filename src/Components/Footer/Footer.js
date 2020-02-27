@@ -23,7 +23,7 @@ const Footer = props => {
 
                 <div className={classes.container}>
 
-                    <img src={trash} alt="A delete icon" className={classes.iconWrapper} onClick={props.onDelete} />
+                    <img src={trash} alt="A delete icon" className={classes.iconWrapper} onClick={props.onDelete} test-handle="delete-icon" />
                     <img src={time} alt="A reschedule icon" className={classes.iconWrapper} onClick={props.onReschedule} />
 
                 </div>
@@ -31,7 +31,7 @@ const Footer = props => {
 
                 <div className={classes.container}>
 
-                    <img src={calendar} alt="A menu icon" className={classes.iconWrapper} onClick={props.onOpen} />
+                    <img src={calendar} alt="A menu icon" className={classes.iconWrapper} onClick={props.onOpen} test-handle="calendar-icon" />
 
                 </div>}
 

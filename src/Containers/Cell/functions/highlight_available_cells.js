@@ -31,7 +31,7 @@ const highlight_available_cells = (currentSelectedAppointment, props, selected) 
 
             })
 
-            cells_checked = cells_checked + 1
+            cells_checked ++
         }
 
     }
@@ -47,6 +47,8 @@ const highlight_available_cells = (currentSelectedAppointment, props, selected) 
 
         case 60: checkCells(4) 
         break;
+
+        default: return
 
     }
 
