@@ -1,4 +1,4 @@
-const compute_classname = (special_style, props, appointment_length, classes) => {
+const compute_classname = (special_style, props, appointment_length, classes, rescheduleMode) => {
 
     const classArray = []
 
@@ -14,6 +14,8 @@ const compute_classname = (special_style, props, appointment_length, classes) =>
     else if(appointment_length === 30) classArray.push(classes.sharedFormatting, classes.double) 
     else if(appointment_length === 45) classArray.push(classes.sharedFormatting, classes.triple) 
     else if(appointment_length === 60) classArray.push(classes.sharedFormatting, classes.quad) 
+
+    if(rescheduleMode) classArray.push(classes.greyedOut)
 
     return([...classArray, props.overWriteClass].join(" "))
 

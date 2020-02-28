@@ -36,7 +36,7 @@ const Cell = (props) => {
 
             >
 
-                <div test-handle={`${client_name}`} className={compute_classname(special_style, props, appointment_length, classes)}>
+                <div test-handle={`${client_name}`} className={compute_classname(special_style, props, appointment_length, classes, props.rescheduleMode)}>
 
                     {client_name}
 
