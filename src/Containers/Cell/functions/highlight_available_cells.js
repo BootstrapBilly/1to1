@@ -2,9 +2,9 @@ import React from "react"
 
 const highlight_available_cells = (currentSelectedAppointment, props, selected, classes) => {
 
-    let cellType = selected ? <div className={classes.availableSelected} onClick={props.onClickAvailable}></div> :
+    let cellType = selected ? <div className={classes.availableSelected} onClick={props.onClickAvailable.bind(this, `${props.colNumber}-seg${props.rowNumber}`)}></div> :
     
-    <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={classes.rowSegment} key={props.rowNumber} onClick={props.onClickAvailable}>
+    <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={classes.rowSegment} key={props.rowNumber} onClick={props.onClickAvailable.bind(this, `${props.colNumber}-seg${props.rowNumber}`)}>
 
         <div className={classes.available}></div>
 
