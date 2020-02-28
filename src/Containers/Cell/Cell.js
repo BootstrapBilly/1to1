@@ -20,8 +20,6 @@ const Cell = (props) => {
 
     if (cellData) {//The cell is not empty
 
-        //const row = cellData[0]
-        const longer_than_15 = cellData[1]
         const client_name = cellData[2]
         const appointment_length = cellData[3]
         const appointment_id = cellData[4]
@@ -38,11 +36,11 @@ const Cell = (props) => {
 
             >
 
-                <div test-handle={`${client_name}`} className={compute_classname(special_style, props, longer_than_15, appointment_length, classes)}>
+                <div test-handle={`${client_name}`} className={compute_classname(special_style, props, appointment_length, classes)}>
 
                     {client_name}
 
-                    {props.rescheduleMode && appointment_id === currentSelectedAppointment.id && (special_style !== "first" && special_style !== "overFlowFirst") && currentSelectedAppointment.length !== 15 ? highlight_available_cells(currentSelectedAppointment, props, true, classes) : null}
+                    {currentSelectedAppointment && props.rescheduleMode && appointment_id === currentSelectedAppointment.id && (special_style !== "first" && special_style !== "overFlowFirst") && currentSelectedAppointment.length !== 15 ? highlight_available_cells(currentSelectedAppointment, props, true, classes) : null}
 
                 </div>
 
@@ -51,7 +49,7 @@ const Cell = (props) => {
     }
 
     //If the cell is empty, and reschedule mode is //*active
-    else if (!cellData && (props.rescheduleMode)) return (highlight_available_cells(currentSelectedAppointment, props, false, classes))
+    else if (!cellData && (props.rescheduleMode) && currentSelectedAppointment) return (highlight_available_cells(currentSelectedAppointment, props, false, classes))
 
     //If the cell is empty and reschedule mode is //!Not active
     else return (

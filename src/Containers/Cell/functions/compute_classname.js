@@ -1,4 +1,4 @@
-const compute_classname = (special_style, props, longer_than_15, appointment_length, classes) => {
+const compute_classname = (special_style, props, appointment_length, classes) => {
 
     const classArray = []
 

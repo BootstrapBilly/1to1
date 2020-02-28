@@ -2,7 +2,7 @@ import React from "react"
 
 const highlight_available_cells = (currentSelectedAppointment, props, selected, classes) => {
 
-    let cellType = selected ? <div className={classes.availableSelected}></div> :
+    let cellType = selected ? <div className={classes.availableSelected} onClick={props.onClickAvailable}></div> :
     
     <div test-handle={`${props.colNumber}-seg${props.rowNumber}`} className={classes.rowSegment} key={props.rowNumber} onClick={props.onClickAvailable}>
 
@@ -48,6 +48,7 @@ const highlight_available_cells = (currentSelectedAppointment, props, selected, 
         case 60: checkCells(4) 
         break;
 
+        default: break;
     }
 
     return (<React.Fragment>{cellType}</React.Fragment>)

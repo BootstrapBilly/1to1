@@ -1,7 +1,5 @@
 const apply_selected_css = (given_column, selected_row, classes, currentSelectedAppointment, rescheduleMode) => {
 
-    console.log(rescheduleMode)
-
     if (!currentSelectedAppointment) return null //if there is no currently selected appointment, return
 
     let classname = null //define the classname to be returned
