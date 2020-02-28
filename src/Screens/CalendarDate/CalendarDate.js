@@ -1,5 +1,5 @@
 //core react
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 //components
 import Header from "../../Containers/Header/Header"
@@ -99,7 +99,6 @@ const CalendarDate = props => {
 
     const handleReschedule = () => {
 
-        //console.log(currentSelectedAppointment)
         setRescheduleMode(!rescheduleMode)
 
     }
@@ -111,6 +110,11 @@ const CalendarDate = props => {
         trackMouse: true
 
     });
+
+    useEffect(()=> {
+
+        if(!currentSelectedAppointment && rescheduleMode) setRescheduleMode(false)
+    })
 
     return (
 
