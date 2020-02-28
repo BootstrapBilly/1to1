@@ -8,3 +8,13 @@
     height: 93vh;
 
 }
+
+/**  landscape mobile */
+
+@media (orientation: landscape) and (max-height:481px) {
+
+    .input{
+        height: 12vh; 
+
+   }
+}

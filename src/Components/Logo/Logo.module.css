@@ -1,40 +1,32 @@
-.logo{
+.logo {
+    width: 100vw;
+    height: 20vh;
+    position: absolute;
+    top: 0vh;
+    left: 0;
+}
 
-        width: 100vw;
-        height: 20vh;
-        position: absolute;
-        top: 0vh;
-        left: 0;
+/* Landscape mobile */
+@media (orientation: landscape) and (max-height:481px){
+    .logo {
+        height: 40vh;
     }
+}
 
-@media(min-width: 451px) {
-
-    .logo{
-
+@media(min-width: 482px) and (orientation: portrait) {
+    .logo {
         height: 30vh;
-
     }
-
 }
 
-@media(min-width: 801px){
-
-    .logo{
-
+@media(min-width: 801px) and (orientation: portrait) {
+    .logo {
         height: 50vh;
-        
     }
-
 }
 
-@media(min-width: 1501px){
-
-    .logo{
-
+@media(min-width: 1501px) and (orientation: portrait){
+    .logo {
         height: 65vh;
-        
     }
-
 }
-
-

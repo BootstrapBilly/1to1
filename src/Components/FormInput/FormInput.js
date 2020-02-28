@@ -9,7 +9,7 @@ import classes from "./FormInput.module.css"
 
 const FormInput = props => (
 
-    <div className={classes.inputContainer} test-handle="form-container" style={props.overWriteStyle}>
+    <div className={classes.inputContainer} test-handle="form-container" style={props.overWriteStyle} >
 
         <div className={classes.inputHeader} test-handle="input-header">
 

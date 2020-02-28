@@ -1,44 +1,36 @@
 .container {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 .inputContainer {
-
     display: flex;
     flex-direction: column;
-    width:80%;
+    width: 80%;
     margin-bottom: 3vh;
     background-color: transparent;
     border: 0.5px solid rgba(128, 128, 128, 0.411);
-    padding:5px;
+    padding: 5px;
     padding-left: 12px;
     border-radius: 5px;
-
 }
 
 .inputHeader {
-
     display: flex;
     justify-content: space-between;
-    
 }
 
 .inputTitle {
-
-    color:blueviolet;
+    color: blueviolet;
     font-weight: 700;
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
 }
 
 .errorText {
-
-    color:red;
+    color: red;
     font-weight: 700;
     font-family: 'Playfair Display', serif;
     font-size: 0.8rem;
@@ -46,9 +38,8 @@
 }
 
 .input {
-
     display: flex;
-    height: 4.5vh;
+    flex: 1;
     outline: none;
     border: none;
     color: black;
@@ -57,27 +48,33 @@
 }
 
 .input::placeholder {
-
-font-size: 1.2REM;
-color: rgba(0, 0, 0, 0.295);
-font-family: 'Libre Baskerville', serif;
-
+    font-size: 1.2REM;
+    color: rgba(0, 0, 0, 0.295);
+    font-family: 'Libre Baskerville', serif;
 }
 
 .input:focus::placeholder {
-
-font-size: 1.3REM;
-color: rgba(0, 0, 0, 0);
-
+    font-size: 1.3REM;
+    color: rgba(0, 0, 0, 0);
 }
 
 .button {
-
     width: 35vw;
     height: 6vh;
     border-radius: 5px;
-    border:2px solid blueviolet;
+    border: 2px solid blueviolet;
     background-color: transparent;
-    color:blueviolet;
+    color: blueviolet;
     font-size: 1.2rem;
+}
+
+@media (orientation: landscape) and (max-height:481px) {
+    
+    .inputContainer {
+        height: 25vh;
+    }
+    .button {
+        width: 15vw;
+        height: 12vh;
+    }
 }

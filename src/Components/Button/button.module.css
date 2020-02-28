@@ -1,76 +1,64 @@
 .button {
+    border: none;
+    display: block;
+    width: 50vw;
+    height: 6vh;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 5vh;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50px;
+    background: #DC6099;
+    box-shadow: 1.5px 1.5px 3px #8f3e63, -1.5px -1.5px 3px #ff82cf;
+    position: fixed;
+    top: 80vh;
+}
 
-        border: none;
-        display: block;
-        width: 50vw;
-        height: 6vh;
-        border-radius: 10px;
-        text-align: center;
-        margin-top: 5vh;
-        color: white;
-        font-weight: 600;
+.button:hover {
+    cursor: pointer;
+}
+
+.button:focus {
+    outline: none !important;
+    border: none;
+}
+
+/* Landscape mobile */
+
+@media (orientation: landscape) and (max-height:481px) {
+    .button {
+        height: 10vh;
+        width: 30vw;
+    }
+}
+
+@media(min-width: 482px) and (orientation: portrait) {
+    .button {
+        font-size: 1.2rem;
+        width: 45vw;
+    }
+}
+
+@media(min-width: 801px) and (orientation: portrait) {
+    .button {
         font-size: 1.1rem;
-        transition:all 0.3s ease-in-out;
-        border-radius: 50px;
-        background: #DC6099;
-        box-shadow: 1.5px 1.5px 3px #8f3e63, 
-                    -1.5px -1.5px 3px #ff82cf;
-        position: fixed;
-        top: 80vh;
-
+        width: 25vw;
     }
+}
 
-    .button:hover {
-        cursor: pointer;
+@media(min-width: 1100px) and (orientation: portrait){
+    .button {
+        font-size: 1.05rem;
+        width: 20vw;
     }
+}
 
-    .button:focus {
-
-        outline: none !important;
-        border: none;
+@media(min-width: 1501px) and (orientation: portrait) {
+    .button {
+        font-size: 1rem;
+        width: 15vw;
     }
-
-    @media(min-width: 451px){
-
-        .button {
-
-            font-size: 1.2rem;
-            width: 45vw;
-
-        }
-    
-    }
-
-    @media(min-width: 801px) {
-
-        .button {
-
-            font-size: 1.1rem;
-            width: 25vw;
-
-        }
-    
-    }
-
-    @media(min-width: 1100px) {
-
-        .button {
-
-            font-size: 1.05rem;
-            width: 20vw;
-
-        }
-    
-    }
-
-    @media(min-width: 1501px){
-
-        .button {
-
-            font-size: 1rem;
-            width: 15vw;
-
-        }
-    
-    }
-
+}

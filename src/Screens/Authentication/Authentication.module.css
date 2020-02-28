@@ -1,6 +1,7 @@
 .img {
 
         display: none;
+        
     }
 
     .container {
@@ -20,5 +21,6 @@
 
         color: red;
         text-align: center;
+
     }
     

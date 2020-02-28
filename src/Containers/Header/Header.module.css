@@ -106,3 +106,16 @@
 
 }
 
+@media (orientation: landscape) and (max-height:481px) {
+
+    .icon {
+
+        width: 3.5vw;
+    }
+
+    .container{
+
+        height: 15vh;
+    }
+
+}

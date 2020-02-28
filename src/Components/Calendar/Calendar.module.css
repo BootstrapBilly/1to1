@@ -56,3 +56,33 @@
     align-items: center;    
 }
 
+@media (orientation: landscape) and (max-height:481px) {
+
+    .Calendar{
+        width: 60vw;
+        max-height: 100vh;
+    }
+
+    .calendarArrow {
+
+        height: 8vw;
+        width: 10vw;
+        z-index: 9001;
+    }
+
+    .calendarTitle{
+        font-size: 1.8rem;
+        background-color: white;
+        position: relative;
+        top:-7.1vh;
+        left: -11vw;
+        height:15vh;
+        width: 64vw;
+        color: black;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+    }
+
+}

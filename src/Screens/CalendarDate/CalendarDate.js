@@ -96,8 +96,6 @@ const CalendarDate = props => {
 
     }
 
-    //!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
     const handleReschedule = () => {
 
         setRescheduleMode(!rescheduleMode)
@@ -122,7 +120,7 @@ const CalendarDate = props => {
 
         <div test-handle="container">
 
-            <Header test-handle="header" text={reformattedDate} backArrow handleBack={() => props.history.goBack()} />
+            <Header test-handle="header" text={reformattedDate} backArrow handleBack={() => props.history.push("/dashboard")} />
 
             <div className={classes.gridContainer}>
 
