@@ -33,7 +33,7 @@ const SelectClient = props => {
 
         <div className={classes.container}>
 
-            <FormInput inputTitle={"Search for a client"} overWriteStyle={{ height: "7vh", background: "white", marginTop: "2vh" }} placeholder="Loren Knight" handleChange={(e)=> sendRequest(e)}/>
+            <FormInput inputTitle={"Search for a client"} overWriteStyle={{background: "white", marginTop: "2vh", paddingBottom: "1vh"}} placeholder="Loren Knight" handleChange={(e)=> sendRequest(e)}/>
 
             <SearchResults clients={Clients}/>
 

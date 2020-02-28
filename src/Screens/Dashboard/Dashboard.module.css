@@ -89,3 +89,34 @@
 
 }
 
+@media (orientation: landscape) and (max-height:481px) {
+
+    .clientsTodayContainer {
+
+        height: 29vh;
+        width: 29vh;
+        margin-top: -5.5vh;
+
+    }
+
+    .menuContainer{
+
+        margin-top: -1vh;
+    }
+
+    .menuBoxContainer {
+
+        width: 21vw;
+        height: 25vh;
+        padding-left: 1.5vw;
+
+    }
+
+    .icon {
+
+        width: 5vw;
+        height: 5vw;
+    }
+
+}
+

@@ -29,3 +29,18 @@
 
     border-color: lawngreen;
 }
+
+@media (orientation: landscape) and (max-height:481px) {
+
+    .container{
+
+        height: 23vh;
+
+    }
+
+    .iconWrapper {
+        width: 7.5vw;
+        padding: 0.75vw;
+    }
+
+}
