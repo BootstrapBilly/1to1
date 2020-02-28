@@ -6,16 +6,17 @@ import Header from "../../Containers/Header/Header"
 import Grid from "../../Containers/Grid/Grid"
 import Footer from "../../Components/Footer/Footer"
 import Calendar from "../../Components/Calendar/Calendar"
-import {confirmDelete} from "./confirmDelete"
+import { confirmDelete } from "./confirmDelete"
+import ReschedulePrompt from "../../Components/ReschedulePrompt/ReschedulePrompt"
 
 //external
 import { useSwipeable } from 'react-swipeable'
 
 //redux hooks
-import {useSelector, useDispatch} from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 
 //redux actions
-import {sendDeleteAppointment, dispatch_set_selected_appointment} from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
+import { sendDeleteAppointment, dispatch_set_selected_appointment } from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
 
 //css
 import classes from "./CalendarDate.module.css"
@@ -71,7 +72,7 @@ const CalendarDate = props => {
 
     const navigateToAddAppointment = (cell) => {//navigates to add appointment(called when an empty cell is pressed)
 
-        if(currentSelectedAppointment) return dispatch(dispatch_set_selected_appointment(null))
+        if (currentSelectedAppointment) return dispatch(dispatch_set_selected_appointment(null))
 
         props.history.push({
 
@@ -86,7 +87,7 @@ const CalendarDate = props => {
     const handleDelete = () => {
 
         const dispatchDelete = () => {
-            
+
             dispatch(sendDeleteAppointment(currentSelectedAppointment.id))
 
         }
@@ -111,9 +112,10 @@ const CalendarDate = props => {
 
     });
 
-    useEffect(()=> {
+    useEffect(() => {
 
-        if(!currentSelectedAppointment && rescheduleMode) setRescheduleMode(false)
+        if (!currentSelectedAppointment && rescheduleMode) setRescheduleMode(false)
+
     })
 
     return (
@@ -124,7 +126,9 @@ const CalendarDate = props => {
 
             <div className={classes.gridContainer}>
 
-                <Grid date={dateToIsoString} onClickEmpty={(cell) => navigateToAddAppointment(cell)} fullSize onSwipedLeft={() => setNewDate("left")} onSwipedRight={() => setNewDate("right")} rescheduleMode={rescheduleMode}/>
+                {rescheduleMode ? <ReschedulePrompt/> : null}
+
+                <Grid date={dateToIsoString} onClickEmpty={(cell) => navigateToAddAppointment(cell)} fullSize onSwipedLeft={() => setNewDate("left")} onSwipedRight={() => setNewDate("right")} rescheduleMode={rescheduleMode} />
 
             </div>
 
@@ -136,7 +140,7 @@ const CalendarDate = props => {
 
                 </div>
 
-                : <Footer onOpen={() => setCalendarActive(!calendarActive)} appointmentSelected={currentSelectedAppointment} onDelete={()=> handleDelete()} onReschedule={()=> handleReschedule()}/>
+                : <Footer onOpen={() => setCalendarActive(!calendarActive)} appointmentSelected={currentSelectedAppointment} onDelete={() => handleDelete()} onReschedule={() => handleReschedule()} rescheduleMode={rescheduleMode}/>
 
             }
 

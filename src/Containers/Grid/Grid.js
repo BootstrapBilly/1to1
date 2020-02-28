@@ -41,6 +41,8 @@ import { useDispatch, useSelector } from "react-redux"
 //redux actions
 import { fetchAppointments } from "../../store/actions/Fetch Appointments/fetch-appointment-action"
 import { dispatch_set_selected_appointment } from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
+import { moveAppointment } from "../../store/actions/Move Appointment/Move-Appointment-action"
+import { reset_moved_appointment_indicator } from "../../store/actions/Move Appointment/Move-Appointment-action"
 
 //functions
 import populate_column_data from "./functions/populate_column_data"
@@ -71,6 +73,7 @@ const Grid = props => {
     const appointments = useSelector(state => state.fetchAppointments.appointments)//get the appointment data fetched from the api
     const lastDeletedAppointment = useSelector(state => state.selectedAppointment.deletedId)//get the appointment data fetched from the api
     const currentSelectedAppointment = useSelector(state => state.selectedAppointment.selectedAppointment)
+    const appointmentMoved = useSelector(state => state.moveAppointment.appointment_moved)
 
     //!functions
 
@@ -80,10 +83,16 @@ const Grid = props => {
     const handle_class_assignment = (column, row) => apply_selected_css(column, row, classes, currentSelectedAppointment, props.rescheduleMode)
 
     //run the set selected appointment helper function
-    const handle_select_appointment = (new_appointment) => set_selected_appointment(currentSelectedAppointment, new_appointment, dispatch, dispatch_set_selected_appointment)
+    const handle_select_appointment = (new_appointment) => set_selected_appointment(currentSelectedAppointment, new_appointment, dispatch, dispatch_set_selected_appointment, props.rescheduleMode)
 
     //Generate the next four cells after the appointment (used to check space available for appointment reassignment)
     const handle_next_four_cells = (colNumber, rowNumber) => get_next_four_cells(colNumber, rowNumber)
+
+    const handle_move_appointment = cell => { 
+        
+        dispatch(moveAppointment(cell, currentSelectedAppointment.id))
+    
+    }
 
     //_ Effects
     useEffect(() => {
@@ -91,8 +100,15 @@ const Grid = props => {
         dispatch(fetchAppointments(props.date))//fetch the appointment data for that date
 
         if (lastDeletedAppointment) dispatch(dispatch_set_selected_appointment(null))
+
+        if(appointmentMoved){
+
+            dispatch(dispatch_set_selected_appointment(null))
+            dispatch(reset_moved_appointment_indicator())
+
+        }
         // eslint-disable-next-line
-    }, [props.date, lastDeletedAppointment])
+    }, [props.date, lastDeletedAppointment, appointmentMoved])
 
     return (
 
@@ -160,7 +176,7 @@ const Grid = props => {
 
                                                 onClickEmpty={props.onClickEmpty} //handle when an empty cell is clicked               
                                                 onClickActive={(new_appointment) => handle_select_appointment(new_appointment)} //handle when an active cell is clicked
-                                                onClickAvailable={() => console.log(row)} //handle when an active cell is clicked
+                                                onClickAvailable={(cell) => handle_move_appointment(cell)} //handle when an active cell is clicked
 
                                                 //if an appointment is selected, assign the selected css class to it, pass in the current column and row
                                                 overWriteClass={currentSelectedAppointment ? handle_class_assignment(columnArray[1], row) : null}

@@ -15,6 +15,7 @@ import searchClientReducer from "./store/reducers/Search For Client/SearchForCli
 import addAppointmentReducer from "./store/reducers/Add Appointment/Add-Appointment-reducer"
 import fetchAppointmentsReducer from "./store/reducers/Fetch Appointments/fetch-appointment-reducer"
 import selectedAppointmentReducer from "./store/reducers/SelectedAppointment/SelectAppointment-reducer"
+import moveAppointmentReducer from "./store/reducers/Move Appointment/Move-Appointment-reducer"
 
 // import Grid from "./Containers/Grid/Grid"
 import App from './App';
@@ -43,7 +44,8 @@ export const rootReducer = combineReducers({ //combine all the state reducers in
   searchClient: searchClientReducer,
   addAppointment: addAppointmentReducer,
   fetchAppointments: fetchAppointmentsReducer,
-  selectedAppointment: selectedAppointmentReducer
+  selectedAppointment: selectedAppointmentReducer,
+  moveAppointment: moveAppointmentReducer
 
 })
 

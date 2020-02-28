@@ -1,0 +1,22 @@
+.container {
+
+    width: 100vw;
+    height: 14vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+
+}
+
+.innerContainer {
+
+    width: 80vw;
+    height: 100%;
+
+}
+
+p{
+    font-size: 1.3rem;
+}

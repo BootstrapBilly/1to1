@@ -24,7 +24,7 @@ const Footer = props => {
                 <div className={classes.container}>
 
                     <img src={trash} alt="A delete icon" className={classes.iconWrapper} onClick={props.onDelete} test-handle="delete-icon" />
-                    <img src={time} alt="A reschedule icon" className={classes.iconWrapper} onClick={props.onReschedule} />
+                    <img src={time} alt="A reschedule icon" className={props.rescheduleMode ? [classes.iconWrapper, classes.active].join(" ") : classes.iconWrapper} onClick={props.onReschedule} />
 
                 </div>
                 :

@@ -24,3 +24,8 @@
     align-items: center;
 
 }
+
+.active {
+
+    border-color: lawngreen;
+}
