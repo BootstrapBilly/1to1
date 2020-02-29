@@ -1,5 +1,5 @@
 //core react
-import React from "react"
+import React, {useEffect} from "react"
 
 //external
 
@@ -30,6 +30,11 @@ const Dashboard = props => {
 
 const navigateToPage = navLinkURL => props.history.push({pathname: navLinkURL})
 
+useEffect(()=> {
+
+    window.scrollTo(0, 1)
+
+  })
 
     // const navigateToAddAppointment = (cell) => {
 

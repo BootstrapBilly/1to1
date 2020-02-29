@@ -1,5 +1,5 @@
 //core react
-import React from 'react';
+import React, {useEffect} from 'react';
 
 //external
 import { useSelector } from "./Utils/hooks"
@@ -29,6 +29,12 @@ function App() {
   dispatch(try_auto_login())
 
   const Authenticated = useSelector(state => state.auth.loggedIn)
+
+  useEffect(()=> {
+
+    window.scrollTo(0, 1)
+
+  })
 
   return (
 
