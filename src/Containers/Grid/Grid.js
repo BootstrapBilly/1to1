@@ -58,6 +58,9 @@ const Grid = props => {
     //_Configuration
     const dispatch = useDispatch() //call the dispatch hook to dispatch redux actions
     const rows = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]//set the amount of rows on the grid
+    const hours = ["09", "10", "11", "12", "13", "14", "15", "16", "17", "18"]//set the hours to be mapped to each cell
+    const mins = ["00", "15", "30", "45"]//set the mins col to be mapped to each cell
+
     const column1 = [], column2 = [], column3 = [], column4 = [] //define the columns to be populated with appointments
 
     const handlers = useSwipeable({//makes the grid swipable 
@@ -88,10 +91,10 @@ const Grid = props => {
     //Generate the next four cells after the appointment (used to check space available for appointment reassignment)
     const handle_next_four_cells = (colNumber, rowNumber) => get_next_four_cells(colNumber, rowNumber)
 
-    const handle_move_appointment = cell => { 
-        
+    const handle_move_appointment = cell => {
+
         dispatch(moveAppointment(cell, currentSelectedAppointment.id))
-    
+
     }
 
     //_ Effects
@@ -101,7 +104,7 @@ const Grid = props => {
 
         if (lastDeletedAppointment) dispatch(dispatch_set_selected_appointment(null))
 
-        if(appointmentMoved){
+        if (appointmentMoved) {
 
             dispatch(dispatch_set_selected_appointment(null))
             dispatch(reset_moved_appointment_indicator())
@@ -120,27 +123,7 @@ const Grid = props => {
 
                     {
                         //Map all the hour labels on the left side of the grid
-                        ["9am", "10am", "11am", "12pm", "13pm", "14pm", "15pm", "16pm", "17pm"].map(item => {
-
-                            const sliced = item.slice(0, -2)
-
-                            return <div test-handle={item} className={classes.hourColSegment} key={item}>{sliced}</div>
-                        })
-
-                    }
-
-                </div>
-
-                <div test-handle="minRow" className={classes.minRow}>
-
-                    {
-                        ["15mins", "30mins", "45mins"].map(item => {
-
-                            const sliced = item.slice(0, -4)
-
-                            return <div test-handle={item} className={classes.minRowSegment} key={item}>{sliced}</div>
-                        })
-
+                        hours.map(item => <div test-handle={item} className={classes.hourColSegment} key={item}></div>)
                     }
 
                 </div>
@@ -152,36 +135,46 @@ const Grid = props => {
 
                             .map(columnArray => {
 
-                                //the container for the column 
+                                const columnNumber = parseInt(columnArray[0].slice(-1) - 1)
+
                                 return <div test-handle={columnArray[0]} className={classes.column} key={columnArray[0]}>
 
                                     {
 
                                         rows.map(row => {//inside the column, map the array of rows (defined at the top in config)
 
-                                            return <Cell //for every column, render a cell component
+                                            const rowNumber = parseInt(parseInt(row - 1))
 
-                                                key={row} //set the key as the row number
-                                                column={columnArray[1]} //pass in the column data (set by the populateCellData function)
-                                                colNumber={columnArray[0]} //pass in the column number
-                                                rowNumber={row} //pass in the row number
-                                                props={props} //pass in the props of this component
-                                                classes={classes} //and the classes of this compoment
-                                                appointments={appointments} //pass in the full appointment data (from redux selector)
+                                            return <React.Fragment>
 
-                                                rescheduleMode={props.rescheduleMode}//pass on whether its reschedule mode or not(set by the icon on the footer in calendardate)
-                                                nextFourCells={handle_next_four_cells(columnArray[0], row)}
-                                                // eslint-disable-next-line
-                                                appointments={appointments}//pass in all appointments
+                                                <div className={classes.time}>{`${hours[rowNumber]}:${mins[columnNumber]}`}</div>
 
-                                                onClickEmpty={props.onClickEmpty} //handle when an empty cell is clicked               
-                                                onClickActive={(new_appointment) => handle_select_appointment(new_appointment)} //handle when an active cell is clicked
-                                                onClickAvailable={(cell) => handle_move_appointment(cell)} //handle when an active cell is clicked
+                                                <Cell //for every column, render a cell component
 
-                                                //if an appointment is selected, assign the selected css class to it, pass in the current column and row
-                                                overWriteClass={currentSelectedAppointment ? handle_class_assignment(columnArray[1], row) : null}
+                                                    key={row} //set the key as the row number
+                                                    column={columnArray[1]} //pass in the column data (set by the populateCellData function)
+                                                    colNumber={columnArray[0]} //pass in the column number
+                                                    rowNumber={row} //pass in the row number
+                                                    props={props} //pass in the props of this component
+                                                    classes={classes} //and the classes of this compoment
+                                                    appointments={appointments} //pass in the full appointment data (from redux selector)
+                                                    time={`${hours[parseInt(row)]}:00`}
 
-                                            />
+                                                    rescheduleMode={props.rescheduleMode}//pass on whether its reschedule mode or not(set by the icon on the footer in calendardate)
+                                                    nextFourCells={handle_next_four_cells(columnArray[0], row)}
+                                                    // eslint-disable-next-line
+                                                    appointments={appointments}//pass in all appointments
+
+                                                    onClickEmpty={props.onClickEmpty} //handle when an empty cell is clicked               
+                                                    onClickActive={(new_appointment) => handle_select_appointment(new_appointment)} //handle when an active cell is clicked
+                                                    onClickAvailable={(cell) => handle_move_appointment(cell)} //handle when an active cell is clicked
+
+                                                    //if an appointment is selected, assign the selected css class to it, pass in the current column and row
+                                                    overWriteClass={currentSelectedAppointment ? handle_class_assignment(columnArray[1], row) : null}
+
+                                                />
+
+                                            </React.Fragment>
 
                                         })
 
