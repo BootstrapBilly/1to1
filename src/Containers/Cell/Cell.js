@@ -37,10 +37,15 @@ const Cell = (props) => {
             >
 
                 <div test-handle={`${client_name}`} className={compute_classname(special_style, props, appointment_length, classes, props.rescheduleMode)}>
-
+                
                     {client_name}
 
+                    {
+                    //props.colNumber === "col4" ? <div className={classes.test}>{props.time}</div> : null
+                    }
+
                     {currentSelectedAppointment && props.rescheduleMode && appointment_id === currentSelectedAppointment.id && (special_style !== "first" && special_style !== "overFlowFirst") && currentSelectedAppointment.length !== 15 ? highlight_available_cells(currentSelectedAppointment, props, true, classes) : null}
+
 
                 </div>
 
@@ -59,6 +64,10 @@ const Cell = (props) => {
             test-handle={`${props.colNumber}-seg${props.rowNumber}`}
             className={classes.rowSegment} key={props.rowNumber}
             onClick={props.onClickEmpty.bind(this, `${props.colNumber}-seg${props.rowNumber}`)}>
+
+{
+//props.colNumber === "col4" ? <div className={classes.testNoData}>{props.time}</div> : null
+}
 
         </div>
 
