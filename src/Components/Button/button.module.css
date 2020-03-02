@@ -1,18 +1,16 @@
 .button {
     border: none;
     display: block;
-    width: 50vw;
+    width: 63vw;
     height: 6vh;
     border-radius: 10px;
     text-align: center;
-    margin-top: 5vh;
     color: white;
     font-weight: 600;
     font-size: 1.1rem;
     transition: all 0.3s ease-in-out;
-    border-radius: 50px;
+    border-radius: 20px;
     background: #DC6099;
-    box-shadow: 1.5px 1.5px 3px #8f3e63, -1.5px -1.5px 3px #ff82cf;
     position: fixed;
     top: 80vh;
 }
@@ -31,34 +29,52 @@
 @media (orientation: landscape) and (max-height:481px) {
     .button {
         height: 10vh;
-        width: 30vw;
-    }
-}
-
-@media(min-width: 482px) and (orientation: portrait) {
-    .button {
-        font-size: 1.2rem;
-        width: 45vw;
-    }
-}
-
-@media(min-width: 801px) and (orientation: portrait) {
-    .button {
-        font-size: 1.1rem;
         width: 25vw;
+        margin-top: -3vh;
     }
 }
 
-@media(min-width: 1100px) and (orientation: portrait){
+/* ipad air landscape */
+
+@media (min-width:1024px) and (min-height:768px) {
     .button {
-        font-size: 1.05rem;
-        width: 20vw;
+        height: 7vh;
+        width: 25vw;
+        font-size: 1.4rem;
+        margin-top: 3vh;
     }
 }
 
-@media(min-width: 1501px) and (orientation: portrait) {
+/* ipad air portrait */
+
+@media (min-width:768px) and (min-height:1024px) {
     .button {
-        font-size: 1rem;
+        height: 6vh;
+        width: 55vw;
+        font-size: 1.7rem;
+        margin-top:0vh
+    }
+}
+
+/* small laptop 1366 * 786 */
+
+@media (min-width:1366px) and (min-height:768px) {
+
+    .button {
+        height: 5vh;
         width: 15vw;
+        font-size: 1.1rem;
+        margin-top: -3vh;
+    }
+
+}
+
+/* corporate 1920 * 1080 */
+
+@media (min-width:1920px) and (min-height:1080px) {
+    .button {
+        width: 14.5vw;
+        font-size: 1.6rem;
+        margin-top: 2vh;
     }
 }
