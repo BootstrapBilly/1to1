@@ -119,3 +119,52 @@
     }
 
 }
+
+/* ipad air landscape */
+
+
+@media (min-width:1024px) and (min-height:768px) {
+    .icon {
+
+        width: 3.5vw;
+    }
+
+    .container{
+
+        height: 15vh;
+    }
+}
+
+/* ipad air portrait */
+
+@media (min-width:768px) and (min-height:1024px) {
+    .button {
+        height: 6vh;
+        width: 55vw;
+        font-size: 1.7rem;
+        margin-top:0vh
+    }
+}
+
+/* small laptop 1366 * 786 */
+
+@media (min-width:1366px) and (min-height:768px) {
+
+    .button {
+        height: 5vh;
+        width: 15vw;
+        font-size: 1.1rem;
+        margin-top: -3vh;
+    }
+
+}
+
+/* corporate 1920 * 1080 */
+
+@media (min-width:1920px) and (min-height:1080px) {
+    .button {
+        width: 14.5vw;
+        font-size: 1.6rem;
+        margin-top: 2vh;
+    }
+}
