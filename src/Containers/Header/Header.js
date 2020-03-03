@@ -9,10 +9,10 @@ import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 
 //redux hooks
-import {useDispatch} from "react-redux"
+import { useDispatch } from "react-redux"
 
 //redux actions
-import {logout} from "../../store/actions/Auth/Auth-action"
+import { logout } from "../../store/actions/Auth/Auth-action"
 
 //assets
 import hamburger from "../../Assets/Icons/hamburger-menu.svg"
@@ -42,17 +42,30 @@ const Header = props => {
             {props.backArrow ? <img test-handle="back-button" src={backArrow} alt="A back button" className={[classes.backArrow, classes.icon].join(" ")} onClick={props.handleBack} /> : null}
 
             <img src={hamburger} alt="A menu icon" className={[classes.hamburgerMenu, classes.icon].join(" ")} test-handle="hamburger-icon" onClick={() => setPanelOpen(!panelOpen)} />
-            
+
             <p test-handle="header-text" className={classes.title}>{props.text}</p>
 
             <div test-handle="side-panel" className={panelOpen ? classes.sidePanel : classes.sidePanelClosed}>
 
                 <div className={classes.navLinks}>
 
-                    <Link to="/dashboard" test-handle="home-link" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Home</p></Link>
-                    <Link to="/new-client" test-handle="new-client-link" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p>Add a client</p></Link>
-                    <p>Find a client</p>
-                    <p test-handle="logout" onClick={()=> handleLogout()}>Log out</p>
+                    <span className={classes.otherLinks}>
+
+                        <Link to="/dashboard" test-handle="home-link" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p className={classes.navLink}>Home</p></Link>
+
+                        <Link to={`/calendar-date/${new Date()}`} test-handle="diary-link" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p className={classes.navLink}>Diary</p></Link>
+
+                        <Link to="/new-client" test-handle="new-client-link" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p className={classes.navLink}>Add a client</p></Link>
+
+                        <p className={classes.navLink}>Find a client</p>
+
+                    </span>
+
+                    <span className={classes.logout}>
+
+                        <p test-handle="logout" onClick={() => handleLogout()} className={classes.navLink}>Log out</p>
+
+                    </span>
 
                 </div>
 

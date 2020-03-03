@@ -62,7 +62,6 @@
     z-index: 100;
     transition: all .75s ease;
 
-    
 }
 
 .sidePanelClosed {
@@ -106,16 +105,29 @@
 
 }
 
+.logout{
+
+    margin-top: 2vh;
+}
+
 @media (orientation: landscape) and (max-height:481px) {
 
     .icon {
 
-        width: 3.5vw;
+        width: 3vw;
     }
 
     .container{
 
         height: 15vh;
+    }
+
+    .sidePanel {
+        width: 30vw;
+    }
+
+    .navLink{
+        font-size: 1.5rem;
     }
 
 }
@@ -125,46 +137,106 @@
 
 @media (min-width:1024px) and (min-height:768px) {
     .icon {
-
-        width: 3.5vw;
+        width: 2.5vw;
     }
 
     .container{
 
         height: 15vh;
     }
+
+    .sidePanel {
+        width: 30vw;
+    }
+
+    .navLink{
+        font-size: 1.5rem;
+    }
 }
 
 /* ipad air portrait */
 
 @media (min-width:768px) and (min-height:1024px) {
-    .button {
-        height: 6vh;
-        width: 55vw;
-        font-size: 1.7rem;
-        margin-top:0vh
+
+    .icon {
+        width: 4.5vw;
     }
+
+    .sidePanel {
+        width: 40vw;
+    }
+
+    .navLink{
+        font-size: 1.8rem;
+    }
+
 }
 
 /* small laptop 1366 * 786 */
 
 @media (min-width:1366px) and (min-height:768px) {
 
-    .button {
-        height: 5vh;
-        width: 15vw;
-        font-size: 1.1rem;
-        margin-top: -3vh;
+    .icon {
+        display: none;
+    }
+
+    .navLinks {
+
+        position: fixed;
+        top: -18vh;
+        left: -10vw;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 10vh;
+
+    }
+
+    .navLink{
+
+        margin-left: 2vw;
+        font-size: 1.25rem;
+    
+    }
+
+    .navLink:hover{
+
+        color:#532B7A;
+        cursor: pointer;
+        font-weight: bold;
+    
+    }
+
+    .otherLinks{
+
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .logout{
+
+        height: inherit;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        padding-right:2vw;
+        margin-top: 0vh;
+
     }
 
 }
 
 /* corporate 1920 * 1080 */
 
-@media (min-width:1920px) and (min-height:1080px) {
-    .button {
-        width: 14.5vw;
-        font-size: 1.6rem;
-        margin-top: 2vh;
+@media (min-width:1920px) and (min-height:900px) {
+
+    .navLinks {
+
+        top: -20vh;
+
     }
+    
 }
