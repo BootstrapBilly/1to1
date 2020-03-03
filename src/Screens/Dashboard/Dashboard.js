@@ -15,6 +15,7 @@ import diary from "../../Assets/Icons/diary.svg"
 import add_client from "../../Assets/Icons/add-client.svg"
 import search_client from "../../Assets/Icons/search-client.svg"
 import tutorial from "../../Assets/Icons/tutorial.svg"
+import backdrop from "../../Assets/Img/dashboard-backdrop.png"
 
 const Dashboard = props => {
 
@@ -60,9 +61,12 @@ useEffect(()=> {
 
             <Header test-handle="header" text={""} />
 
+            <img src={backdrop} alt="A backdrop image" test-handle="backdrop" className={classes.backdrop}/>
+
             <section className={classes.topSection}>
 
                 <header className={classes.clientsTodayContainer}>You have <p className={classes.amount}>8</p> Clients today</header>
+                <span className={classes.amountBigScreen}>8</span>
 
             </section>
 

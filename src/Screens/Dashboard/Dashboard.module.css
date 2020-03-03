@@ -15,7 +15,7 @@
     background-color: white;
     display: flex;
     justify-content: center;
-    padding-bottom:8vh;
+    padding-bottom:15vh;
     align-items: center;
 
 }
@@ -24,7 +24,7 @@
 .clientsTodayContainer {
 
     font-weight: 500;
-    margin-top: 3vh;
+    margin-top: 10vh;
     color: rgba(0, 0, 0, 0.507);
     background-color: white;
     display: flex;
@@ -59,7 +59,7 @@
     flex: 1;
     justify-content: space-evenly;
     align-items: stretch;
-    padding-top: 5vh;
+    padding-top: 2.5vh;
     
 }
 
@@ -67,6 +67,7 @@
 
     background-color: rgba(255, 255, 255, 0.301);
     width: 38vw;
+    height: 18vh;
     border-radius: 5px;
     margin-bottom: 5vh;
     display: flex;
@@ -88,6 +89,17 @@
     height: 7vh;
     color:rgba(137, 43, 226, 0.712);
     margin-bottom: 1vh;
+
+}
+
+.backdrop {
+
+display:none
+}
+
+.amountBigScreen{
+
+    display:none
 
 }
 
@@ -189,10 +201,10 @@
 
     .menuBoxContainer {
 
-        width: 40vw;
-        height: 20vh;
+        width: 35vw;
+        height: 18vh;
         padding-left: 1.5vw;
-        font-size: 4vw;
+        font-size: 3.6vw;
         padding-left: 5vw;
 
     }
@@ -220,6 +232,46 @@
         margin-top: -3vh;
     }
 
+    .menuContainer {
+
+        display: none;
+
+    }
+
+    .container {
+
+        background-color: white;
+
+    }
+
+    .clientsTodayContainer {
+
+        display: none;
+
+    }
+    
+    .backdrop {
+
+        display: block;
+        width: 100vw;
+        height: 85vh;
+        position: fixed;
+        left: 0;
+        top:10vh
+
+        }
+        
+        .amountBigScreen{
+
+            position: relative;
+            display: block;       
+            top:28vh;
+            left: -16.5vw;
+            font-size: 3rem;
+            color: #532B7A;
+            font-weight: bold;
+        
+        }
 }
 
 /* corporate 1920 * 1080 */
