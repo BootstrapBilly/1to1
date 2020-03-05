@@ -31,12 +31,6 @@ const Dashboard = props => {
 
 const navigateToPage = navLinkURL => props.history.push({pathname: navLinkURL})
 
-useEffect(()=> {
-
-    window.scrollTo(0, 1)
-
-  })
-
     // const navigateToAddAppointment = (cell) => {
 
     //     props.history.push({

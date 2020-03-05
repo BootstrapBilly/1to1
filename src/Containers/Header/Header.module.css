@@ -77,7 +77,7 @@
 
 }
 
-.navLinks {
+.navMenu {
 
     font-size: 1.3rem;
     width:100%;
@@ -88,7 +88,7 @@
     margin-top: 10%;
 }
 
-.navLinks a {
+.navMenu a {
 
     text-decoration: none;
     color: black;
@@ -103,11 +103,6 @@
     height: 100%;
     z-index: 99;
 
-}
-
-.logout{
-
-    margin-top: 2vh;
 }
 
 .navBar {
@@ -206,53 +201,14 @@
 
     }
 
-    .navLink{
 
-        margin-left: 2vw;
-        font-size: 1.25rem;
-    
-    }
 
-    .navLink:hover{
-
-        color:#532B7A;
-        cursor: pointer;
-        font-weight: bold;
-    
-    }
-
-    .otherLinks{
-
-        width: 100%;
-        display: flex;
-        align-items: center;
-    }
-
-    .logout{
-
-        height: inherit;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: center;
-        padding-right:2vw;
-        margin-top: 0vh;
-
-    }
 
 }
 
 /* corporate 1920 * 1080 */
 
 @media (min-width:1920px) and (min-height:900px) {
-
-
-    .navLinks {
-
-        top: -17.75vh;
-
-    }
 
     
 }

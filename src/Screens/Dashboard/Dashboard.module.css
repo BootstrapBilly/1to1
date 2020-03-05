@@ -221,11 +221,12 @@ body::-webkit-scrollbar {
         left: 0;
         top: 0vh
     }
+
     .amountBigScreen {
         position: relative;
         display: block;
-        top: 28vh;
-        left: -16.5vw;
+        bottom:52vh;
+        right:16.5vw;
         font-size: 3rem;
         color: rgba(82, 43, 122, 0.85);
         font-weight: bold;
@@ -235,4 +236,10 @@ body::-webkit-scrollbar {
 
 /* corporate 1920 * 1080 */
 
-@media (min-width:1920px) and (min-height:1080px) {}
+@media (min-width:1920px) and (min-height:1080px) {
+
+    .amountBigScreen {
+        font-size: 3.5rem;
+    }
+
+}

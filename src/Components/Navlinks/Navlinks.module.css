@@ -1,0 +1,103 @@
+.navLinks {
+
+    font-size: 1.3rem;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+.navLinks a {
+
+    text-decoration: none;
+    color: black;
+}
+
+.logout{
+
+    margin-top: 2vh;
+}
+
+.navBar {
+    display: none;
+}
+
+@media (orientation: landscape) and (max-height:481px) {
+
+    .navLink{
+        font-size: 1.5rem;
+    }
+
+}
+
+/* ipad air landscape */
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+    .navLink{
+        font-size: 1.5rem;
+    }
+}
+
+/* ipad air portrait */
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+    .navLink{
+        font-size: 1.8rem;
+    }
+
+}
+
+/* small laptop 1366 * 786 */
+
+@media (min-width:1366px) and (min-height:768px) {
+
+    .navLink{
+
+        margin-left: 2vw;
+        font-size: 1.25rem;
+    
+    }
+
+    .navLink:hover{
+
+        color:#532B7A;
+        cursor: pointer;
+        font-weight: bold;
+    
+    }
+
+    .otherLinks{
+
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .logout{
+
+        height: inherit;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        padding-right:2vw;
+        margin-top: 0vh;
+
+    }
+
+}
+
+/* corporate 1920 * 1080 */
+
+@media (min-width:1920px) and (min-height:900px) {
+    .navLink {
+        font-size: 1.6rem;
+    }
+    
+}
