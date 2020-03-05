@@ -31,12 +31,6 @@ const Dashboard = props => {
 
 const navigateToPage = navLinkURL => props.history.push({pathname: navLinkURL})
 
-useEffect(()=> {
-
-    window.scrollTo(0, 1)
-
-  })
-
     // const navigateToAddAppointment = (cell) => {
 
     //     props.history.push({
@@ -58,7 +52,7 @@ useEffect(()=> {
     return (
 
         <div className={classes.container} test-handle="container">
-
+            
             <Header test-handle="header" text={""} />
 
             <img src={backdrop} alt="A backdrop image" test-handle="backdrop" className={classes.backdrop}/>
@@ -76,7 +70,7 @@ useEffect(()=> {
 
                     <div test-handle={item[0]} className={classes.menuBoxContainer} key={item} onClick={()=> navigateToPage(item[2])}>
 
-                        <img src={item[1]} alt="A menu icon" className={[classes.hamburgerMenu, classes.icon].join(" ")} test-handle="hamburger" />
+                        <img src={item[1]} alt="A menu icon" className={[classes.hamburgerMenu, classes.icon].join(" ")} test-handle="menu-icon" />
 
                         {item[0]}
 

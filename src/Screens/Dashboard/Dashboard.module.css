@@ -1,9 +1,15 @@
+body{
+
+    height: 100%;
+
+}
+
 .container {
-    height: 100vh;
+
     display: flex;
+    height: 100%;
     align-items: center;
     flex-direction: column;
-    background-color: white;
     background-color: rgba(137, 43, 226, 0.253);
 }
 
@@ -21,14 +27,13 @@ body::-webkit-scrollbar {
     width: 100%;
     background-color: white;
     display: flex;
+    flex: 1;
     justify-content: center;
-    padding-bottom: 15vh;
     align-items: center;
 }
 
 .clientsTodayContainer {
     font-weight: 500;
-    margin-top: 10vh;
     color: rgba(0, 0, 0, 0.507);
     background-color: white;
     display: flex;
@@ -56,7 +61,7 @@ body::-webkit-scrollbar {
     align-items: center;
     flex-wrap: wrap;
     display: flex;
-    flex: 1;
+    flex:1;
     justify-content: space-evenly;
     align-items: stretch;
     padding-top: 2.5vh;
@@ -64,8 +69,8 @@ body::-webkit-scrollbar {
 
 .menuBoxContainer {
     background-color: rgba(255, 255, 255, 0.301);
-    width: 38vw;
-    height: 18vh;
+    width: 40%;
+    height: 40%;
     border-radius: 5px;
     margin-bottom: 5vh;
     display: flex;
@@ -119,20 +124,27 @@ body::-webkit-scrollbar {
 
 /* ipad air landscape */
 
-@media (min-width:1024px) and (min-height:768px) {
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+    .topSection{
+        flex:1.6
+    }
+
     .clientsTodayContainer {
         height: 25vh;
         width: 25vh;
         border-radius: 200px;
-        margin-top: 0vh;
+        margin-top: -10vh;
+
     }
+
     .menuContainer {
         justify-content: space-around;
         align-items: center;
         width: 100%;
     }
     .menuBoxContainer {
-        width: 22vw;
+        width: 20vw;
         height: 22vh;
         padding-left: 1.5vw;
         font-size: 2vw;
@@ -145,15 +157,23 @@ body::-webkit-scrollbar {
 
 /* ipad air portrait */
 
-@media (min-width:768px) and (min-height:1024px) {
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+    .topSection{
+
+        flex: 1.2;
+
+    }
+
     .clientsTodayContainer {
         height: 28vh;
         width: 28vh;
         border-radius: 2000px;
         position: relative;
-        top: 4vh;
+        top: -3vh;
         font-size: 1.5rem;
     }
+
     .menuContainer {
         justify-content: space-around;
         align-items: center;
@@ -161,7 +181,7 @@ body::-webkit-scrollbar {
     }
     .menuBoxContainer {
         width: 35vw;
-        height: 18vh;
+        height: 16vh;
         padding-left: 1.5vw;
         font-size: 3.6vw;
         padding-left: 5vw;
@@ -201,11 +221,12 @@ body::-webkit-scrollbar {
         left: 0;
         top: 0vh
     }
+
     .amountBigScreen {
         position: relative;
         display: block;
-        top: 28vh;
-        left: -16.5vw;
+        bottom:52vh;
+        right:16.5vw;
         font-size: 3rem;
         color: rgba(82, 43, 122, 0.85);
         font-weight: bold;
@@ -215,4 +236,10 @@ body::-webkit-scrollbar {
 
 /* corporate 1920 * 1080 */
 
-@media (min-width:1920px) and (min-height:1080px) {}
+@media (min-width:1920px) and (min-height:1080px) {
+
+    .amountBigScreen {
+        font-size: 3.5rem;
+    }
+
+}

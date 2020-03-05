@@ -1,19 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Arvo:700|Libre+Baskerville|Merriweather:300|Open+Sans+Condensed:300|Playfair+Display|Raleway');
+html {
+  height: 100%;
+  margin: 0;
+}
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Libre Baskerville', serif;
-  height: 100vh;
-
+  height: 100%;
+  margin: 0;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-    font-family: 'Libre Baskerville', serif;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: 'Libre Baskerville', serif;
+}
+
+#root {
+  
+  height: 100%;
+  margin: 0;
+
 }

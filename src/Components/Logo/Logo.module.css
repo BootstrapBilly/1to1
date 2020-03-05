@@ -6,6 +6,7 @@
     left: 0;
 }
 
+
 /* Landscape mobile */
 
 @media (orientation: landscape) and (max-height:481px) {
@@ -16,15 +17,18 @@
 
 /* ipad air landscape */
 
-@media (min-width:1024px) and (min-height:768px) {
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
     .logo {
         height: 50vh;
     }
+
 }
 
 /* ipad air portrait */
 
-@media (min-width:768px) and (min-height:1024px) {
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
     .logo {
         height: 35vh;
     }
@@ -34,6 +38,9 @@
 
 @media (min-width:1366px) and (min-height:768px) {
 
+    .logo {
+        height: 50vh;
+    }
 }
 
 /* corporate 1920 * 1080 */

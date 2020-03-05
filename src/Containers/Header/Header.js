@@ -18,6 +18,9 @@ import { logout } from "../../store/actions/Auth/Auth-action"
 import hamburger from "../../Assets/Icons/hamburger-menu.svg"
 import backArrow from "../../Assets/Icons/back-arrow.svg"
 
+//components
+import NavLinks from "../../Components/Navlinks/Navlinks"
+
 const Header = props => {
 
     //_config
@@ -47,53 +50,21 @@ const Header = props => {
 
             <div test-handle="side-panel" className={panelOpen ? classes.sidePanel : classes.sidePanelClosed}>
 
-                <div className={classes.navLinks}>
+                <div className={classes.navMenu}>
 
-                    <span className={classes.otherLinks}>
-
-                        <Link to="/dashboard" test-handle="home-link" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p className={classes.navLink}>Home</p></Link>
-
-                        <Link to={`/calendar-date/${new Date()}`} test-handle="diary-link" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p className={classes.navLink}>Diary</p></Link>
-
-                        <Link to="/new-client" test-handle="new-client-link" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p className={classes.navLink}>Add a client</p></Link>
-
-                        <p className={classes.navLink}>Find a client</p>
-
-                    </span>
-
-                    <span className={classes.logout}>
-
-                        <p test-handle="logout" onClick={() => handleLogout()} className={classes.navLink}>Log out</p>
-
-                    </span>
-
+                <NavLinks onClickLink={()=> {if (panelOpen) setPanelOpen(false)}} handleLogout={()=> handleLogout()}/>
+                
                 </div>
 
             </div>
 
-                <div className={classes.navBar}>
+            <div className={classes.navBar}>
 
-                    <span className={classes.otherLinks}>
-
-                        <Link to="/dashboard" test-handle="home-link" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p className={classes.navLink}>Home</p></Link>
-
-                        <Link to={`/calendar-date/${new Date()}`} test-handle="diary-link" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p className={classes.navLink}>Diary</p></Link>
-
-                        <Link to="/new-client" test-handle="new-client-link" onClick={() => { if (panelOpen) setPanelOpen(false) }}><p className={classes.navLink}>Add a client</p></Link>
-
-                        <p className={classes.navLink}>Find a client</p>
-
-                    </span>
-
-                    <span className={classes.logout}>
-
-                        <p test-handle="logout" onClick={() => handleLogout()} className={classes.navLink}>Log out</p>
-
-                    </span>
-
-                </div>
+                <NavLinks onClickLink={()=> {if (panelOpen) setPanelOpen(false)}} handleLogout={()=> handleLogout()}/>
 
             </div>
+
+        </div>
 
     )
 
