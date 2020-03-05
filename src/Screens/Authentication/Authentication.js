@@ -41,8 +41,6 @@ const Authentication = props => {
 
     return (
 
-        <React.Fragment>
-
             <div test-handle="container" className={classes.container}>
 
                 <Logo test-handle="logo" />
@@ -51,11 +49,10 @@ const Authentication = props => {
 
                 {<span test-handle="errorMsg">{errorMessage}</span>}
 
+                <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}><Button test-handle="button" text={"LOG IN"} handleClick={() => { if (pin.length > 0) dispatch(login(pin)) }} /></div>
+
             </div>
 
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}><Button test-handle="button" text={"LOG IN"} handleClick={() => { if (pin.length > 0) dispatch(login(pin)) }} /></div>
-
-        </React.Fragment>
     )
 
 }

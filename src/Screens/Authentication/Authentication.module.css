@@ -1,17 +1,19 @@
-.img {
+html{
 
-        display: none;
-        
-    }
+    height: 100%;
+    margin: 0;
+
+}
 
     .container {
 
-        height: 100vh;
+        height: 100%;
         width: 100vw;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin: 0;
         /* background-color: #2B2E6B; */
 
     

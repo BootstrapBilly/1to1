@@ -12,7 +12,7 @@
     border-radius: 20px;
     background: #DC6099;
     position: fixed;
-    top: 80vh;
+    bottom: 10%;
 }
 
 .button:hover {

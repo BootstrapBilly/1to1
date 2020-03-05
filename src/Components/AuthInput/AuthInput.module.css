@@ -9,6 +9,7 @@
      font-size: 0.8rem;
      padding: 1vw;
      margin-top: -10vh;
+     border-radius: 0;
      /* border-radius: 5px;
         background: #f0f0f0;
         box-shadow: 1px 1px 2px #9c9c9c, 
@@ -40,7 +41,7 @@
 }
 
  /* ipad air landscape */
- @media (min-width:1024px) and (min-height:768px) {
+ @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
 
      .input {
          font-size: 1.2rem;
@@ -53,13 +54,14 @@
  }
 
  /* ipad air portrait */
- @media (min-width:768px) and (min-height:1024px) {
+ @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
      .input {
          margin-top: 20vh;
          width: 20vw;
      }
      .input::placeholder {
          font-size: 1.4rem;
+         padding-bottom: 4vh;
      }
  }
 

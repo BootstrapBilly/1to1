@@ -139,7 +139,7 @@
 /* ipad air landscape */
 
 
-@media (min-width:1024px) and (min-height:768px) {
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
     .icon {
         width: 2.5vw;
     }
@@ -160,10 +160,10 @@
 
 /* ipad air portrait */
 
-@media (min-width:768px) and (min-height:1024px) {
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
 
     .icon {
-        width: 4.5vw;
+        width: 4vw;
     }
 
     .sidePanel {
