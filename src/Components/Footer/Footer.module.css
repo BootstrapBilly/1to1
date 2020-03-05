@@ -34,7 +34,25 @@
 
     .container{
 
-        height: 23vh;
+        height: 20vh;
+
+    }
+
+    .iconWrapper {
+        width: 6.5vw;
+        padding: 0.75vw;
+    }
+
+}
+
+/* ipad air landscape */
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+    .container{
+
+        height: 16vh;
 
     }
 
@@ -43,4 +61,41 @@
         padding: 0.75vw;
     }
 
+}
+
+/* ipad air portrait */
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+    .container{
+
+        height: 15vh;
+
+    }
+
+    .iconWrapper {
+        width: 10.5vw;
+        padding: 0.75vw;
+    }
+
+
+}
+
+/* small laptop 1366 * 786 */
+
+@media (min-width:1366px) and (min-height:768px) {
+
+    .iconWrapper {
+     width: 3vw;
+     padding: 1vw;
+    }
+
+
+}
+
+/* corporate 1920 * 1080 */
+
+@media (min-width:1920px) and (min-height:900px) {
+
+    
 }
