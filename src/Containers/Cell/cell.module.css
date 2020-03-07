@@ -17,7 +17,7 @@
     align-items: center;
     display: flex;
     text-align: center;
-
+    margin-top: 0;
 
 }
 
@@ -152,4 +152,74 @@
     top:-6.58vh;
     left: 9vw
 
+}
+
+@media only screen and (orientation: landscape) and (max-height:481px) {
+
+    .rowSegment {
+
+        height: 12%;
+
+    }
+
+    .sharedFormatting {
+
+        margin-top: 0;
+    }
+
+
+
+}
+
+/* ipad air landscape */
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+    .rowSegment {
+
+        font-size: 1.5rem;
+        height: 10%;
+    }
+
+    .sharedFormatting {
+        margin-top: 0;
+    }
+
+
+}
+
+/* ipad air portrait */
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+    .rowSegment {
+
+        font-size: 1.5rem;
+
+    }
+
+    .sharedFormatting {
+        margin-top: 0;
+    }
+}
+
+/* small laptop 1366 * 786 */
+
+@media only screen  and (min-width : 1224px) {
+
+    .sharedFormatting {
+
+        height: 75%;
+        margin-top: 0;
+    }
+
+
+}
+
+/* corporate 1920 * 1080 */
+
+@media (min-width:1920px) and (min-height:900px) {
+
+    
 }

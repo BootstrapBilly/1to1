@@ -59,3 +59,56 @@
         width: 25vw;
     }
 }
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
+
+    .mainOption {
+        height: 23vh;
+        width: 25vw;
+    }
+
+    .option {
+        height: 18vh;
+        width: 20vw;
+    }
+
+    .headerText {
+
+        font-size: 1.6rem;
+    }
+
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait){
+
+    .mainOption {
+        height: 20vh;
+        width: 35vw;
+    }
+
+    .option {
+        height: 15vh;
+        width: 25vw;
+    }
+
+    .headerText {
+
+        font-size: 1.6rem;
+    }
+
+}
+
+@media only screen  and (min-width : 1224px) {
+
+    .mainOption {
+        height: 35vh;
+        width: 25vw;
+    }
+    .option {
+        height: 20vh;
+        width: 25vw;
+    }
+
+
+}

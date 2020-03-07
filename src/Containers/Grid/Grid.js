@@ -145,7 +145,7 @@ const Grid = props => {
 
                                             const rowNumber = parseInt(parseInt(row - 1))
 
-                                            return <React.Fragment>
+                                            return <React.Fragment key={row}>
 
                                                 <div className={classes.time}>{`${hours[rowNumber]}:${mins[columnNumber]}`}</div>
 

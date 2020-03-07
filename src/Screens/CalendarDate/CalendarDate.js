@@ -120,13 +120,13 @@ const CalendarDate = props => {
 
         <div test-handle="container">
 
-            <Header test-handle="header" text={reformattedDate} backArrow handleBack={() => props.history.push("/dashboard")} />
+            <Header test-handle="header" text={reformattedDate} backArrow handleBack={() => props.history.push("/dashboard")} onClickHeader={() => setCalendarActive(!calendarActive)} />
 
             <div className={classes.gridContainer}>
 
                 {rescheduleMode ? <ReschedulePrompt/> : null}
 
-                <Grid date={dateToIsoString} onClickEmpty={(cell) => navigateToAddAppointment(cell)} fullSize onSwipedLeft={() => setNewDate("left")} onSwipedRight={() => setNewDate("right")} rescheduleMode={rescheduleMode} />
+                <Grid date={dateToIsoString} onClickEmpty={(cell) => navigateToAddAppointment(cell)} fullSize rescheduleMode={rescheduleMode} />
 
             </div>
 
@@ -138,7 +138,7 @@ const CalendarDate = props => {
 
                 </div>
 
-                : <Footer onOpen={() => setCalendarActive(!calendarActive)} appointmentSelected={currentSelectedAppointment} onDelete={() => handleDelete()} onReschedule={() => handleReschedule()} rescheduleMode={rescheduleMode}/>
+                : <Footer onOpen={() => setCalendarActive(!calendarActive)} appointmentSelected={currentSelectedAppointment} onDelete={() => handleDelete()} onReschedule={() => handleReschedule()} rescheduleMode={rescheduleMode} onRight={() => setNewDate("left")} onLeft={() => setNewDate("right")}/>
 
             }
 

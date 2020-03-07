@@ -197,7 +197,7 @@ body::-webkit-scrollbar {
 
 /* small laptop 1366 * 786 */
 
-@media (min-width:1366px) and (min-height:768px) {
+@media only screen  and (min-width : 1224px) {
     .button {
         height: 5vh;
         width: 15vw;
@@ -236,7 +236,7 @@ body::-webkit-scrollbar {
 
 /* corporate 1920 * 1080 */
 
-@media (min-width:1920px) and (min-height:1080px) {
+@media only screen  and (min-width : 1824px){
 
     .amountBigScreen {
         font-size: 3.5rem;

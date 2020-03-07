@@ -8,6 +8,7 @@ import classes from "./Add-appointment.module.css"
 import SelectLength from "./SelectLength/SelectLength"
 import SelectClient from "./SelectClient/SelectClient"
 import Header from "../../Containers/Header/Header"
+import Footer from "../../Components/Footer/Footer"
 
 //redux hooks
 import {useSelector, useDispatch} from "react-redux"
@@ -57,6 +58,8 @@ const AddToGrid = props => {
                 {lengthChosen ? <SelectClient /> : <SelectLength cell={cell} onClickOption={(value)=> setLengthChosen(value)}/>}
 
             </div>
+
+            <Footer addAppointment onCancel={()=> props.history.goBack()}/>
 
         </React.Fragment>
 
