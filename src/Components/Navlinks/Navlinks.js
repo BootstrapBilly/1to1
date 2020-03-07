@@ -14,7 +14,7 @@ const Navlinks = props => (
 
             <Link to={`/calendar-date/${new Date()}`} test-handle="diary-link" onClick={props.onClickLink}><p className={classes.navLink}>Diary</p></Link>
 
-            <Link to="/new-client" test-handle="new-client-link" onClick={props.onClickLink}><p className={classes.navLink}>Add a client</p></Link>
+            <Link to="/new-client" test-handle="new-client-link" onClick={props.onClickLink}><p className={classes.navLink}>Add new client</p></Link>
 
             <p className={classes.navLink}>Find a client</p>
 

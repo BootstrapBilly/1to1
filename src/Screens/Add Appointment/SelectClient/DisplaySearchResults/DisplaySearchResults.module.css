@@ -6,7 +6,6 @@
     display: flex;
     flex-wrap: wrap;
     padding-top: 1vh;
-    justify-content: space-evenly;
 
 }
 
@@ -60,11 +59,26 @@
         width: 20%;
         height: 10vh;
         
-
     }
 }
 
 @media only screen  and (min-width : 1224px) {
 
+    .clientContainer {
 
+        width: 17.7%;
+        height: 12vh;
+        
+    }
+
+}
+
+@media (min-width:1920px) and (min-height:900px) {
+
+    .clientContainer {
+
+        height: 10vh;
+        
+    }
+    
 }

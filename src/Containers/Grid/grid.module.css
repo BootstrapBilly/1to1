@@ -6,7 +6,6 @@
     overflow-y: scroll;
     overflow-x: hidden;
     -ms-overflow-style: none;
-    
 
 }
 
@@ -23,6 +22,7 @@
     border-radius: 5px;
     padding: 4vw;
     padding-left: 6vw;
+
 
 }
 
@@ -128,10 +128,15 @@
     }
 }
 
-@media only screen  and (min-width : 1224px) {
+@media only screen  and (min-width : 1224px) and (min-device-height : 500px)  {
 
     .time{
         position: relative;
         left: -1vw;
+    }
+
+    .container {
+
+        padding: 2vh 25vw;
     }
 }

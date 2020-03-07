@@ -4,7 +4,7 @@
     border: none;
     width: 95vw;
     background-color: transparent;
-    max-height: 45vh;
+    max-height: 50vh;
 
 }
 
@@ -85,4 +85,47 @@
         align-items: center;  
     }
 
+    .calendarTile {
+
+        font-size: 0.8rem;
+    }
+
+}
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (min-device-height: 500px){
+
+    .calendarArrow {
+
+        height: 6vw;
+    
+    }
+
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait){
+
+    .calendarArrow {
+
+        height: 8.5vw;
+        top:-0.9vh
+    
+    }
+}
+
+@media only screen  and (min-width : 1224px) {
+
+    .calendarArrow {
+
+        height: 3.5vw;
+        top:-0.6vh
+    
+    }
+
+}
+
+@media (min-width:1920px) and (min-height:900px) {
+
+ 
+    
 }
