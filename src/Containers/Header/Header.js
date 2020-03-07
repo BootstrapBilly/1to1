@@ -44,23 +44,23 @@ const Header = props => {
 
             {props.backArrow ? <img test-handle="back-button" src={backArrow} alt="A back button" className={[classes.backArrow, classes.icon].join(" ")} onClick={props.handleBack} /> : null}
 
-            <img src={hamburger} alt="A menu icon" className={[classes.hamburgerMenu, classes.icon].join(" ")} test-handle="hamburger-icon" onClick={() => setPanelOpen(!panelOpen)} />
-
             <p test-handle="header-text" className={classes.title}>{props.text}</p>
+
+            <img src={hamburger} alt="A menu icon" className={[classes.hamburgerMenu, classes.icon].join(" ")} test-handle="hamburger-icon" onClick={() => setPanelOpen(!panelOpen)} />
 
             <div test-handle="side-panel" className={panelOpen ? classes.sidePanel : classes.sidePanelClosed}>
 
                 <div className={classes.navMenu}>
 
-                <NavLinks onClickLink={()=> {if (panelOpen) setPanelOpen(false)}} handleLogout={()=> handleLogout()}/>
-                
+                    <NavLinks onClickLink={() => { if (panelOpen) setPanelOpen(false) }} handleLogout={() => handleLogout()} />
+
                 </div>
 
             </div>
 
             <div className={classes.navBar}>
 
-                <NavLinks onClickLink={()=> {if (panelOpen) setPanelOpen(false)}} handleLogout={()=> handleLogout()}/>
+                <NavLinks onClickLink={() => { if (panelOpen) setPanelOpen(false) }} handleLogout={() => handleLogout()} />
 
             </div>
 

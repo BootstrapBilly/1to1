@@ -6,7 +6,7 @@
     display: flex;
     flex-wrap: wrap;
     padding-top: 1vh;
-
+    justify-content: space-evenly;
 
 }
 
@@ -33,4 +33,38 @@
 
 .text{
     padding: 1vw;
+    width: 100%;
+}
+
+@media (orientation: landscape) and (max-height:481px) {
+
+
+
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
+
+    .clientContainer {
+
+        width: 20%;
+        height:14vh;
+    }
+
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait){
+
+
+    .clientContainer {
+
+        width: 20%;
+        height: 10vh;
+        
+
+    }
+}
+
+@media only screen  and (min-width : 1224px) {
+
+
 }

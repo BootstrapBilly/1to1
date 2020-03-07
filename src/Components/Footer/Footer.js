@@ -11,10 +11,13 @@ import classes from "./Footer.module.css"
 import calendar from "../../Assets/Icons/calendar.svg"
 import trash from "../../Assets/Icons/delete.svg"
 import time from "../../Assets/Icons/time.svg"
+import cancel from "../../Assets/Icons/cancel.svg"
+import leftArrow from "../../Assets/Icons/left-arrow.svg"
+import rightArrow from "../../Assets/Icons/right-arrow.svg"
 
 
 const Footer = props => {
-    
+
     return (
 
         <React.Fragment>
@@ -27,13 +30,24 @@ const Footer = props => {
                     <img src={time} alt="A reschedule icon" className={props.rescheduleMode ? [classes.iconWrapper, classes.active].join(" ") : classes.iconWrapper} onClick={props.onReschedule} />
 
                 </div>
-                :
 
-                <div className={classes.container}>
+                : props.addAppointment ?
 
-                    <img src={calendar} alt="A menu icon" className={classes.iconWrapper} onClick={props.onOpen} test-handle="calendar-icon" />
+                    <div className={classes.container}>
 
-                </div>}
+                        <img src={cancel} alt="A menu icon" className={classes.iconWrapper} onClick={props.onCancel} test-handle="cancel-icon" />
+
+                    </div>
+
+                    :
+
+                    <div className={classes.container}>
+
+                        <img src={leftArrow} alt="A menu icon" className={classes.iconWrapper} onClick={props.onOpen} test-handle="calendar-icon" />
+                        <img src={calendar} alt="A menu icon" className={classes.iconWrapper} onClick={props.onOpen} test-handle="calendar-icon" />
+                        <img src={rightArrow} alt="A menu icon" className={classes.iconWrapper} onClick={props.onOpen} test-handle="calendar-icon" />
+
+                    </div>}
 
         </React.Fragment>
 
