@@ -78,3 +78,53 @@
         height: 12vh;
     }
 }
+
+
+/* ipad air landscape */
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (min-device-height : 500px)  {
+
+
+}
+
+/* ipad air portrait */
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+
+
+}
+
+/* small laptop 1366 * 786 */
+
+@media only screen  and (min-width : 1224px)  {
+
+    .container{
+
+        padding: 5vh 30vw
+    }
+    .inputContainer {
+        height: 25vh;
+    }
+    .button {
+        width: 10vw;
+        height: 5vh;
+    }
+
+}
+
+/* corporate 1920 * 1080 */
+
+@media (min-width:1920px) and (min-height:900px) {
+
+    
+    .container{
+
+        padding: 5vh 25vw;
+    }
+    .inputContainer {
+        height: 20vh;
+
+    }
+
+}

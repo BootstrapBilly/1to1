@@ -43,9 +43,9 @@ const Footer = props => {
 
                     <div className={classes.container}>
 
-                        <img src={leftArrow} alt="A menu icon" className={classes.iconWrapper} onClick={props.onOpen} test-handle="calendar-icon" />
+                        <img src={leftArrow} alt="A menu icon" className={classes.iconWrapper} onClick={props.onLeft} test-handle="left-icon" />
                         <img src={calendar} alt="A menu icon" className={classes.iconWrapper} onClick={props.onOpen} test-handle="calendar-icon" />
-                        <img src={rightArrow} alt="A menu icon" className={classes.iconWrapper} onClick={props.onOpen} test-handle="calendar-icon" />
+                        <img src={rightArrow} alt="A menu icon" className={classes.iconWrapper} onClick={props.onRight} test-handle="right-icon" />
 
                     </div>}
 

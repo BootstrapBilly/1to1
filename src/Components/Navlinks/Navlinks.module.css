@@ -52,9 +52,10 @@
 
 }
 
+
 /* small laptop 1366 * 786 */
 
-@media (min-width:1366px) and (min-height:768px) {
+@media only screen  and (min-width : 1224px) {
 
     .navLink{
 
@@ -97,7 +98,7 @@
 
 @media (min-width:1920px) and (min-height:900px) {
     .navLink {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
     }
     
 }

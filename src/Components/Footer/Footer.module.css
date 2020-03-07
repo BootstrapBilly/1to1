@@ -83,7 +83,7 @@
 
 /* small laptop 1366 * 786 */
 
-@media (min-width:1366px) and (min-height:768px) {
+@media only screen  and (min-width : 1224px)  {
 
     .iconWrapper {
      width: 3vw;

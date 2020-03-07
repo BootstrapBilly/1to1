@@ -44,7 +44,7 @@ const Header = props => {
 
             {props.backArrow ? <img test-handle="back-button" src={backArrow} alt="A back button" className={[classes.backArrow, classes.icon].join(" ")} onClick={props.handleBack} /> : null}
 
-            <p test-handle="header-text" className={classes.title}>{props.text}</p>
+            <p test-handle="header-text" className={classes.title} onClick={props.onClickHeader}>{props.text}</p>
 
             <img src={hamburger} alt="A menu icon" className={[classes.hamburgerMenu, classes.icon].join(" ")} test-handle="hamburger-icon" onClick={() => setPanelOpen(!panelOpen)} />
 
