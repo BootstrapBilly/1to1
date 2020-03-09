@@ -1,9 +1,10 @@
-import {SET_SELECTED_APPOINTMENT, APPOINTMENT_DELETED} from "../../actions/SelectedAppointment/SelectedAppointment-action"
+import {SET_SELECTED_APPOINTMENT, APPOINTMENT_DELETED, SET_SELECTED_CELL} from "../../actions/SelectedAppointment/SelectedAppointment-action"
 
 const initialState = {//set the initial state
 
     selectedAppointment : null,
-    deletedId: null
+    deletedId: null,
+    selectedCell: null
 
 }
 
@@ -13,6 +14,7 @@ const authReducer = (state = initialState, action) => {
 
         case SET_SELECTED_APPOINTMENT: return {...initialState, selectedAppointment:action.payload}
         case APPOINTMENT_DELETED: return {...initialState, selectedAppointment:null, deletedId: action.payload}
+        case SET_SELECTED_CELL: return {...initialState, selectedCell:action.cell}
         default: return state
 
     }

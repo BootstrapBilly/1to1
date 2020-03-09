@@ -30,13 +30,13 @@ export const addAppointment = (appointmentDetails) => {
         try {
 
             const response = await sendPost("addAppointment", { appointmentDetails: appointmentDetails }, state().auth.token)//post the appointment details and the jwt to api
-            if (response.data.success) return dispatch({ type: SUBMISSION_SUCCESS })//if the response is a success, dispatch the success action
+            if (response.data.success) return dispatch({ type: SUBMISSION_SUCCESS, appointmentDetails:appointmentDetails })//if the response is a success, dispatch the success action
 
         }
 
         catch (error) {
 
-            if (error.response.status === 500) return dispatch({ type: SUBMISSION_FAILURE })//if there are any errors, dispatch the error action
+            if (error.response.status === 500) return dispatch({ type: SUBMISSION_FAILURE})//if there are any errors, dispatch the error action
             return dispatch({ type: SUBMISSION_FAILURE })
 
         }

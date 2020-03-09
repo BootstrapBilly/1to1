@@ -66,7 +66,7 @@ const navigateToPage = navLinkURL => props.history.push({pathname: navLinkURL})
 
             <section className={classes.menuContainer}>
 
-                {[["Diary", diary, `/calendar-date/${new Date()}`], ["Add a client", add_client, `/new-client`], ["Search Clients", search_client], ["Tutorial", tutorial]].map(item =>
+                {[["Diary", diary, `/calendar-date/${new Date()}`], ["Add a client", add_client, `/new-client`], ["Search Clients", search_client, "/find-client"], ["Tutorial", tutorial]].map(item =>
 
                     <div test-handle={item[0]} className={classes.menuBoxContainer} key={item} onClick={()=> navigateToPage(item[2])}>
 

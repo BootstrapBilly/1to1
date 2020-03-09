@@ -2,6 +2,7 @@ import sendPost from "../util/sendPostReq"
 
 export const SET_SELECTED_APPOINTMENT = "SET_SELECTED_APPOINTMENT"
 export const APPOINTMENT_DELETED = "APPOINTMENT_DELETED"
+export const SET_SELECTED_CELL = "SET_SELECTED_CELL"
 
 export const dispatch_set_selected_appointment = (appointment) => {
 
@@ -35,6 +36,19 @@ export const sendDeleteAppointment = (id) => {
             // if (error.response.status === 500) return dispatch({ type: GENERIC })
 
         }
+
+    }
+
+}
+
+export const set_selected_cell = (cell) => {
+
+    return async dispatch => {
+
+        return dispatch({
+            type:SET_SELECTED_CELL,
+            cell:cell
+        })
 
     }
 

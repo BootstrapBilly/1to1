@@ -35,7 +35,7 @@ const SelectClient = props => {
 
             <FormInput inputTitle={"Search for a client"} overWriteStyle={{background: "white", marginTop: "2vh", paddingBottom: "1vh"}} placeholder="Loren Knight" handleChange={(e)=> sendRequest(e)}/>
 
-            <SearchResults clients={Clients}/>
+            <SearchResults clients={Clients} findClient={props.findClient ? true : false} handleClick={props.handleClick}/>
 
         </div>
     )

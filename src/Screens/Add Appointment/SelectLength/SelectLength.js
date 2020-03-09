@@ -14,8 +14,10 @@ const SelectLength = props => {
 
     const appointments = useSelector(state => state.fetchAppointments.appointments)//get the appointment data fetched from the api
 
-    const currentCol = props.cell.slice(3, 4)//extract the current column from the passed in cell
-    const currentRow = props.cell.slice(8)//extract the current row from the pass in cell
+    const selectedCell = useSelector(state => state.selectedAppointment.selectedCell)//listen for the appointment being added (dispatched when all info has been set)
+
+    const currentCol = selectedCell.slice(3, 4)//extract the current column from the passed in cell
+    const currentRow = selectedCell.slice(8)//extract the current row from the pass in cell
 
     let options = [30, 45, 60]//set the default options (30, 45, 60) - This is modified by the switch case below - 15 mins is always added by default (check the render method)
 

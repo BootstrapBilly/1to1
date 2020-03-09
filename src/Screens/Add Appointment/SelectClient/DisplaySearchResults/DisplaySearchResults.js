@@ -27,7 +27,7 @@ const SearchClients = props => {
 
             {Clients.map(item => {
 
-                return <div test-handle={`${item}`} className={classes.clientContainer} key={item} onClick={() => dispatch(setAppointmentHolder(item))}><span className={classes.text}>{item}</span></div>
+                return <div test-handle={`${item}`} className={classes.clientContainer} key={item} onClick={props.findClient? props.handleClick : () => dispatch(setAppointmentHolder(item))}><span className={classes.text}>{item}</span></div>
 
             })}
 

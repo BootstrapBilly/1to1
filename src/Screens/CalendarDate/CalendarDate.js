@@ -16,7 +16,7 @@ import { useSwipeable } from 'react-swipeable'
 import { useSelector, useDispatch } from "react-redux"
 
 //redux actions
-import { sendDeleteAppointment, dispatch_set_selected_appointment } from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
+import { sendDeleteAppointment, dispatch_set_selected_appointment, set_selected_cell } from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
 
 //css
 import classes from "./CalendarDate.module.css"
@@ -81,6 +81,9 @@ const CalendarDate = props => {
             date: dateToIsoString
 
         })
+
+        dispatch(set_selected_cell(cell))
+
 
     }
 

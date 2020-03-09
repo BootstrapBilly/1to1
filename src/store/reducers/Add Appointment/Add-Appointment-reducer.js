@@ -4,7 +4,8 @@ const initialState = {//set the initial state
 
   clientName: null,
   appointmentAdded: false,
-  error:false
+  error:false,
+  appointmentDetails: null
 
 }
 
@@ -14,7 +15,7 @@ const authReducer = (state = initialState, action) => {
 
         case SET_CLIENT: return {...initialState, clientName:action.clientName};
         case SUBMISSION_SUCCESS: return { ...initialState, clientName: null, appointmentAdded: true, error:false};
-        case SUBMISSION_FAILURE: return { ...initialState, error:true};
+        case SUBMISSION_FAILURE: return { ...initialState, error:true, appointmentDetails:null};
         case RESET: return { ...initialState, clientName:null, appointmentAdded:false, error:false};
         default: return state
 
