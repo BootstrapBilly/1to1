@@ -13,7 +13,7 @@ const Appointment = props => (
 
         <div className={classes.topRow} test-handle="topRow">
 
-            <p className={classes.name} test-handle="name">Loren Knight</p>
+            <p className={classes.name} test-handle="name">{props.clientInfo.name}</p>
             <p className={[classes.button, classes.cross].join(" ")} test-handle="cross" onClick={props.handleClickCross}>x</p>
 
         </div>

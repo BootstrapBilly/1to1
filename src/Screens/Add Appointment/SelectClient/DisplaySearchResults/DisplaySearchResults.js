@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux"
 
 //redux actions
 import { setAppointmentHolder } from "../../../../store/actions/Add Appointment/Add-Appointment-action"
+import {setClientToDisplay} from "../../../../store/actions/Find Client/Find-client-action"
 
 const SearchClients = props => {
 
@@ -27,7 +28,7 @@ const SearchClients = props => {
 
             {Clients.map(item => {
 
-                return <div test-handle={`${item}`} className={classes.clientContainer} key={item} onClick={props.findClient? props.handleClick : () => dispatch(setAppointmentHolder(item))}><span className={classes.text}>{item}</span></div>
+                return <div test-handle={`${item}`} className={classes.clientContainer} key={item} onClick={()=> props.findClient? dispatch(setClientToDisplay(item)) : dispatch(setAppointmentHolder(item))}><span className={classes.text}>{item}</span></div>
 
             })}
 

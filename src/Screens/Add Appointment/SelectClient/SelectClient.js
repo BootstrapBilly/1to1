@@ -1,5 +1,5 @@
 //react
-import React from "react"
+import React, { useEffect } from "react"
 
 //components
 import FormInput from "../../../Components/FormInput/FormInput"
@@ -29,13 +29,19 @@ const SelectClient = props => {
         
     }
 
+useEffect(()=> {
+
+    dispatch(searchForClients("#"))
+}, [])
+
+
     return (
 
         <div className={classes.container}>
 
             <FormInput inputTitle={"Search for a client"} overWriteStyle={{background: "white", marginTop: "2vh", paddingBottom: "1vh"}} placeholder="Loren Knight" handleChange={(e)=> sendRequest(e)}/>
 
-            <SearchResults clients={Clients} findClient={props.findClient ? true : false} handleClick={props.handleClick}/>
+            <SearchResults clients={Clients} findClient={props.findClient ? true : false} />
 
         </div>
     )
