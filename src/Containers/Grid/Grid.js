@@ -57,8 +57,8 @@ const Grid = props => {
 
     //_Configuration
     const dispatch = useDispatch() //call the dispatch hook to dispatch redux actions
-    const rows = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]//set the amount of rows on the grid
-    const hours = ["09", "10", "11", "12", "13", "14", "15", "16", "17", "18"]//set the hours to be mapped to each cell
+    const rows = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]//set the amount of rows on the grid
+    const hours = ["09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"]//set the hours to be mapped to each cell
     const mins = ["00", "15", "30", "45"]//set the mins col to be mapped to each cell
 
     const column1 = [], column2 = [], column3 = [], column4 = [] //define the columns to be populated with appointments
