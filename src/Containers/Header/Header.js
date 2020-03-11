@@ -5,7 +5,6 @@ import React, { useState } from "react"
 import classes from "./Header.module.css"
 
 //external
-import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 
 //redux hooks

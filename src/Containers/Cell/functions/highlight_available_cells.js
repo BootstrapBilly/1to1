@@ -17,7 +17,8 @@ const highlight_available_cells = (currentSelectedAppointment, props, selected, 
         let cells_checked = 0
 
         for (const cell of props.nextFourCells) {
-
+            
+// eslint-disable-next-line
             appointments_minus_currently_selected_appointment.forEach(appointment => {
 
                 if (appointment.row === cell.row && (appointment.col === cell.col) && cells_checked < maxCount) {

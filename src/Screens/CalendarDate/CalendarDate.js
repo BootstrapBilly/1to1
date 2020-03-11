@@ -112,12 +112,18 @@ const CalendarDate = props => {
         trackMouse: true
 
     });
-
+    
+// eslint-disable-next-line
     useEffect(() => {
 
         if (!currentSelectedAppointment && rescheduleMode) setRescheduleMode(false)
 
     })
+
+    useEffect(()=> {
+
+        if(currentSelectedAppointment) dispatch(dispatch_set_selected_appointment(null))
+    },[])
 
     return (
 

@@ -1,11 +1,7 @@
 import React from "react"
 import classes from "./ReschedulePrompt.module.css"
 
-import {useSelector} from "react-redux"
-
 const ReschedulePrompt = props => {
-
-    const newCellChosen = useSelector(state => state.moveAppointment.newCell)
 
     return (
 

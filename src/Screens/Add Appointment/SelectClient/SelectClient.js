@@ -32,6 +32,7 @@ const SelectClient = props => {
 useEffect(()=> {
 
     dispatch(searchForClients("#"))
+    // eslint-disable-next-line
 }, [])
 
 

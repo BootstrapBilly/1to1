@@ -1,5 +1,5 @@
 //core react
-import React, {useEffect} from "react"
+import React from "react"
 
 //external
 
@@ -55,7 +55,7 @@ const navigateToPage = navLinkURL => props.history.push({pathname: navLinkURL})
             
             <Header test-handle="header" text={""} />
 
-            <img src={backdrop} alt="A backdrop image" test-handle="backdrop" className={classes.backdrop}/>
+            <img src={backdrop} alt="A backdrop" test-handle="backdrop" className={classes.backdrop}/>
 
             <section className={classes.topSection}>
 
@@ -66,7 +66,7 @@ const navigateToPage = navLinkURL => props.history.push({pathname: navLinkURL})
 
             <section className={classes.menuContainer}>
 
-                {[["Diary", diary, `/calendar-date/${new Date()}`], ["Add a client", add_client, `/new-client`], ["Search Clients", search_client, "/find-client"], ["Tutorial", tutorial]].map(item =>
+                {[["Diary", diary, `/calendar-date/${new Date()}`], ["Add a client", add_client, `/new-client`], ["Manage Clients", search_client, "/manage-clients"], ["Tutorial", tutorial]].map(item =>
 
                     <div test-handle={item[0]} className={classes.menuBoxContainer} key={item} onClick={()=> navigateToPage(item[2])}>
 
