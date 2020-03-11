@@ -1,5 +1,5 @@
 //core react
-import React from "react"
+import React, { useEffect } from "react"
 
 //external
 
@@ -17,37 +17,25 @@ import search_client from "../../Assets/Icons/search-client.svg"
 import tutorial from "../../Assets/Icons/tutorial.svg"
 import backdrop from "../../Assets/Img/dashboard-backdrop.png"
 
+import {useSelector, useDispatch} from "react-redux"
+
+import { fetchAppointments } from "../../store/actions/Fetch Appointments/fetch-appointment-action"
+
 const Dashboard = props => {
 
     //*states
-    // const [calendarVisible, setcalendarVisible] = useState(false)//show or hide the calendar, (initially hidden)
 
-    // const navigateToDate = (value, event) => {
-
-    //     const date = value.toISOString().split("T")[0]
-    //     props.history.push(`/calendar-date/${date}`)
-
-    // }
+    const dispatch = useDispatch()
 
 const navigateToPage = navLinkURL => props.history.push({pathname: navLinkURL})
 
-    // const navigateToAddAppointment = (cell) => {
+const appointments = useSelector(state => state.fetchAppointments.appointments)//get the appointment data fetched from the api
 
-    //     props.history.push({
+useEffect(()=> {
 
-    //         pathname: `/add-appointment`,
-    //         cell: cell,
-    //         date: new Date()
+    dispatch(fetchAppointments(new Date().toISOString().split("T")[0]))//fetch the appointment data for that date
 
-    //     })
-
-    // }
-
-    // const handlers = useSwipeable({
-    //     onSwipedDown: () => setcalendarVisible(!calendarVisible),
-    //     preventDefaultTouchmoveEvent: true,
-    //     trackMouse: true
-    // });
+},[])
 
     return (
 
@@ -59,7 +47,7 @@ const navigateToPage = navLinkURL => props.history.push({pathname: navLinkURL})
 
             <section className={classes.topSection}>
 
-                <header className={classes.clientsTodayContainer}>You have <p className={classes.amount}>8</p> Clients today</header>
+    <header className={classes.clientsTodayContainer}>You have <p className={classes.amount}>{appointments.length}</p>{appointments.length === 1 ? <span>Client today</span> : <span>Clients today</span>}</header>
                 <span className={classes.amountBigScreen}>8</span>
 
             </section>

@@ -24,7 +24,7 @@
 .appointmentContainer{
 
     display: flex;
-    height: 80vh;
+    min-height: 80vh;
 
 }
 @keyframes Slide_Up{

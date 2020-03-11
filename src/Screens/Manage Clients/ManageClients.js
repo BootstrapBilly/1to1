@@ -18,6 +18,7 @@ import { useSelector, useDispatch } from "react-redux"
 
 //redux actions
 import { clearDisplayedClient, updateClient, clearUpdateStatuses } from "../../store/actions/Manage Clients/Manage-client-action"
+import { deleteClient, clearDeleted } from "../../store/actions/Delete Client/DeleteClient-action"
 
 
 const AddToGrid = props => {
@@ -33,6 +34,7 @@ const AddToGrid = props => {
     const selectedClient = useSelector(state => state.manageClient.clientToDisplay)
     const clientUpdatedSuccessfully = useSelector(state => state.manageClient.clientUpdated)
     const clientNameTaken = useSelector(state => state.manageClient.nameTaken)
+    const clientDeleted = useSelector(state => state.deleteClient.deletedClient)
 
     //functions
     const handleUpdate = formValues => {
@@ -53,6 +55,7 @@ const AddToGrid = props => {
         }
     }
 
+    // eslint-disable-next-line 
     useEffect(()=> {
 
         if(clientNameTaken){
@@ -70,10 +73,25 @@ const AddToGrid = props => {
 
     }, [clientNameTaken, clientUpdatedSuccessfully])
 
+// eslint-disable-next-line 
     useEffect(()=> {
 
         if(selectedClient)dispatch(clearDisplayedClient())
     },[])
+
+// // eslint-disable-next-line 
+// eslint-disable-next-line 
+useEffect(()=> {
+        
+    if(clientDeleted) {
+        
+        alert.show(<div>Client deleted successfully</div>, { type: "success" })
+        dispatch(clearDisplayedClient())
+        dispatch(clearDeleted())
+        
+    }
+
+},[clientDeleted])
 
     return (
 
@@ -94,7 +112,9 @@ const AddToGrid = props => {
                             setEditMode(false)
                         }}
                         handleClickEdit={() => setEditMode(!editMode)}
-                        handleClickUpdate={(formValues) => handleUpdate(formValues)} />
+                        handleClickUpdate={(formValues) => handleUpdate(formValues)} 
+                        handleClickDelete={()=> dispatch(deleteClient(selectedClient.name))}
+                        />
 
                     : <SelectClient findClient />}
 

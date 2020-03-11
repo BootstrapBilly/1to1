@@ -52,13 +52,14 @@ import get_next_four_cells from "./functions/get_next_four_cells"
 
 //components
 import Cell from "../Cell/Cell"//styles the cell based on the data
+import { deleteClient } from "../../store/actions/Delete Client/DeleteClient-action"
 
 const Grid = props => {
 
     //_Configuration
     const dispatch = useDispatch() //call the dispatch hook to dispatch redux actions
-    const rows = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]//set the amount of rows on the grid
-    const hours = ["09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"]//set the hours to be mapped to each cell
+    const rows = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]//set the amount of rows on the grid
+    const hours = ["09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]//set the hours to be mapped to each cell
     const mins = ["00", "15", "30", "45"]//set the mins col to be mapped to each cell
 
     const column1 = [], column2 = [], column3 = [], column4 = [] //define the columns to be populated with appointments
@@ -80,7 +81,7 @@ const Grid = props => {
 
     //!functions
 
-    populate_column_data(appointments, column1, column2, column3, column4)//populate the 4 column arrays with the appointment data fetched from the api
+    if(appointments) populate_column_data(appointments, column1, column2, column3, column4)//populate the 4 column arrays with the appointment data fetched from the api
 
     //run the apply selected class helper function
     const handle_class_assignment = (column, row) => apply_selected_css(column, row, classes, currentSelectedAppointment, props.rescheduleMode)

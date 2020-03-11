@@ -20,6 +20,8 @@ import { useSelector, useDispatch } from "react-redux"
 //redux actions
 import { sendDeleteAppointment, dispatch_set_selected_appointment, set_selected_cell } from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
 import { clearDisplayedClient, updateClient, clearUpdateStatuses, setClientToDisplay } from "../../store/actions/Manage Clients/Manage-client-action"
+import { deleteClient, clearDeleted } from "../../store/actions/Delete Client/DeleteClient-action"
+import { fetchAppointments } from "../../store/actions/Fetch Appointments/fetch-appointment-action"
 
 //css
 import classes from "./CalendarDate.module.css"
@@ -50,6 +52,8 @@ const CalendarDate = props => {
     const currentSelectedAppointment = useSelector(state => state.selectedAppointment.selectedAppointment)
     const clientUpdatedSuccessfully = useSelector(state => state.manageClient.clientUpdated)
     const clientNameTaken = useSelector(state => state.manageClient.nameTaken)
+    const detailRequested = useSelector(state => state.manageClient.clientToDisplay)
+    const clientDeleted = useSelector(state => state.deleteClient.deletedClient)
 
     //=Functions
 
@@ -152,6 +156,7 @@ const CalendarDate = props => {
 
     }, [])
 
+// eslint-disable-next-line 
     useEffect(() => {
 
         if (clientNameTaken) {
@@ -170,12 +175,27 @@ const CalendarDate = props => {
 
     }, [clientNameTaken, clientUpdatedSuccessfully])
 
+// eslint-disable-next-line 
     useEffect(()=> {
 
-        if(detailRequested)dispatch(clearDisplayedClient())
+        if(detailRequested) dispatch(clearDisplayedClient())
     },[])
 
-    const detailRequested = useSelector(state => state.manageClient.clientToDisplay)
+// eslint-disable-next-line 
+    useEffect(()=> {
+        
+        if(clientDeleted) {
+            
+            alert.show(<div>Client deleted successfully</div>, { type: "success" })
+            dispatch(dispatch_set_selected_appointment(null))
+            dispatch(clearDisplayedClient())
+            dispatch(clearDeleted())
+            
+        }
+
+    },[clientDeleted])
+
+
 
     return (
 
@@ -198,6 +218,7 @@ const CalendarDate = props => {
                         }}
                         handleClickEdit={() => setEditMode(!editMode)}
                         handleClickUpdate={(formValues) => handleUpdate(formValues)}
+                        handleClickDelete={()=> dispatch(deleteClient(detailRequested.name))}
                     /></div>
 
                     :

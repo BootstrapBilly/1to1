@@ -1,4 +1,5 @@
 import sendPost from "../util/sendPostReq"
+import { reset } from "../Add Appointment/Add-Appointment-action"
 
 export const SET_CLIENT_TO_DISPLAY = "SET_CLIENT_TO_DISPLAY"
 export const CLEAR_DISPLAYED_CLIENT = "CLEAR_DISPLAYED_CLIENT"
@@ -33,11 +34,14 @@ export const setClientToDisplay = (client) => {
 }
 export const updateClient = (clientDetails) => {
 
+    
     return async (dispatch, state) => {
         
         try {
 
+           
             const response = await sendPost("updateClient", {clientDetails:clientDetails}, state().auth.token)//post the appointment details and the jwt to api
+            
 
             if (response.data.success) return dispatch({ type: CLIENT_UPDATED_SUCCESSFULLY, newName: clientDetails.name})//if the response is a success, dispatch the success action
 

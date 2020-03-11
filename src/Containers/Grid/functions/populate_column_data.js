@@ -20,8 +20,8 @@ const populateCellData = (appointments, column1, column2, column3, column4) => {
     return appointments.forEach(item => {
 
         const appointmentInfo = [item.row, item.joined, item.name, item.length, item._id]//Set the appointment info
-        const appointmentMulti = [item.row, item.joined, null, item.length, item._id]//Set the appointment info, but leave the name null so it can stretch across multiple cells
-        const nextRowMulti = [pushToNextRow(item.row), item.joined, null, item.length, item._id]//Same as above but pushed down onto the next row
+        const appointmentMulti = [item.row, item.joined, item.name, item.length, item._id]//Set the appointment info, but leave the name null so it can stretch across multiple cells
+        const nextRowMulti = [pushToNextRow(item.row), item.joined, item.name, item.length, item._id]//Same as above but pushed down onto the next row
 
         switch (item.length) {//switch the length of the appointment
 

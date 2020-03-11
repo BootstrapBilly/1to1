@@ -9,7 +9,6 @@ import classes from "./Client.module.css"
 
 //util
 import capitaliseFirst from "../../Utils/capitaliseFirst"
-import splitPhoneNum from "../../Utils/splitPhoneNum"
 
 const Appointment = props => {
     
@@ -78,7 +77,7 @@ const Appointment = props => {
 
             <div className={classes.bottomRow} test-handle="bottomRow">
 
-                <p className={[classes.button, classes.bottomButton, classes.delete].join(" ")} test-handle="delete" onClick={props.handleClickSeen}>DELETE</p>
+                <p className={[classes.button, classes.bottomButton, classes.delete].join(" ")} test-handle="delete" onClick={props.handleClickDelete}>DELETE</p>
                 <p className={[classes.button, classes.bottomButton, classes.edit].join(" ")} test-handle="edit" onClick={props.handleClickEdit}>EDIT</p>
 
             </div>

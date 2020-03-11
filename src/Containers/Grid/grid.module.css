@@ -7,6 +7,7 @@
     overflow-x: hidden;
     -ms-overflow-style: none;
 
+
 }
 
 .section::-webkit-scrollbar { display: none; }
@@ -14,17 +15,19 @@
 .container {
 
     width: 80vw;
-    height:131vh;
+    height:120%;
     position: relative;
     margin-top: 2vh;
-    margin-bottom: 20vh;
-    padding-bottom:15vh;
     border-radius: 5px;
     padding: 4vw;
     padding-left: 6vw;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
 
 
 }
+
+.container::-webkit-scrollbar { display: none; }
 
 .hourCol {
 

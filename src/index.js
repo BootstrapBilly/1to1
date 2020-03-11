@@ -9,6 +9,7 @@ import AlertTemplate from 'react-alert-template-basic'
 import { createStore, combineReducers, applyMiddleware } from "redux"
 import reduxThunk from "redux-thunk"
 import { Provider } from "react-redux"
+
 import authReducer from "./store/reducers/Auth/Auth-reducer"
 import newClientReducer from "./store/reducers/New Client/NewClient-reducer"
 import searchClientReducer from "./store/reducers/Search For Client/SearchForClient-reducer"
@@ -17,6 +18,7 @@ import fetchAppointmentsReducer from "./store/reducers/Fetch Appointments/fetch-
 import selectedAppointmentReducer from "./store/reducers/SelectedAppointment/SelectAppointment-reducer"
 import moveAppointmentReducer from "./store/reducers/Move Appointment/Move-Appointment-reducer"
 import manageClientReducer from "./store/reducers/Manage Clients/Manage-client-reducer"
+import deleteClientReducer from "./store/reducers/Delete Client/Delete-client-reducer"
 
 // import Grid from "./Containers/Grid/Grid"
 import App from './App';
@@ -48,6 +50,7 @@ export const rootReducer = combineReducers({ //combine all the state reducers in
   selectedAppointment: selectedAppointmentReducer,
   moveAppointment: moveAppointmentReducer,
   manageClient: manageClientReducer,
+  deleteClient: deleteClientReducer
 
 })
 

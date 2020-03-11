@@ -14,6 +14,7 @@ import time from "../../Assets/Icons/time.svg"
 import cancel from "../../Assets/Icons/cancel.svg"
 import leftArrow from "../../Assets/Icons/left-arrow.svg"
 import rightArrow from "../../Assets/Icons/right-arrow.svg"
+import edit from "../../Assets/Icons/edit.svg"
 
 
 const Footer = props => {
@@ -27,7 +28,7 @@ const Footer = props => {
                 <div className={classes.container}>
 
                     <img src={trash} alt="A delete icon" className={classes.iconWrapper} onClick={props.onDelete} test-handle="delete-icon" />
-                    <img src={trash} alt="A Modify icon" className={classes.iconWrapper} onClick={props.onModify} test-handle="modify-icon" />
+                    <img src={edit} alt="A Modify icon" className={classes.iconWrapper} onClick={props.onModify} test-handle="modify-icon" />
                     <img src={time} alt="A reschedule icon" className={props.rescheduleMode ? [classes.iconWrapper, classes.active].join(" ") : classes.iconWrapper} onClick={props.onReschedule} />
 
                 </div>
