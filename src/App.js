@@ -18,6 +18,7 @@ import CalendarDate from "./Screens/CalendarDate/CalendarDate"
 import NewClient from "./Screens/NewClient/NewClient"
 import AddAppointment from "./Screens/Add Appointment/Add-appointment"
 import ManageClients from "./Screens/Manage Clients/ManageClients"
+import ClientDetail from "./Screens/Client Detail/ClientDetail"
 
 //HOCs
 import ProtectedRoute from "./HOC/ProtectedRoute"
@@ -49,6 +50,7 @@ function App() {
         <ProtectedRoute path="/new-client" component={NewClient} authenticated={Authenticated} />
         <ProtectedRoute path="/add-appointment" component={AddAppointment} authenticated={Authenticated} />
         <ProtectedRoute path="/manage-clients" component={ManageClients} authenticated={Authenticated} />
+        <ProtectedRoute path="/client-detail" component={ClientDetail} authenticated={Authenticated} />
 
       </Switch>
 

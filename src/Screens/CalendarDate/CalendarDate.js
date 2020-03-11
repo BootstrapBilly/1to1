@@ -8,15 +8,18 @@ import Footer from "../../Components/Footer/Footer"
 import Calendar from "../../Components/Calendar/Calendar"
 import { confirmDelete } from "./confirmDelete"
 import ReschedulePrompt from "../../Components/ReschedulePrompt/ReschedulePrompt"
+import Appointment from "../../Components/Client/Client"
 
 //external
 import { useSwipeable } from 'react-swipeable'
+import { useAlert } from 'react-alert'
 
 //redux hooks
 import { useSelector, useDispatch } from "react-redux"
 
 //redux actions
 import { sendDeleteAppointment, dispatch_set_selected_appointment, set_selected_cell } from "../../store/actions/SelectedAppointment/SelectedAppointment-action"
+import { clearDisplayedClient, updateClient, clearUpdateStatuses, setClientToDisplay } from "../../store/actions/Manage Clients/Manage-client-action"
 
 //css
 import classes from "./CalendarDate.module.css"
@@ -27,10 +30,12 @@ const CalendarDate = props => {
     const [date, setDate] = useState(props.match.params.date)//the date which determines which appointments are rendered(initially passed in by props)
     const [calendarActive, setCalendarActive] = useState(false)//state which shows or hides the calendar overlay which is used to select a new date
     const [rescheduleMode, setRescheduleMode] = useState(false)
-
-    const dispatch = useDispatch()
+    const [editMode, setEditMode] = useState(false)
 
     //_config
+    const alert = useAlert()//set up the alert hook
+    const dispatch = useDispatch()
+
     const current = new Date(date)//create a new date from the current day to be manipulated
     const months = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"];//store the months in an array for display purposes, (a JS date is converted into a more readable date)
@@ -43,6 +48,8 @@ const CalendarDate = props => {
 
     //? Selectors
     const currentSelectedAppointment = useSelector(state => state.selectedAppointment.selectedAppointment)
+    const clientUpdatedSuccessfully = useSelector(state => state.manageClient.clientUpdated)
+    const clientNameTaken = useSelector(state => state.manageClient.nameTaken)
 
     //=Functions
 
@@ -112,18 +119,63 @@ const CalendarDate = props => {
         trackMouse: true
 
     });
-    
-// eslint-disable-next-line
+
+    const handleUpdate = formValues => {
+
+        if (!formValues.name.length) return alert.show(<div >Please enter a name</div>, { type: "error" })
+
+
+        if (formValues.phone.length < 9 || formValues.phone.includes(" ") || formValues.phone.match(/^[0-9]+$/) === null) {
+
+            return alert.show(<div >Please enter a valid phone number</div>, { type: "error" })
+        }
+
+        else {
+
+            setEditMode(false)
+            return dispatch(updateClient(formValues))
+
+        }
+    }
+
+    // eslint-disable-next-line
     useEffect(() => {
 
         if (!currentSelectedAppointment && rescheduleMode) setRescheduleMode(false)
 
     })
 
+    // eslint-disable-next-line
+    useEffect(() => {
+
+        if (currentSelectedAppointment) dispatch(dispatch_set_selected_appointment(null))
+
+    }, [])
+
+    useEffect(() => {
+
+        if (clientNameTaken) {
+
+            alert.show(<div>Client name in use</div>, { type: "error" })
+            dispatch(clearUpdateStatuses())
+        }
+
+        if (clientUpdatedSuccessfully) {
+
+            alert.show(<div>Client updated successfully</div>, { type: "success" })
+            dispatch(clearUpdateStatuses())
+            dispatch(dispatch_set_selected_appointment(null))
+
+        }
+
+    }, [clientNameTaken, clientUpdatedSuccessfully])
+
     useEffect(()=> {
 
-        if(currentSelectedAppointment) dispatch(dispatch_set_selected_appointment(null))
+        if(detailRequested)dispatch(clearDisplayedClient())
     },[])
+
+    const detailRequested = useSelector(state => state.manageClient.clientToDisplay)
 
     return (
 
@@ -133,9 +185,23 @@ const CalendarDate = props => {
 
             <div className={classes.gridContainer}>
 
-                {rescheduleMode ? <ReschedulePrompt/> : null}
+                {rescheduleMode ? <ReschedulePrompt /> : null}
 
-                <Grid date={dateToIsoString} onClickEmpty={(cell) => navigateToAddAppointment(cell)} fullSize rescheduleMode={rescheduleMode} />
+                {detailRequested ?
+
+                    <div className={classes.appointmentContainer}>        <Appointment
+                        clientInfo={detailRequested}
+                        editMode={editMode}
+                        handleClickCross={() => {
+                            dispatch(clearDisplayedClient())
+                            setEditMode(false)
+                        }}
+                        handleClickEdit={() => setEditMode(!editMode)}
+                        handleClickUpdate={(formValues) => handleUpdate(formValues)}
+                    /></div>
+
+                    :
+                    <Grid date={dateToIsoString} onClickEmpty={(cell) => navigateToAddAppointment(cell)} fullSize rescheduleMode={rescheduleMode} />}
 
             </div>
 
@@ -147,7 +213,25 @@ const CalendarDate = props => {
 
                 </div>
 
-                : <Footer onOpen={() => setCalendarActive(!calendarActive)} appointmentSelected={currentSelectedAppointment} onDelete={() => handleDelete()} onReschedule={() => handleReschedule()} rescheduleMode={rescheduleMode} onRight={() => setNewDate("left")} onLeft={() => setNewDate("right")}/>
+                : <Footer
+                    onOpen={() => setCalendarActive(!calendarActive)}
+                    appointmentSelected={currentSelectedAppointment}
+                    onDelete={() => handleDelete()}
+                    onReschedule={() => handleReschedule()}
+                    rescheduleMode={rescheduleMode}
+                    onRight={() => setNewDate("left")}
+                    onLeft={() => setNewDate("right")}
+                    onModify={() => {
+
+                        dispatch(setClientToDisplay(currentSelectedAppointment.name))
+
+                    }
+
+
+                    }
+
+
+                />
 
             }
 

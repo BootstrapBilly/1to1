@@ -6,7 +6,11 @@
     border-radius: 10px;
     margin: 10vw;
     box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
-    border: 0.5px solid #e8eef7
+    border: 0.5px solid #e8eef7;
+    max-height: 42vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     
 }
 
@@ -23,7 +27,7 @@
     display: flex;
     justify-content: space-around;
     font-weight: 500;
-    color: rgba(0, 0, 0, 0.562);
+    color: rgba(0, 0, 0, 0.753);
     font-size: 1.2rem;
     height: 6vh;
     
@@ -34,7 +38,7 @@
     display: flex;
     justify-content: space-around;
     font-weight: 500;
-    color: #2196F3;
+    color: rgb(2, 136, 245);
     margin: 15px 0;
 
 }
@@ -71,10 +75,12 @@
 
     margin-left: 5vw;
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.562);
+    color: rgba(0, 0, 0, 0.753);
     position: relative;
     top:-5px;
     font-size: 1.8rem;
+    width: 60%;
+    background-color: red;
 
 }
 
@@ -109,7 +115,7 @@
     width: 27vw;
     height: 5vh;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 4.4vw;
 
 }
 
@@ -149,7 +155,7 @@
 
 .notes{
 
-    color: rgba(0, 0, 0, 0.562);
+    color: rgba(0, 0, 0, 0.753);
     font-size: 1rem;
 
 }
@@ -157,10 +163,10 @@
 .nameInput{
 
     width: 63vw;
-    color: rgba(0, 0, 0, 0.562);
+    color: rgba(0, 0, 0, 0.753);
     top:2vh;
     left:2.5vw;
-    font-size: 1.8rem;
+    font-size: 5.5vw;
 
 }
 
@@ -168,7 +174,7 @@
 
     width: 45vw;
     color: #2196F3;
-    font-size: 1.4rem;
+    font-size: 5vw;
     top:1vh;
     font-weight: 500;
     margin-bottom: 2vh;
@@ -180,7 +186,7 @@
     width:100%;
     height: 100%;
     border-radius: 0;
-    color: rgba(0, 0, 0, 0.562);
+    color: rgba(0, 0, 0, 0.753);
     font-size: 1rem;
     padding:0;
     margin:0
@@ -190,4 +196,187 @@
 
     background-color: transparent;
     border: none;
+}
+
+@media (orientation: landscape) and (max-height:481px) {
+
+.card{
+    max-height: 55vh;
+    min-height: 55vh;
+    min-width: 45vw;
+    max-width: 45vw;
+    margin-top: 6vh;
+}
+
+.input {
+    height: 5.5vh;
+}
+
+.cross{
+    min-width: 10vh;
+    height: 10vh;
+    left: 2vw;
+    top:-16vh
+}
+
+.nameInput{
+    font-size: 3vw;
+}
+
+.phoneInput{
+    font-size: 2.8vw;
+    margin-bottom: 0;
+    left: 5vw;
+    width: 25vw;
+}
+
+.bottomButton {
+
+    font-size: 2vw;
+    width: 40%;
+    height: 5.5vh;
+
+}
+
+.lowerMidRow{ 
+
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+}
+
+/* ipad air landscape */
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (min-device-height : 500px)  {
+
+    .card {
+        min-height: 60vh;
+        max-height: 60vh;
+        margin-top: 5vh;
+    }
+
+    .input{
+        height: 7vh;
+    }
+
+    .cross {
+
+        height: 10vh;
+        width:10vh;
+        font-size: 2rem;
+        top:-12vh;
+        left:3vw
+    }
+
+    .bottomButton {
+
+        font-size: 3vw;
+        width: 30%;
+    }
+
+    .notes {
+
+        font-size: 3vw;
+    }
+
+}
+
+/* ipad air portrait */
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+
+    .notes{
+
+        font-size: 3vw;
+    }
+
+    .cross {
+        font-size: 5vw;
+        top:-8vh;
+        left:4vw;
+        height: 8vh;
+        width: 8vh;
+    }
+}
+
+/* small laptop 1366 * 786 */
+
+@media only screen  and (min-width : 1224px)  {
+
+    .card {
+        min-height: 60vh;
+        max-height: 60vh;
+        min-width: 60vw;
+        max-width: 60vw;
+        margin-top: 5vh;
+    }
+
+    .input{
+        height: 7vh;
+    }
+
+    .cross {
+
+        height: 8vh;
+        width:10vh;
+        font-size: 2rem;
+        top:-12vh;
+        left:1vw;
+
+    }
+
+    .bottomButton {
+
+        font-size: 3vw;
+        width: 30%;
+    }
+
+    .notes {
+
+        font-size: 1rem;
+    }
+
+    .nameInput {
+        font-size: 2.5rem;
+    }
+
+    .phoneInput {
+        font-size: 2rem;
+    }
+
+    .bottomButton {
+        font-size: 1.5rem;
+    }
+
+}
+
+/* corporate 1920 * 1080 */
+
+@media (min-width:1920px) and (min-height:900px) {
+
+    .card {
+        min-height: 50vh;
+        max-height: 50vh;
+        min-width: 40vw;
+        max-width: 40vw;
+    }
+
+    .phoneInput{
+
+        left:10vw
+    }
+
+    .cross{
+        height: 6vh;
+        width: 10vh;
+        top:-8vh
+    }
+
+
 }

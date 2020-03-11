@@ -2,10 +2,9 @@
 import React, { useState, useEffect } from "react"
 
 //css
-import classes from "./ManageClients.module.css"
+import classes from "./ClientDetail.module.css"
 
 //components
-import SelectClient from "../Add Appointment/SelectClient/SelectClient"
 import Header from "../../Containers/Header/Header"
 import Footer from "../../Components/Footer/Footer"
 import Appointment from "../../Components/Client/Client"
@@ -34,6 +33,7 @@ const AddToGrid = props => {
     const clientUpdatedSuccessfully = useSelector(state => state.manageClient.clientUpdated)
     const clientNameTaken = useSelector(state => state.manageClient.nameTaken)
 
+
     //functions
     const handleUpdate = formValues => {
 
@@ -53,50 +53,41 @@ const AddToGrid = props => {
         }
     }
 
-    useEffect(()=> {
+    useEffect(() => {
 
-        if(clientNameTaken){
+        if (clientNameTaken) {
 
             alert.show(<div>Client name in use</div>, { type: "error" })
             dispatch(clearUpdateStatuses())
         }
 
-        if(clientUpdatedSuccessfully){
+        if (clientUpdatedSuccessfully) {
 
             alert.show(<div>Client updated successfully</div>, { type: "success" })
             dispatch(clearUpdateStatuses())
-            
+
         }
 
     }, [clientNameTaken, clientUpdatedSuccessfully])
-
-    useEffect(()=> {
-
-        if(selectedClient)dispatch(clearDisplayedClient())
-    },[])
 
     return (
 
         <React.Fragment>
 
-            <Header text={"Client Management"} backArrow
+            <Header text={"Search for a client"} backArrow
                 handleBack={selectedClient ? () => dispatch(clearDisplayedClient()) : () => props.history.goBack()} />
 
             <div className={classes.container}>
 
-                {selectedClient ?
-
-                    <Appointment
-                        clientInfo={selectedClient}
-                        editMode={editMode}
-                        handleClickCross={() => {
-                            dispatch(clearDisplayedClient())
-                            setEditMode(false)
-                        }}
-                        handleClickEdit={() => setEditMode(!editMode)}
-                        handleClickUpdate={(formValues) => handleUpdate(formValues)} />
-
-                    : <SelectClient findClient />}
+                <Appointment
+                    clientInfo={selectedClient}
+                    editMode={editMode}
+                    handleClickCross={() => {
+                        dispatch(clearDisplayedClient())
+                        setEditMode(false)
+                    }}
+                    handleClickEdit={() => setEditMode(!editMode)}
+                    handleClickUpdate={(formValues) => handleUpdate(formValues)} />
 
             </div>
 

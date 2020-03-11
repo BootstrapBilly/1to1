@@ -32,7 +32,7 @@ const Cell = (props) => {
                 test-handle={`${props.colNumber}-seg${props.rowNumber}`}
                 className={classes.rowSegment}
                 key={props.rowNumber}
-                onClick={props.onClickActive.bind(this, { length: appointment_length, id: appointment_id })}
+                onClick={props.onClickActive.bind(this, { length: appointment_length, id: appointment_id, name: client_name })}
 
             >
 
