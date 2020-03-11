@@ -7,6 +7,10 @@ import PropTypes from "prop-types"
 //css
 import classes from "./Client.module.css"
 
+//util
+import capitaliseFirst from "../../Utils/capitaliseFirst"
+import splitPhoneNum from "../../Utils/splitPhoneNum"
+
 const Appointment = props => {
     
     const [formValues, setFormValues] = useState({
@@ -25,7 +29,7 @@ const Appointment = props => {
 
             <input
                 className={[classes.input, classes.nameInput, props.editMode ? null : classes.disabled].join(" ")}
-                defaultValue={props.clientInfo.name}
+                defaultValue={capitaliseFirst(props.clientInfo.name)}
                 disabled={props.editMode ? false : true}
                 onChange={(e)=> setFormValues({...formValues, name:e.target.value })}
             />

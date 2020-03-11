@@ -9,7 +9,7 @@ import classes from "./AuthInput.module.css"
 
 const AuthInput = props => (
 
-    <input test-handle="input" type="password" placeholder="Enter Pin" className={classes.input} onChange={props.handleChange} style={props.overWriteStyle} autoFocus/>
+    <input test-handle="input" type="password" placeholder="Enter Pin" className={classes.input} onChange={props.handleChange} style={props.overWriteStyle} autoFocus />
 
 )
 
