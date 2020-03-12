@@ -1,7 +1,7 @@
 import axios from "axios"
 
-//const production = "https://one-to-one-backend.herokuapp.com/"
-const production = "http://localhost:4000/"
+const production = "https://one-to-one-backend.herokuapp.com/"
+//const production = "http://localhost:4000/"
 
 const sendPost = (url, body, token, refreshToken) => {
 

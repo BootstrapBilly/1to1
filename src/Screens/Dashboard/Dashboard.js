@@ -42,9 +42,7 @@ useEffect(()=> {
         <div className={classes.container} test-handle="container">
             
             <Header test-handle="header" text={""} />
-
-            <img src={backdrop} alt="A backdrop" test-handle="backdrop" className={classes.backdrop}/>
-
+            
             <section className={classes.topSection}>
 
     <header className={classes.clientsTodayContainer}>You have <p className={classes.amount}>{appointments.length}</p>{appointments.length === 1 ? <span>Client today</span> : <span>Clients today</span>}</header>
